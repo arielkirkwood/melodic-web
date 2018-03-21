@@ -49,7 +49,6 @@
     "js-test-cloud": "ruby -r webrick -e \"s = WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd, :Logger => WEBrick::Log.new('/dev/null'), :AccessLog => []); trap('INT') { s.shutdown }; s.start\" & node build/saucelabs-unit-test.js",
     "docs": "npm-run-all --parallel css-docs js-docs --sequential docs-compile docs-lint",
     "docs-compile": "bundle exec jekyll build",
-    "postdocs-compile": "npm run docs-workbox-precache",
     "docs-github": "shx echo \"github: true\" > twbsconfig.yml && npm run docs-compile -- --config _config.yml,twbsconfig.yml && shx rm ./twbsconfig.yml",
     "docs-github-serve": "bundle exec jekyll serve --skip-initial-build --no-watch",
     "docs-lint": "npm-run-all docs-lint-*",
@@ -57,7 +56,6 @@
     "docs-lint-vnu-jar": "node build/vnu-jar.js",
     "docs-serve": "bundle exec jekyll serve",
     "docs-upload-preview": "build/upload-preview.sh",
-    "docs-workbox-precache": "node build/workbox.js",
     "maintenance-dependencies": "ncu -a -x jquery && npm update && bundle update && shx echo \"Manually update assets/js/vendor/*, js/tests/vendor/* and .travis.yml\"",
     "release-sri": "node build/generate-sri.js",
     "release-version": "node build/change-version.js",
@@ -124,8 +122,7 @@
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0",
     "uglify-js": "^3.3.5",
-    "vnu-jar": "^17.11.1",
-    "workbox-build": "^2.1.2"
+    "vnu-jar": "^17.11.1"
   },
   "engines": {
     "node": ">=6"
