@@ -35,7 +35,7 @@
   }
 }
 
-.bs-popover-top {
+.mel-popover-top {
   margin-bottom: $popover-arrow-height;
 
   .arrow {
@@ -58,7 +58,7 @@
   }
 }
 
-.bs-popover-right {
+.mel-popover-right {
   margin-left: $popover-arrow-height;
 
   .arrow {
@@ -84,7 +84,7 @@
   }
 }
 
-.bs-popover-bottom {
+.mel-popover-bottom {
   margin-top: $popover-arrow-height;
 
   .arrow {
@@ -119,7 +119,7 @@
   }
 }
 
-.bs-popover-left {
+.mel-popover-left {
   margin-right: $popover-arrow-height;
 
   .arrow {
@@ -145,18 +145,18 @@
   }
 }
 
-.bs-popover-auto {
+.mel-popover-auto {
   &[x-placement^="top"] {
-    @extend .bs-popover-top;
+    @extend .mel-popover-top;
   }
   &[x-placement^="right"] {
-    @extend .bs-popover-right;
+    @extend .mel-popover-right;
   }
   &[x-placement^="bottom"] {
-    @extend .bs-popover-bottom;
+    @extend .mel-popover-bottom;
   }
   &[x-placement^="left"] {
-    @extend .bs-popover-left;
+    @extend .mel-popover-left;
   }
 }
 

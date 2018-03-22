@@ -103,7 +103,7 @@ Additionally, do not rely solely on `hover` as the trigger for your tooltip, as 
 <a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
 
 <!-- Generated markup by the plugin -->
-<div class="tooltip bs-tooltip-top" role="tooltip">
+<div class="tooltip mel-tooltip-top" role="tooltip">
   <div class="arrow"></div>
   <div class="tooltip-inner">
     Some tooltip text!
