@@ -2,19 +2,6 @@
 //
 // Custom buttons for the docs.
 
-.btn-bd-primary {
-  font-weight: 500;
-  color: $bd-purple-bright;
-  border-color: $bd-purple-bright;
-
-  &:hover,
-  &:active {
-    color: #fff;
-    background-color: $bd-purple-bright;
-    border-color: $bd-purple-bright;
-  }
-}
-
 .btn-bd-download {
   font-weight: 500;
   color: $bd-download;
