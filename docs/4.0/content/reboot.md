@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Reboot
-description: Reboot, a collection of element-specific CSS changes in a single file, kickstart Bootstrap to provide an elegant, consistent, and simple baseline to build upon.
+description: Reboot, a collection of element-specific CSS changes in a single file, kickstart Melodic to provide an elegant, consistent, and simple baseline to build upon.
 group: content
 redirect_from: "/docs/4.0/content/"
 toc: true
@@ -23,16 +23,20 @@ Here are our guidelines and reasons for choosing what to override in Reboot:
 The `<html>` and `<body>` elements are updated to provide better page-wide defaults. More specifically:
 
 - The `box-sizing` is globally set on every element—including `*::before` and `*::after`, to `border-box`. This ensures that the declared width of element is never exceeded due to padding or border.
-  - No base `font-size` is declared on the `<html>`, but `16px` is assumed (the browser default). `font-size: 1rem` is applied on the `<body>` for easy responsive type-scaling via media queries while respecting user preferences and ensuring a more accessible approach.
+  - No base `font-size` is declared on the `<html>`, but you should be aware that browsers default to `16px`. Deviating from Bootstrap, we prefer a default `14px` `font-size`, so `font-size: .875rem` (`.875 = 14/16`) is applied on the `<body>` for easy responsive type-scaling via media queries while respecting user preferences and ensuring a more accessible approach.
 - The `<body>` also sets a global `font-family`, `line-height`, and `text-align`. This is inherited later by some form elements to prevent font inconsistencies.
 - For safety, the `<body>` has a declared `background-color`, defaulting to `#fff`.
 
-## Native font stack
+## Inspire font stack
 
-The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a "native font stack" for optimum text rendering on every device and OS. Read more about [native font stacks in this *Smashing Magazine* article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
+We supply three font stacks; one for serif fonts, one for sans-serif, and one for monospace fonts. We default to Merriweather, Roboto, and Roboto Mono respectively. Inspired by Bootstrap, we've kept the native font stack as a fallback when Roboto is unavailable.
 
 {% highlight sass %}
+$font-family-serif: Merriweather, Georgia, serif !default;
+
 $font-family-sans-serif:
+  // Inspire default
+  Roboto,
   // Safari for OS X and iOS (San Francisco)
   -apple-system,
   // Chrome < 56 for OS X (San Francisco)
@@ -45,9 +49,19 @@ $font-family-sans-serif:
   "Helvetica Neue", Arial, sans-serif,
   // Emoji fonts
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$font-family-monospace:
+  "Roboto Mono",
+  "SFMono-Regular",
+  Menlo,
+  Monaco,
+  Consolas,
+  "Liberation Mono",
+  "Courier New",
+  monospace !default;
 {% endhighlight %}
 
-This `font-family` is applied to the `<body>` and automatically inherited globally throughout Bootstrap. To switch the global `font-family`, update `$font-family-base` and recompile Bootstrap.
+The sans-serif `font-family` is applied to the `<body>` and automatically inherited globally throughout Melodic. You can override these font stacks by redefining any of these Sass variables in your project.
 
 ## Headings and paragraphs
 
@@ -65,37 +79,37 @@ All heading elements—e.g., `<h1>`—and `<p>` are reset to have their `margin-
       <td>
         {% markdown %}`<h1></h1>`{% endmarkdown %}
       </td>
-      <td><span class="h1">h1. Bootstrap heading</span></td>
+      <td><span class="h1">h1. Melodic heading</span></td>
     </tr>
     <tr>
       <td>
         {% markdown %}`<h2></h2>`{% endmarkdown %}
       </td>
-      <td><span class="h2">h2. Bootstrap heading</span></td>
+      <td><span class="h2">h2. Melodic heading</span></td>
     </tr>
     <tr>
       <td>
         {% markdown %}`<h3></h3>`{% endmarkdown %}
       </td>
-      <td><span class="h3">h3. Bootstrap heading</span></td>
+      <td><span class="h3">h3. Melodic heading</span></td>
     </tr>
     <tr>
       <td>
         {% markdown %}`<h4></h4>`{% endmarkdown %}
       </td>
-      <td><span class="h4">h4. Bootstrap heading</span></td>
+      <td><span class="h4">h4. Melodic heading</span></td>
     </tr>
     <tr>
       <td>
         {% markdown %}`<h5></h5>`{% endmarkdown %}
       </td>
-      <td><span class="h5">h5. Bootstrap heading</span></td>
+      <td><span class="h5">h5. Melodic heading</span></td>
     </tr>
     <tr>
       <td>
         {% markdown %}`<h6></h6>`{% endmarkdown %}
       </td>
-      <td><span class="h6">h6. Bootstrap heading</span></td>
+      <td><span class="h6">h6. Melodic heading</span></td>
     </tr>
   </tbody>
 </table>
@@ -302,10 +316,10 @@ The `<address>` element is updated to reset the browser default `font-style` fro
 
 <div class="bd-example">
   <address>
-    <strong>Twitter, Inc.</strong><br>
-    1355 Market St, Suite 900<br>
-    San Francisco, CA 94103<br>
-    <abbr title="Phone">P:</abbr> (123) 456-7890
+    <strong>Inspire</strong><br>
+    30 South 15th St, Suite 1400<br>
+    Philadelphia, PA 19102<br>
+    <abbr title="Phone">P:</abbr> <a href="tel:866-403-2620">(866) 403-2620</a>
   </address>
 
   <address>
