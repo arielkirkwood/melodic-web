@@ -7,7 +7,6 @@
     - title: JavaScript
     - title: Theming
     - title: Build tools
-    # - title: Best practices # TODO: Write this content
     - title: Webpack
     - title: Accessibility
 
@@ -80,6 +79,5 @@
 - title: About
   pages:
     - title: Overview
-    - title: Brand
     - title: License
     - title: Translations
