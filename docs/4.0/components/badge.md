@@ -61,7 +61,7 @@ Add any of the below mentioned modifier classes to change the appearance of a ba
 
 ## Pill badges
 
-Use the `.badge-pill` modifier class to make badges more rounded (with a larger `border-radius` and additional horizontal `padding`). Useful if you miss the badges from v3.
+Use the `.badge-pill` modifier class to make badges rounded (with a `border-radius` and additional horizontal `padding`).
 
 {% example html %}
 {% for color in site.data.theme-colors %}
