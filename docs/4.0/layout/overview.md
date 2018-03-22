@@ -13,11 +13,11 @@ Containers are the most basic layout element in Melodic and are **required when 
 
 While containers *can* be nested, most layouts do not require a nested container.
 
-<div class="bd-example">
-  <div class="bd-example-container">
-    <div class="bd-example-container-header"></div>
-    <div class="bd-example-container-sidebar"></div>
-    <div class="bd-example-container-body"></div>
+<div class="mwd-example">
+  <div class="mwd-example-container">
+    <div class="mwd-example-container-header"></div>
+    <div class="mwd-example-container-sidebar"></div>
+    <div class="mwd-example-container-body"></div>
   </div>
 </div>
 
@@ -29,11 +29,11 @@ While containers *can* be nested, most layouts do not require a nested container
 
 Use `.container-fluid` for a full width container, spanning the entire width of the viewport.
 
-<div class="bd-example">
-  <div class="bd-example-container bd-example-container-fluid">
-    <div class="bd-example-container-header"></div>
-    <div class="bd-example-container-sidebar"></div>
-    <div class="bd-example-container-body"></div>
+<div class="mwd-example">
+  <div class="mwd-example-container mwd-example-container-fluid">
+    <div class="mwd-example-container-header"></div>
+    <div class="mwd-example-container-sidebar"></div>
+    <div class="mwd-example-container-body"></div>
   </div>
 </div>
 

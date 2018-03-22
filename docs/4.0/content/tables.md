@@ -426,7 +426,7 @@ Add `.table-sm` to make tables more compact by cutting cell padding in half.
 
 Use contextual classes to color table rows or individual cells.
 
-<div class="bd-example">
+<div class="mwd-example">
   <table class="table">
     <thead>
       <tr>
@@ -473,7 +473,7 @@ Use contextual classes to color table rows or individual cells.
 
 Regular table background variants are not available with the dark table, however, you may use [text or background utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/colors/) to achieve similar styles.
 
-<div class="bd-example">
+<div class="mwd-example">
   <table class="table table-dark">
     <thead>
       <tr>
@@ -610,7 +610,7 @@ Responsive tables make use of `overflow-y: hidden`, which clips off any content 
 
 Across every breakpoint, use `.table-responsive` for horizontally scrolling tables.
 
-<div class="bd-example">
+<div class="mwd-example">
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -681,7 +681,7 @@ Across every breakpoint, use `.table-responsive` for horizontally scrolling tabl
 
 Use `.table-responsive{-sm|-md|-lg|-xl}` as needed to create responsive tables up to a particular breakpoint. From that breakpoint and up, the table will behave normally and not scroll horizontally.
 
-<div class="bd-example">
+<div class="mwd-example">
 {% for bp in site.data.breakpoints %}{% unless bp.breakpoint == "xs" %}
 <div class="table-responsive{{ bp.abbr }}">
   <table class="table">

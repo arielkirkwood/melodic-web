@@ -13,7 +13,7 @@ Use border utilities to add or remove an element's borders. Choose from all bord
 
 ### Additive
 
-<div class="bd-example-border-utils">
+<div class="mwd-example-border-utils">
 {% example html %}
 <span class="border"></span>
 <span class="border-top"></span>
@@ -25,7 +25,7 @@ Use border utilities to add or remove an element's borders. Choose from all bord
 
 ### Subtractive
 
-<div class="bd-example-border-utils bd-example-border-utils-0">
+<div class="mwd-example-border-utils mwd-example-border-utils-0">
 {% example html %}
 <span class="border-0"></span>
 <span class="border-top-0"></span>
@@ -39,7 +39,7 @@ Use border utilities to add or remove an element's borders. Choose from all bord
 
 Change the border color using utilities built on our theme colors.
 
-<div class="bd-example-border-utils">
+<div class="mwd-example-border-utils">
 {% example html %}
 {% for color in site.data.theme-colors %}
 <span class="border border-{{ color.name }}"></span>{% endfor %}
@@ -51,7 +51,7 @@ Change the border color using utilities built on our theme colors.
 
 Add classes to an element to easily round its corners.
 
-<div class="bd-example bd-example-images">
+<div class="mwd-example mwd-example-images">
   <img data-src="holder.js/75x75" class="rounded" alt="Example rounded image">
   <img data-src="holder.js/75x75" class="rounded-top" alt="Example top rounded image">
   <img data-src="holder.js/75x75" class="rounded-right" alt="Example right rounded image">

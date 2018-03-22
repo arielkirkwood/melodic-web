@@ -10,7 +10,7 @@ toc: true
 
 Badges scale to match the size of the immediate parent element by using relative font sizing and `em` units.
 
-<div class="bd-example">
+<div class="mwd-example">
 <div class="h1">Example heading <span class="badge badge-secondary">New</span></div>
 <div class="h2">Example heading <span class="badge badge-secondary">New</span></div>
 <div class="h3">Example heading <span class="badge badge-secondary">New</span></div>

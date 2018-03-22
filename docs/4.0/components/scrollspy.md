@@ -22,7 +22,7 @@ When successfully implemented, your nav or list group will update accordingly, m
 
 Scroll the area below the navbar and watch the active class change. The dropdown items will be highlighted as well.
 
-<div class="bd-example">
+<div class="mwd-example">
   <nav id="navbar-example2" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <ul class="nav nav-pills">
@@ -98,7 +98,7 @@ Scroll the area below the navbar and watch the active class change. The dropdown
 
 Scrollspy also works with nested `.nav`s. If a nested `.nav` is `.active`, its parents will also be `.active`. Scroll the area next to the navbar and watch the active class change.
 
-<div class="bd-example">
+<div class="mwd-example">
   <div class="row">
     <div class="col-4">
       <nav id="navbar-example3" class="navbar navbar-light bg-light flex-column">
@@ -179,7 +179,7 @@ Scrollspy also works with nested `.nav`s. If a nested `.nav` is `.active`, its p
 
 Scrollspy also works with `.list-group`s. Scroll the area next to the list group and watch the active class change.
 
-<div class="bd-example">
+<div class="mwd-example">
   <div class="row">
     <div class="col-4">
       <div id="list-example" class="list-group">

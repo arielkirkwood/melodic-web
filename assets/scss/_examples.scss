@@ -2,22 +2,22 @@
 // Examples
 //
 
-.bd-examples .img-thumbnail {
+.mwd-examples .img-thumbnail {
   margin-bottom: .75rem;
 }
-.bd-examples h4 {
+.mwd-examples h4 {
   margin-bottom: .25rem;
 }
-.bd-examples p {
+.mwd-examples p {
   margin-bottom: 1.25rem;
 }
 
 @media (max-width: 480px) {
-  .bd-examples {
+  .mwd-examples {
     margin-right: -.75rem;
     margin-left: -.75rem;
   }
-  .bd-examples > [class^="col-"] {
+  .mwd-examples > [class^="col-"] {
     padding-right: .75rem;
     padding-left: .75rem;
   }

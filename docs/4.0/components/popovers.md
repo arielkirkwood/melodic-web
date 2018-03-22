@@ -55,8 +55,8 @@ $(function () {
 
 Four options are available: top, right, bottom, and left aligned.
 
-<div class="bd-example popover-demo">
-  <div class="bd-example-popovers">
+<div class="mwd-example popover-demo">
+  <div class="mwd-example-popovers">
     <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
       Popover on top
     </button>

@@ -1065,7 +1065,7 @@ In the checked states, we use **base64 embedded SVG icons** from [Open Iconic](h
 
 Custom checkboxes can also utilize the `:indeterminate` pseudo class when manually set via JavaScript (there is no available HTML attribute for specifying it).
 
-<div class="bd-example bd-example-indeterminate">
+<div class="mwd-example mwd-example-indeterminate">
   <div class="custom-control custom-checkbox">
     <input type="checkbox" class="custom-control-input" id="customCheck2">
     <label class="custom-control-label" for="customCheck2">Check this custom checkbox</label>

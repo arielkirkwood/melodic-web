@@ -179,7 +179,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 Use the tab JavaScript plugin—include it individually or through the compiled `melodic.js` file—to extend our list group to create tabbable panes of local content.
 
-<div class="bd-example" role="tabpanel">
+<div class="mwd-example" role="tabpanel">
   <div class="row">
     <div class="col-4">
       <div class="list-group" id="list-tab" role="tablist">

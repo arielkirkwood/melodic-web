@@ -93,7 +93,7 @@ All HTML headings, `<h1>` through `<h6>`, are available.
 
 Use the included utility classes to add secondary text to a heading.
 
-<div class="bd-example">
+<div class="mwd-example">
   <span class="h3">
     Fancy display heading
     <small class="text-muted">With faded secondary text</small>
@@ -111,7 +111,7 @@ Use the included utility classes to add secondary text to a heading.
 
 Traditional heading elements are designed to work best in the meat of your page content. When you need a heading to stand out, consider using a **display heading**—a larger, slightly more opinionated heading style.
 
-<div class="bd-example bd-example-type">
+<div class="mwd-example mwd-example-type">
   <table class="table">
     <tbody>
       <tr>

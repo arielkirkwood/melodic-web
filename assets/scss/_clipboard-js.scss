@@ -2,7 +2,7 @@
 //
 // JS-based `Copy` buttons for code snippets.
 
-.bd-clipboard {
+.mwd-clipboard {
   position: relative;
   display: none;
   float: right;
@@ -33,7 +33,7 @@
 }
 
 @media (min-width: 768px) {
-  .bd-clipboard {
+  .mwd-clipboard {
     display: block;
   }
 }

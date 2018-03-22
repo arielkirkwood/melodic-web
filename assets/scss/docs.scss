@@ -10,20 +10,19 @@
 //
 // Background information on nomenclature and architecture decisions here.
 //
-// - Bootstrap functions, variables, and mixins are included for easy reuse.
-//   Doing so gives us access to the same core utilities provided by Bootstrap.
+// - Melodic functions, variables, and mixins are included for easy reuse.
+//   Doing so gives us access to the same core utilities provided by Melodic.
 //   For example, consistent media queries through those mixins.
 //
-// - Bootstrap's **docs variables** are prefixed with `$bd-`.
-//   These custom colors avoid collision with the components Bootstrap provides.
+// - Melodic's **docs variables** are prefixed with `$mwd-`.
+//   These custom colors avoid collision with the components Melodic provides.
 //
-// - Classes are prefixed with `.bd-`.
+// - Classes are prefixed with `.mwd-`.
 //   These classes indicate custom-built or modified components for the design
-//   and layout of the Bootstrap docs. They are not included in our builds.
+//   and layout of the Melodic docs. They are not included in our builds.
 //
-// Happy Bootstrapping!
 
-// Load Bootstrap variables and mixins
+// Load Melodic variables and mixins
 @import "../../scss/functions";
 @import "../../scss/variables";
 @import "../../scss/mixins";
@@ -37,7 +36,6 @@
 @import "sidebar";
 @import "footer";
 @import "component-examples";
-@import "buttons";
 @import "callouts";
 @import "examples";
 @import "browser-bugs";

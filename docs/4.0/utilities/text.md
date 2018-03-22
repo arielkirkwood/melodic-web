@@ -32,7 +32,7 @@ For left, right, and center alignment, responsive classes are available that use
 Prevent text from wrapping with a `.text-nowrap` class.
 
 {% example html %}
-<div class="text-nowrap bd-highlight" style="width: 8rem;">
+<div class="text-nowrap mwd-highlight" style="width: 8rem;">
   This text should overflow the parent.
 </div>
 {% endexample %}
