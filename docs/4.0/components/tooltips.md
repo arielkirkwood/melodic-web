@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Tooltips
-description: Documentation and examples for adding custom Bootstrap tooltips with CSS and JavaScript using CSS3 for animations and data-attributes for local title storage.
+description: Documentation and examples for adding custom Melodic tooltips with CSS and JavaScript using CSS3 for animations and data-attributes for local title storage.
 group: components
 toc: true
 ---
@@ -10,7 +10,7 @@ toc: true
 
 Things to know when using the tooltip plugin:
 
-- Tooltips rely on the 3rd party library [Popper.js](https://popper.js.org/) for positioning. You must include [popper.min.js]({{ site.cdn.popper }}) before bootstrap.js or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js in order for tooltips to work!
+- Tooltips rely on the 3rd party library [Popper.js](https://popper.js.org/) for positioning. You must include [popper.min.js]({{ site.cdn.popper }}) before melodic.js or use `melodic.bundle.min.js` / `melodic.bundle.js` which contains Popper.js in order for tooltips to work!
 - If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#util).
 - Tooltips are opt-in for performance reasons, so **you must initialize them yourself**.
 - Tooltips with zero-length titles are never displayed.
@@ -255,19 +255,19 @@ Attaches a tooltip handler to an element collection.
 
 #### `.tooltip('show')`
 
-Reveals an element's tooltip. **Returns to the caller before the tooltip has actually been shown** (i.e. before the `shown.bs.tooltip` event occurs). This is considered a "manual" triggering of the tooltip. Tooltips with zero-length titles are never displayed.
+Reveals an element's tooltip. **Returns to the caller before the tooltip has actually been shown** (i.e. before the `shown.mel.tooltip` event occurs). This is considered a "manual" triggering of the tooltip. Tooltips with zero-length titles are never displayed.
 
 {% highlight js %}$('#element').tooltip('show'){% endhighlight %}
 
 #### `.tooltip('hide')`
 
-Hides an element's tooltip. **Returns to the caller before the tooltip has actually been hidden** (i.e. before the `hidden.bs.tooltip` event occurs). This is considered a "manual" triggering of the tooltip.
+Hides an element's tooltip. **Returns to the caller before the tooltip has actually been hidden** (i.e. before the `hidden.mel.tooltip` event occurs). This is considered a "manual" triggering of the tooltip.
 
 {% highlight js %}$('#element').tooltip('hide'){% endhighlight %}
 
 #### `.tooltip('toggle')`
 
-Toggles an element's tooltip. **Returns to the caller before the tooltip has actually been shown or hidden** (i.e. before the `shown.bs.tooltip` or `hidden.bs.tooltip` event occurs). This is considered a "manual" triggering of the tooltip.
+Toggles an element's tooltip. **Returns to the caller before the tooltip has actually been shown or hidden** (i.e. before the `shown.mel.tooltip` or `hidden.mel.tooltip` event occurs). This is considered a "manual" triggering of the tooltip.
 
 {% highlight js %}$('#element').tooltip('toggle'){% endhighlight %}
 
@@ -312,30 +312,30 @@ Updates the position of an element's tooltip.
   </thead>
   <tbody>
     <tr>
-      <td>show.bs.tooltip</td>
+      <td>show.mel.tooltip</td>
       <td>This event fires immediately when the <code>show</code> instance method is called.</td>
     </tr>
     <tr>
-      <td>shown.bs.tooltip</td>
+      <td>shown.mel.tooltip</td>
       <td>This event is fired when the tooltip has been made visible to the user (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
-      <td>hide.bs.tooltip</td>
+      <td>hide.mel.tooltip</td>
       <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
     </tr>
     <tr>
-      <td>hidden.bs.tooltip</td>
+      <td>hidden.mel.tooltip</td>
       <td>This event is fired when the tooltip has finished being hidden from the user (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
-      <td>inserted.bs.tooltip</td>
-      <td>This event is fired after the <code>show.bs.tooltip</code> event when the tooltip template has been added to the DOM.</td>
+      <td>inserted.mel.tooltip</td>
+      <td>This event is fired after the <code>show.mel.tooltip</code> event when the tooltip template has been added to the DOM.</td>
     </tr>
   </tbody>
 </table>
 
 {% highlight js %}
-$('#myTooltip').on('hidden.bs.tooltip', function () {
+$('#myTooltip').on('hidden.mel.tooltip', function () {
   // do something…
 })
 {% endhighlight %}
