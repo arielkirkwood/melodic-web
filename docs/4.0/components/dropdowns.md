@@ -1,16 +1,16 @@
 ---
 layout: docs
 title: Dropdowns
-description: Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.
+description: Toggle contextual overlays for displaying lists of links and more with the Melodic dropdown plugin.
 group: components
 toc: true
 ---
 
 ## Overview
 
-Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the included Bootstrap dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this is [an intentional design decision.](http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/)
+Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the included Melodic dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this is [an intentional design decision.](http://markdotto.com/2012/02/27/Melodic-explained-dropdowns/)
 
-Dropdowns are built on a third party library, [Popper.js](https://popper.js.org/), which provides dynamic positioning and viewport detection. Be sure to include [popper.min.js]({{ site.cdn.popper }}) before Bootstrap's JavaScript or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js. Popper.js isn't used to position dropdowns in navbars though as dynamic positioning isn't required.
+Dropdowns are built on a third party library, [Popper.js](https://popper.js.org/), which provides dynamic positioning and viewport detection. Be sure to include [popper.min.js]({{ site.cdn.popper }}) before Melodic's JavaScript or use `melodic.bundle.min.js` / `melodic.bundle.js` which contains Popper.js. Popper.js isn't used to position dropdowns in navbars though as dynamic positioning isn't required.
 
 If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#util).
 
@@ -18,9 +18,9 @@ If you're building our JavaScript from source, it [requires `util.js`]({{ site.b
 
 The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/TR/wai-aria/roles#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
 
-Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms. For this reason, Bootstrap does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus. Authors will have to include these more specific attributes themselves.
+Melodic's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms. For this reason, Melodic does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus. Authors will have to include these more specific attributes themselves.
 
-However, Bootstrap does add built-in support for most standard keyboard menu interactions, such as the ability to move through individual `.dropdown-item` elements using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
+However, Melodic does add built-in support for most standard keyboard menu interactions, such as the ability to move through individual `.dropdown-item` elements using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
 
 ## Examples
 
@@ -536,7 +536,7 @@ Trigger dropdown menus at the left of the elements by adding `.dropleft` to the 
 
 ## Menu items
 
-Historically dropdown menu contents *had* to be links, but that's no longer the case with v4. Now you can optionally use `<button>` elements in your dropdowns instead of just `<a>`s.
+You can optionally use `<button>` elements in your dropdowns instead of just `<a>`s.
 
 {% example html %}
 <div class="dropdown">
@@ -613,11 +613,13 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
       <label for="exampleDropdownFormPassword1">Password</label>
       <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-      <label class="form-check-label" for="dropdownCheck">
-        Remember me
-      </label>
+    <div class="form-group">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+          Remember me
+        </label>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
@@ -637,11 +639,13 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
     <label for="exampleDropdownFormPassword2">Password</label>
     <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-    <label class="form-check-label" for="dropdownCheck2">
-      Remember me
-    </label>
+  <div class="form-group">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+      <label class="form-check-label" for="dropdownCheck2">
+        Remember me
+      </label>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
@@ -759,13 +763,13 @@ All dropdown events are fired at the `.dropdown-menu`'s parent element and have 
 
 | Event | Description |
 | --- | --- |
-| `show.bs.dropdown` | This event fires immediately when the show instance method is called. |
-| `shown.bs.dropdown` | This event is fired when the dropdown has been made visible to the user (will wait for CSS transitions, to complete). |
-| `hide.bs.dropdown` | This event is fired immediately when the hide instance method has been called. |
-| `hidden.bs.dropdown`| This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete). |
+| `show.mel.dropdown` | This event fires immediately when the show instance method is called. |
+| `shown.mel.dropdown` | This event is fired when the dropdown has been made visible to the user (will wait for CSS transitions, to complete). |
+| `hide.mel.dropdown` | This event is fired immediately when the hide instance method has been called. |
+| `hidden.mel.dropdown`| This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete). |
 
 {% highlight js %}
-$('#myDropdown').on('show.bs.dropdown', function () {
+$('#myDropdown').on('show.mel.dropdown', function () {
   // do something…
 })
 {% endhighlight %}
