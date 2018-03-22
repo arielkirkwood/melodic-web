@@ -8,7 +8,7 @@ toc: true
 
 ## How it works
 
-Bootstrap's grid system uses a series of containers, rows, and columns to layout and align content. It's built with [flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes) and is fully responsive. Below is an example and an in-depth look at how the grid comes together.
+Melodic's grid system uses a series of containers, rows, and columns to layout and align content. It's built with [flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes) and is fully responsive. Below is an example and an in-depth look at how the grid comes together.
 
 **New to or unfamiliar with flexbox?** [Read this CSS Tricks flexbox guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background) for background, terminology, guidelines, and code snippets.
 
@@ -49,9 +49,9 @@ Be aware of the limitations and [bugs around flexbox](https://github.com/philipw
 
 ## Grid options
 
-While Bootstrap uses `em`s or `rem`s for defining most sizes, `px`s are used for grid breakpoints and container widths. This is because the viewport width is in pixels and does not change with the [font size](https://drafts.csswg.org/mediaqueries-3/#units).
+While Melodic uses `em`s or `rem`s for defining most sizes, `px`s are used for grid breakpoints and container widths. This is because the viewport width is in pixels and does not change with the [font size](https://drafts.csswg.org/mediaqueries-3/#units).
 
-See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
+See how aspects of the Melodic grid system work across multiple devices with a handy table.
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -249,7 +249,7 @@ Create equal-width columns that span multiple rows by inserting a `.w-100` where
 
 ## Responsive classes
 
-Bootstrap's grid includes five tiers of predefined classes for building complex responsive layouts. Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit.
+Melodic's grid includes five tiers of predefined classes for building complex responsive layouts. Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit.
 
 ### All breakpoints
 
@@ -596,7 +596,7 @@ In addition to column clearing at responsive breakpoints, you may need to reset 
 
 #### Margin utilities
 
-With the move to flexbox in v4, you can use margin utilities like `.mr-auto` to force sibling columns away from one another.
+With a Flexbox-based grid, you can use margin utilities like `.mr-auto` to force sibling columns away from one another.
 
 <div class="bd-example-row">
 {% example html %}
@@ -639,7 +639,7 @@ To nest your content with the default grid, add a new `.row` and set of `.col-sm
 
 ## Sass mixins
 
-When using Bootstrap's source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our predefined grid classes use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.
+When using Melodic's source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our predefined grid classes use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.
 
 ### Variables
 
