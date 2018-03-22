@@ -253,15 +253,15 @@ Stops the carousel from cycling through items.
 
 #### `.carousel(number)`
 
-Cycles the carousel to a particular frame (0 based, similar to an array). **Returns to the caller before the target item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
+Cycles the carousel to a particular frame (0 based, similar to an array). **Returns to the caller before the target item has been shown** (i.e. before the `slid.mel.carousel` event occurs).
 
 #### `.carousel('prev')`
 
-Cycles to the previous item. **Returns to the caller before the previous item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
+Cycles to the previous item. **Returns to the caller before the previous item has been shown** (i.e. before the `slid.mel.carousel` event occurs).
 
 #### `.carousel('next')`
 
-Cycles to the next item. **Returns to the caller before the next item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
+Cycles to the next item. **Returns to the caller before the next item has been shown** (i.e. before the `slid.mel.carousel` event occurs).
 
 #### `.carousel('dispose')`
 
@@ -269,7 +269,7 @@ Destroys an element's carousel.
 
 ### Events
 
-Bootstrap's carousel class exposes two events for hooking into carousel functionality. Both events have the following additional properties:
+Melodic's carousel class exposes two events for hooking into carousel functionality. Both events have the following additional properties:
 
 - `direction`: The direction in which the carousel is sliding (either `"left"` or `"right"`).
 - `relatedTarget`: The DOM element that is being slid into place as the active item.
@@ -287,18 +287,18 @@ All carousel events are fired at the carousel itself (i.e. at the `<div class="c
   </thead>
   <tbody>
     <tr>
-      <td>slide.bs.carousel</td>
+      <td>slide.mel.carousel</td>
       <td>This event fires immediately when the <code>slide</code> instance method is invoked.</td>
     </tr>
     <tr>
-      <td>slid.bs.carousel</td>
+      <td>slid.mel.carousel</td>
       <td>This event is fired when the carousel has completed its slide transition.</td>
     </tr>
   </tbody>
 </table>
 
 {% highlight js %}
-$('#myCarousel').on('slide.bs.carousel', function () {
+$('#myCarousel').on('slide.mel.carousel', function () {
   // do something…
 })
 {% endhighlight %}
