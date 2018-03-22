@@ -177,7 +177,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 ## JavaScript behavior
 
-Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap.js` file—to extend our list group to create tabbable panes of local content.
+Use the tab JavaScript plugin—include it individually or through the compiled `melodic.js` file—to extend our list group to create tabbable panes of local content.
 
 <div class="bd-example" role="tabpanel">
   <div class="row">
@@ -316,7 +316,7 @@ Activates a list item element and content container. Tab should have either a `d
 
 #### .tab('show')
 
-Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.bs.tab` event occurs).
+Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.mel.tab` event occurs).
 
 {% highlight js %}
 $('#someListItem').tab('show')
@@ -326,12 +326,12 @@ $('#someListItem').tab('show')
 
 When showing a new tab, the events fire in the following order:
 
-1. `hide.bs.tab` (on the current active tab)
-2. `show.bs.tab` (on the to-be-shown tab)
-3. `hidden.bs.tab` (on the previous active tab, the same one as for the `hide.bs.tab` event)
-4. `shown.bs.tab` (on the newly-active just-shown tab, the same one as for the `show.bs.tab` event)
+1. `hide.mel.tab` (on the current active tab)
+2. `show.mel.tab` (on the to-be-shown tab)
+3. `hidden.mel.tab` (on the previous active tab, the same one as for the `hide.mel.tab` event)
+4. `shown.mel.tab` (on the newly-active just-shown tab, the same one as for the `show.mel.tab` event)
 
-If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will not be fired.
+If no tab was already active, the `hide.mel.tab` and `hidden.mel.tab` events will not be fired.
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -342,26 +342,26 @@ If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will 
   </thead>
   <tbody>
     <tr>
-      <td>show.bs.tab</td>
+      <td>show.mel.tab</td>
       <td>This event fires on tab show, but before the new tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
     </tr>
     <tr>
-      <td>shown.bs.tab</td>
+      <td>shown.mel.tab</td>
       <td>This event fires on tab show after a tab has been shown. Use <code>event.target</code> and <code>event.relatedTarget</code> to target the active tab and the previous active tab (if available) respectively.</td>
     </tr>
     <tr>
-      <td>hide.bs.tab</td>
+      <td>hide.mel.tab</td>
       <td>This event fires when a new tab is to be shown (and thus the previous active tab is to be hidden). Use <code>event.target</code> and <code>event.relatedTarget</code> to target the current active tab and the new soon-to-be-active tab, respectively.</td>
     </tr>
     <tr>
-      <td>hidden.bs.tab</td>
+      <td>hidden.mel.tab</td>
       <td>This event fires after a new tab is shown (and thus the previous active tab is hidden). Use <code>event.target</code> and <code>event.relatedTarget</code> to target the previous active tab and the new active tab, respectively.</td>
     </tr>
   </tbody>
 </table>
 
 {% highlight js %}
-$('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
+$('a[data-toggle="list"]').on('shown.mel.tab', function (e) {
   e.target // newly activated tab
   e.relatedTarget // previous active tab
 })
