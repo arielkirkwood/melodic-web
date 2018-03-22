@@ -119,7 +119,7 @@ Be sure to add `aria-expanded` to the control element. This attribute explicitly
 
 If your control element is targeting a single collapsible element – i.e. the `data-target` attribute is pointing to an `id` selector – you should add the `aria-controls` attribute to the control element, containing the `id` of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide users with additional shortcuts to navigate directly to the collapsible element itself.
 
-Note that Bootstrap's current implementation does not cover the various keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
+Note that Melodic's current implementation does not cover the various keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
 
 ## Usage
 
@@ -191,15 +191,15 @@ $('#myCollapsible').collapse({
 
 #### `.collapse('toggle')`
 
-Toggles a collapsible element to shown or hidden. **Returns to the caller before the collapsible element has actually been shown or hidden** (i.e. before the `shown.bs.collapse` or `hidden.bs.collapse` event occurs).
+Toggles a collapsible element to shown or hidden. **Returns to the caller before the collapsible element has actually been shown or hidden** (i.e. before the `shown.mel.collapse` or `hidden.mel.collapse` event occurs).
 
 #### `.collapse('show')`
 
-Shows a collapsible element. **Returns to the caller before the collapsible element has actually been shown** (i.e. before the `shown.bs.collapse` event occurs).
+Shows a collapsible element. **Returns to the caller before the collapsible element has actually been shown** (i.e. before the `shown.mel.collapse` event occurs).
 
 #### `.collapse('hide')`
 
-Hides a collapsible element. **Returns to the caller before the collapsible element has actually been hidden** (i.e. before the `hidden.bs.collapse` event occurs).
+Hides a collapsible element. **Returns to the caller before the collapsible element has actually been hidden** (i.e. before the `hidden.mel.collapse` event occurs).
 
 #### `.collapse('dispose')`
 
@@ -207,7 +207,7 @@ Destroys an element's collapse.
 
 ### Events
 
-Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
+Melodic's collapse class exposes a few events for hooking into collapse functionality.
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -218,26 +218,26 @@ Bootstrap's collapse class exposes a few events for hooking into collapse functi
   </thead>
   <tbody>
     <tr>
-      <td>show.bs.collapse</td>
+      <td>show.mel.collapse</td>
       <td>This event fires immediately when the <code>show</code> instance method is called.</td>
     </tr>
     <tr>
-      <td>shown.bs.collapse</td>
+      <td>shown.mel.collapse</td>
       <td>This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
-      <td>hide.bs.collapse</td>
+      <td>hide.mel.collapse</td>
       <td>This event is fired immediately when the <code>hide</code> method has been called.</td>
     </tr>
     <tr>
-      <td>hidden.bs.collapse</td>
+      <td>hidden.mel.collapse</td>
       <td>This event is fired when a collapse element has been hidden from the user (will wait for CSS transitions to complete).</td>
     </tr>
   </tbody>
 </table>
 
 {% highlight js %}
-$('#myCollapsible').on('hidden.bs.collapse', function () {
+$('#myCollapsible').on('hidden.mel.collapse', function () {
   // do something…
 })
 {% endhighlight %}
