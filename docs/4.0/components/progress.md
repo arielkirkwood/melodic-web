@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Progress
-description: Documentation and examples for using Bootstrap custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
+description: Documentation and examples for using Melodic custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
 group: components
 toc: true
 ---
@@ -35,7 +35,7 @@ Put that all together, and you have the following examples.
 </div>
 {% endexample %}
 
-Bootstrap provides a handful of [utilities for setting width]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/sizing/). Depending on your needs, these may help with quickly configuring progress.
+Melodic provides a handful of [utilities for setting width]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/sizing/). Depending on your needs, these may help with quickly configuring progress.
 
 {% example html %}
 <div class="progress">
