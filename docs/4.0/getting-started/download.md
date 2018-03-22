@@ -61,4 +61,4 @@ Alternatively, if you're not using Bundler, you can install the gem by running t
 gem install melodic -v {{ site.current_ruby_version }}
 {% endhighlight %}
 
-[See the gem's README](https://github.com/twbs/melodic-web-rubygem/blob/master/README.md) for further details.
+[See the gem's README](https://github.com/DWPHoldings/melodic-web-rubygem/blob/master/README.md) for further details.
