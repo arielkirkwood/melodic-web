@@ -1,24 +1,24 @@
 ---
 layout: docs
 title: Modal
-description: Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+description: Use Melodic's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
 group: components
 toc: true
 ---
 
 ## How it works
 
-Before getting started with Bootstrap's modal component, be sure to read the following as our menu options have recently changed.
+Before getting started with Melodic's modal component, be sure to read the following about how our modals work.
 
 - Modals are built with HTML, CSS, and JavaScript. They're positioned over everything else in the document and remove scroll from the `<body>` so that modal content scrolls instead.
 - Clicking on the modal "backdrop" will automatically close the modal.
-- Bootstrap only supports one modal window at a time. Nested modals aren't supported as we believe them to be poor user experiences.
+- Melodic only supports one modal window at a time. Nested modals aren't supported as we believe them to be poor user experiences.
 - Modals use `position: fixed`, which can sometimes be a bit particular about its rendering. Whenever possible, place your modal HTML in a top-level position to avoid potential interference from other elements. You'll likely run into issues when nesting a `.modal` within another fixed element.
 - Once again, due to `position: fixed`, there are some caveats with using modals on mobile devices. [See our browser support docs]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile) for details.
-- Due to how HTML5 defines its semantics, [the `autofocus` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus) has no effect in Bootstrap modals. To achieve the same effect, use some custom JavaScript:
+- Due to how HTML5 defines its semantics, [the `autofocus` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus) has no effect in Melodic modals. To achieve the same effect, use some custom JavaScript:
 
 {% highlight js %}
-$('#myModal').on('shown.bs.modal', function () {
+$('#myModal').on('shown.mel.modal', function () {
   $('#myInput').trigger('focus')
 })
 {% endhighlight %}
@@ -312,7 +312,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
 
 ### Using the grid
 
-Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` within the `.modal-body`. Then, use the normal grid system classes as you would anywhere else.
+Utilize the Melodic grid system within a modal by nesting `.container-fluid` within the `.modal-body`. Then, use the normal grid system classes as you would anywhere else.
 
 <div id="gridSystemModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -403,7 +403,7 @@ Below is a live demo followed by example HTML and JavaScript. For more informati
 {% example html %}
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@helloinspire">Open modal for @helloinspire</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -436,7 +436,7 @@ Below is a live demo followed by example HTML and JavaScript. For more informati
 {% endexample %}
 
 {% highlight js %}
-$('#exampleModal').on('show.bs.modal', function (event) {
+$('#exampleModal').on('show.mel.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var recipient = button.data('whatever') // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -467,7 +467,7 @@ Be sure to add `role="dialog"` and `aria-labelledby="..."`, referencing the moda
 
 ### Embedding YouTube videos
 
-Embedding YouTube videos in modals requires additional JavaScript not in Bootstrap to automatically stop playback and more. [See this helpful Stack Overflow post](https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal) for more information.
+Embedding YouTube videos in modals requires additional JavaScript not in Melodic to automatically stop playback and more. [See this helpful Stack Overflow post](https://stackoverflow.com/questions/18622508/Bootstrap-3-and-youtube-in-modal) for more information.
 
 ## Optional sizes
 
@@ -611,19 +611,19 @@ $('#myModal').modal({
 
 #### `.modal('toggle')`
 
-Manually toggles a modal. **Returns to the caller before the modal has actually been shown or hidden** (i.e. before the `shown.bs.modal` or `hidden.bs.modal` event occurs).
+Manually toggles a modal. **Returns to the caller before the modal has actually been shown or hidden** (i.e. before the `shown.mel.modal` or `hidden.mel.modal` event occurs).
 
 {% highlight js %}$('#myModal').modal('toggle'){% endhighlight %}
 
 #### `.modal('show')`
 
-Manually opens a modal. **Returns to the caller before the modal has actually been shown** (i.e. before the `shown.bs.modal` event occurs).
+Manually opens a modal. **Returns to the caller before the modal has actually been shown** (i.e. before the `shown.mel.modal` event occurs).
 
 {% highlight js %}$('#myModal').modal('show'){% endhighlight %}
 
 #### `.modal('hide')`
 
-Manually hides a modal. **Returns to the caller before the modal has actually been hidden** (i.e. before the `hidden.bs.modal` event occurs).
+Manually hides a modal. **Returns to the caller before the modal has actually been hidden** (i.e. before the `hidden.mel.modal` event occurs).
 
 {% highlight js %}$('#myModal').modal('hide'){% endhighlight %}
 
@@ -639,7 +639,7 @@ Destroys an element's modal.
 
 ### Events
 
-Bootstrap's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
+Melodic's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -650,26 +650,26 @@ Bootstrap's modal class exposes a few events for hooking into modal functionalit
   </thead>
   <tbody>
     <tr>
-      <td>show.bs.modal</td>
+      <td>show.mel.modal</td>
       <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
     </tr>
     <tr>
-      <td>shown.bs.modal</td>
+      <td>shown.mel.modal</td>
       <td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
     </tr>
     <tr>
-      <td>hide.bs.modal</td>
+      <td>hide.mel.modal</td>
       <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
     </tr>
     <tr>
-      <td>hidden.bs.modal</td>
+      <td>hidden.mel.modal</td>
       <td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).</td>
     </tr>
   </tbody>
 </table>
 
 {% highlight js %}
-$('#myModal').on('hidden.bs.modal', function (e) {
+$('#myModal').on('hidden.mel.modal', function (e) {
   // do something...
 })
 {% endhighlight %}
