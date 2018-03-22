@@ -1,20 +1,20 @@
 ---
 layout: docs
 title: Browsers and devices
-description: Learn about the browsers and devices, from modern to old, that are supported by Bootstrap, including known quirks and bugs for each.
+description: Learn about the browsers and devices, from modern to old, that are supported by Melodic, including known quirks and bugs for each.
 group: getting-started
 toc: true
 ---
 
 ## Supported browsers
 
-Bootstrap supports the **latest, stable releases** of all major browsers and platforms. On Windows, **we support Internet Explorer 10-11 / Microsoft Edge**.
+Melodic supports the **latest, stable releases** of all major browsers and platforms. On Windows, **we support Internet Explorer 10-11 / Microsoft Edge**.
 
-Alternative browsers which use the latest version of WebKit, Blink, or Gecko, whether directly or via the platform's web view API, are not explicitly supported. However, Bootstrap should (in most cases) display and function correctly in these browsers as well. More specific support information is provided below.
+Alternative browsers which use the latest version of WebKit, Blink, or Gecko, whether directly or via the platform's web view API, are not explicitly supported. However, Melodic should (in most cases) display and function correctly in these browsers as well. More specific support information is provided below.
 
 ### Mobile devices
 
-Generally speaking, Bootstrap supports the latest versions of each major platform's default browsers. Note that proxy browsers (such as Opera Mini, Opera Mobile's Turbo mode, UC Browser Mini, Amazon Silk) are not supported.
+Generally speaking, Melodic supports the latest versions of each major platform's default browsers. Note that proxy browsers (such as Opera Mini, Opera Mobile's Turbo mode, UC Browser Mini, Amazon Silk) are not supported.
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -95,15 +95,13 @@ Similarly, the latest versions of most desktop browsers are supported.
 
 For Firefox, in addition to the latest normal stable release, we also support the latest [Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/faq/) version of Firefox.
 
-Unofficially, Bootstrap should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 9, though they are not officially supported.
+Unofficially, Melodic should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 9, though they are not officially supported.
 
-For a list of some of the browser bugs that Bootstrap has to grapple with, see our [Wall of browser bugs]({{ site.baseurl }}/docs/{{ site.docs_version }}/browser-bugs/).
+For a list of some of the browser bugs that Melodic has to grapple with, see our [Wall of browser bugs]({{ site.baseurl }}/docs/{{ site.docs_version }}/browser-bugs/).
 
 ## Internet Explorer
 
 Internet Explorer 10+ is supported; IE9 and down is not. Please be aware that some CSS3 properties and HTML5 elements are not fully supported in IE10, or require prefixed properties for full functionality. Visit [Can I use...](https://caniuse.com/) for details on browser support of CSS3 and HTML5 features.
-
-**If you require IE8-9 support, use Bootstrap 3.** It's the most stable version of our code and is still supported by our team for critical bugfixes and documentation changes. However, no new features will be added to it.
 
 ## Modals and dropdowns on mobile
 
@@ -121,13 +119,11 @@ The `.dropdown-backdrop` element isn't used on iOS in the nav because of the com
 
 ## Browser zooming
 
-Page zooming inevitably presents rendering artifacts in some components, both in Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.
+Page zooming inevitably presents rendering artifacts in some components, both in Melodic and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.
 
 ## Sticky `:hover`/`:focus` on iOS
 
 While `:hover` isn't possible on most touch devices, iOS emulates this behavior, resulting in "sticky" hover styles that persist after tapping one element. These hover styles are only removed when users tap another element. This behavior is considered largely undesirable and appears to not be an issue on Android or Windows devices.
-
-Throughout our v4 alpha and beta releases, we included incomplete and commented out code for opting into a media query shim that would disable hover styles in touch device browsers that emulate hovering. This work was never fully completed or enabled, but to avoid complete breakage, we've opted to deprecate [this shim](https://github.com/twbs/mq4-hover-shim) and keep the mixins as shortcuts for the pseudo-classes.
 
 ## Printing
 
@@ -167,7 +163,7 @@ Want to see an example? [Check out this JS Bin demo.](http://jsbin.com/OyaqoDO/2
 
 ## Validators
 
-In order to provide the best possible experience to old and buggy browsers, Bootstrap uses [CSS browser hacks](http://browserhacks.com/) in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.
+In order to provide the best possible experience to old and buggy browsers, Melodic uses [CSS browser hacks](http://browserhacks.com/) in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.
 
 These validation warnings don't matter in practice since the non-hacky portion of our CSS does fully validate and the hacky portions don't interfere with the proper functioning of the non-hacky portion, hence why we deliberately ignore these particular warnings.
 
