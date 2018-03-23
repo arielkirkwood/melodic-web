@@ -1,6 +1,6 @@
 module Jekyll
   class MarkdownBlock < Liquid::Block
-    alias_method :render_block, :render
+    alias render_block render
 
     def initialize(tag_name, markup, tokens)
       super

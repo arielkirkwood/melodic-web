@@ -3,15 +3,14 @@
 module Jekyll
   module Tags
     class CalloutTag < Liquid::Block
-
       def initialize(tag_name, type, tokens)
         super
         type.strip!
-        if %w(info danger warning).include?(type)
+        if %w[info danger warning].include?(type)
           @type = type
         else
           puts "#{type} callout not supported. Defaulting to info"
-          @type = "info"
+          @type = 'info'
         end
       end
 
@@ -19,7 +18,7 @@ module Jekyll
         site = context.registers[:site]
         converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
         output = converter.convert(super(context))
-        "<div class=\"bd-callout bd-callout-#{@type}\">#{output}</div>"
+        "<div class=\"mwd-callout mwd-callout-#{@type}\">#{output}</div>"
       end
     end
   end
