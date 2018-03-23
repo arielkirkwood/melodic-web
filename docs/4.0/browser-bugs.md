@@ -4,9 +4,9 @@ title: Wall of browser bugs
 group: browser-bugs
 ---
 
-Bootstrap currently works around several outstanding browser bugs in major browsers to deliver the best cross-browser experience possible. Some bugs, like those listed below, cannot be solved by us.
+Melodic currently works around several outstanding browser bugs in major browsers to deliver the best cross-browser experience possible. Some bugs, like those listed below, cannot be solved by us.
 
-We publicly list browser bugs that are impacting us here, in the hopes of expediting the process of fixing them. For information on Bootstrap's browser compatibility, [see our browser compatibility docs]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/browsers-devices/#supported-browsers).
+We inherited this list from Bootstrap, and will update it accordingly as these bugs are squashed. For information on Melodic's browser compatibility, [see our browser compatibility docs]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/browsers-devices/#supported-browsers).
 
 See also:
 
