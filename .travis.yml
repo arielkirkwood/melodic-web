@@ -23,12 +23,8 @@ jobs:
   include:
     - stage: browser
       node_js: 8
-      script: if ! git log --format=%B --no-merges -n 1 | grep '\[skip browser\]'; then npm test && npm run js-test-cloud; fi
+      script: if ! git log --format=%B --no-merges -n 1 | grep '\[skip browser\]'; then npm test; fi
 cache:
   directories:
     - node_modules
     - vendor/bundle
-notifications:
-  slack: heybb:iz4wwosL0N0EdaX1gvgkU0NH
-  webhooks:
-    - http://savage.twbsapps.com/savage/travis
