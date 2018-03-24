@@ -23,18 +23,14 @@ exclude:
   - build/
   - js/
   - node_modules/
-  - nuget/
   - scss/
   - vendor/
   - CODE_OF_CONDUCT.md
-  - composer.json
   - Gemfile
   - Gemfile.lock
-  - package.js
   - package.json
   - package-lock.json
   - README.md
-  - sache.json
   - twbsconfig.yml
 
 plugins:
