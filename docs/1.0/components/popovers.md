@@ -263,19 +263,19 @@ Initializes popovers for an element collection.
 
 #### `.popover('show')`
 
-Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the `shown.bs.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose both title and content are zero-length are never displayed.
+Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the `shown.mel.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose both title and content are zero-length are never displayed.
 
 {% highlight js %}$('#element').popover('show'){% endhighlight %}
 
 #### `.popover('hide')`
 
-Hides an element's popover. **Returns to the caller before the popover has actually been hidden** (i.e. before the `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
+Hides an element's popover. **Returns to the caller before the popover has actually been hidden** (i.e. before the `hidden.mel.popover` event occurs). This is considered a "manual" triggering of the popover.
 
 {% highlight js %}$('#element').popover('hide'){% endhighlight %}
 
 #### `.popover('toggle')`
 
-Toggles an element's popover. **Returns to the caller before the popover has actually been shown or hidden** (i.e. before the `shown.bs.popover` or `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
+Toggles an element's popover. **Returns to the caller before the popover has actually been shown or hidden** (i.e. before the `shown.mel.popover` or `hidden.mel.popover` event occurs). This is considered a "manual" triggering of the popover.
 
 {% highlight js %}$('#element').popover('toggle'){% endhighlight %}
 
@@ -320,30 +320,30 @@ Updates the position of an element's popover.
   </thead>
   <tbody>
     <tr>
-      <td>show.bs.popover</td>
+      <td>show.mel.popover</td>
       <td>This event fires immediately when the <code>show</code> instance method is called.</td>
     </tr>
     <tr>
-      <td>shown.bs.popover</td>
+      <td>shown.mel.popover</td>
       <td>This event is fired when the popover has been made visible to the user (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
-      <td>hide.bs.popover</td>
+      <td>hide.mel.popover</td>
       <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
     </tr>
     <tr>
-      <td>hidden.bs.popover</td>
+      <td>hidden.mel.popover</td>
       <td>This event is fired when the popover has finished being hidden from the user (will wait for CSS transitions to complete).</td>
     </tr>
     <tr>
-      <td>inserted.bs.popover</td>
-      <td>This event is fired after the <code>show.bs.popover</code> event when the popover template has been added to the DOM.</td>
+      <td>inserted.mel.popover</td>
+      <td>This event is fired after the <code>show.mel.popover</code> event when the popover template has been added to the DOM.</td>
     </tr>
   </tbody>
 </table>
 
 {% highlight js %}
-$('#myPopover').on('hidden.bs.popover', function () {
+$('#myPopover').on('hidden.mel.popover', function () {
   // do something…
 })
 {% endhighlight %}
