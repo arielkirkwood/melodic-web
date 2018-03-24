@@ -68,28 +68,28 @@ Read the [Getting started page](https://getbootstrap.com/docs/4.0/getting-starte
 Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 ```
-bootstrap/
+melodic-web/
 ├── css/
-│   ├── bootstrap.css
-│   ├── bootstrap.css.map
-│   ├── bootstrap.min.css
-│   ├── bootstrap.min.css.map
-│   ├── bootstrap-grid.css
-│   ├── bootstrap-grid.css.map
-│   ├── bootstrap-grid.min.css
-│   ├── bootstrap-grid.min.css.map
-│   ├── bootstrap-reboot.css
-│   ├── bootstrap-reboot.css.map
-│   ├── bootstrap-reboot.min.css
-│   └── bootstrap-reboot.min.css.map
+│   ├── melodic.css
+│   ├── melodic.css.map
+│   ├── melodic.min.css
+│   ├── melodic.min.css.map
+│   ├── melodic-grid.css
+│   ├── melodic-grid.css.map
+│   ├── melodic-grid.min.css
+│   ├── melodic-grid.min.css.map
+│   ├── melodic-reboot.css
+│   ├── melodic-reboot.css.map
+│   ├── melodic-reboot.min.css
+│   └── melodic-reboot.min.css.map
 └── js/
-    ├── bootstrap.bundle.js
-    ├── bootstrap.bundle.min.js
-    ├── bootstrap.js
-    └── bootstrap.min.js
+    ├── melodic.bundle.js
+    ├── melodic.bundle.min.js
+    ├── melodic.js
+    └── melodic.min.js
 ```
 
-We provide compiled CSS and JS (`bootstrap.*`), as well as compiled and minified CSS and JS (`bootstrap.min.*`). CSS [source maps](https://developers.google.com/web/tools/chrome-devtools/debug/readability/source-maps) (`bootstrap.*.map`) are available for use with certain browsers' developer tools. Bundled JS files (`bootstrap.bundle.js` and minified `bootstrap.bundle.min.js`) include [Popper](https://popper.js.org/), but not [jQuery](https://jquery.com/).
+We provide compiled CSS and JS (`melodic.*`), as well as compiled and minified CSS and JS (`melodic.min.*`). CSS [source maps](https://developers.google.com/web/tools/chrome-devtools/debug/readability/source-maps) (`melodic.*.map`) are available for use with certain browsers' developer tools. Bundled JS files (`melodic.bundle.js` and minified `melodic.bundle.min.js`) include [Popper](https://popper.js.org/), but not [jQuery](https://jquery.com/).
 
 
 ## Bugs and feature requests
@@ -108,7 +108,7 @@ Documentation search is powered by [Algolia's DocSearch](https://community.algol
 1. Run through the [tooling setup](https://getbootstrap.com/docs/4.0/getting-started/build-tools/#tooling-setup) to install Jekyll (the site builder) and other Ruby dependencies with `bundle install`.
 2. Run `npm install` to install Node.js dependencies.
 3. Run `npm run test` (or a specific NPM script) to rebuild distributed CSS and JavaScript files, as well as our docs assets.
-4. From the root `/bootstrap` directory, run `npm run docs-serve` in the command line.
+4. From the root `/melodic-web` directory, run `npm run docs-serve` in the command line.
 5. Open `http://localhost:9001` in your browser, and voilà.
 
 Learn more about using Jekyll by reading its [documentation](https://jekyllrb.com/docs/home/).

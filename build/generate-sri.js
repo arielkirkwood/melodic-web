@@ -26,11 +26,11 @@ const configFile = path.join(__dirname, '../_config.yml')
 // `configPropertyName` is the _config.yml variable's name of the file
 const files = [
   {
-    file: 'dist/css/bootstrap.min.css',
+    file: 'dist/css/melodic.min.css',
     configPropertyName: 'css_hash'
   },
   {
-    file: 'dist/js/bootstrap.min.js',
+    file: 'dist/js/melodic.min.js',
     configPropertyName: 'js_hash'
   },
   {
