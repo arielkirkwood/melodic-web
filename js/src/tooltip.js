@@ -4,8 +4,8 @@ import Util from './util'
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): tooltip.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): tooltip.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -17,13 +17,13 @@ const Tooltip = (($) => {
    */
 
   const NAME                = 'tooltip'
-  const VERSION             = '4.0.0'
-  const DATA_KEY            = 'bs.tooltip'
+  const VERSION             = '1.0.0-alpha'
+  const DATA_KEY            = 'mel.tooltip'
   const EVENT_KEY           = `.${DATA_KEY}`
   const JQUERY_NO_CONFLICT  = $.fn[NAME]
   const TRANSITION_DURATION = 150
-  const CLASS_PREFIX        = 'bs-tooltip'
-  const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
+  const CLASS_PREFIX        = 'mel-tooltip'
+  const MELCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 
   const DefaultType = {
     animation           : 'boolean',
@@ -115,7 +115,7 @@ const Tooltip = (($) => {
        * Popper - https://popper.js.org
        */
       if (typeof Popper === 'undefined') {
-        throw new TypeError('Bootstrap tooltips require Popper.js (https://popper.js.org)')
+        throw new TypeError('Melodic tooltips require Popper.js (https://popper.js.org)')
       }
 
       // private
@@ -217,7 +217,7 @@ const Tooltip = (($) => {
       $.removeData(this.element, this.constructor.DATA_KEY)
 
       $(this.element).off(this.constructor.EVENT_KEY)
-      $(this.element).closest('.modal').off('hide.bs.modal')
+      $(this.element).closest('.modal').off('hide.mel.modal')
 
       if (this.tip) {
         $(this.tip).remove()
@@ -487,7 +487,7 @@ const Tooltip = (($) => {
         }
 
         $(this.element).closest('.modal').on(
-          'hide.bs.modal',
+          'hide.mel.modal',
           () => this.hide()
         )
       })
@@ -652,7 +652,7 @@ const Tooltip = (($) => {
 
     _cleanTipClass() {
       const $tip = $(this.getTipElement())
-      const tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX)
+      const tabClass = $tip.attr('class').match(MELCLS_PREFIX_REGEX)
       if (tabClass !== null && tabClass.length > 0) {
         $tip.removeClass(tabClass.join(''))
       }

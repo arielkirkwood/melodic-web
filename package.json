@@ -61,16 +61,16 @@
     "maintenance-dependencies": "ncu -a -x jquery && npm update && bundle update && shx echo \"Manually update assets/js/vendor/*, js/tests/vendor/* and .travis.yml\"",
     "release-sri": "node build/generate-sri.js",
     "release-version": "node build/change-version.js",
-    "release-zip": "cd dist/ && zip -r9 bootstrap-$npm_package_version-dist.zip * && shx mv bootstrap-$npm_package_version-dist.zip ..",
+    "release-zip": "cd dist/ && zip -r9 melodic-$npm_package_version-dist.zip * && shx mv melodic-$npm_package_version-dist.zip ..",
     "dist": "npm-run-all --parallel css js",
     "test": "npm-run-all dist js-test docs-compile docs-lint bundlesize",
     "watch": "npm-run-all --parallel watch-css watch-js",
     "watch-css": "nodemon --ignore js/ --ignore dist/ -e scss -x \"npm run css\"",
     "watch-js": "nodemon --ignore scss/ --ignore js/dist/ --ignore dist/ -e js -x \"npm run js-compile\""
   },
-  "style": "dist/css/bootstrap.css",
+  "style": "dist/css/melodic.css",
   "sass": "scss/bootstrap.scss",
-  "main": "dist/js/bootstrap",
+  "main": "dist/js/melodic",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DWPHoldings/melodic-web.git"
@@ -148,43 +148,43 @@
   ],
   "bundlesize": [
     {
-      "path": "./dist/css/bootstrap-grid.css",
+      "path": "./dist/css/melodic-grid.css",
       "maxSize": "5 kB"
     },
     {
-      "path": "./dist/css/bootstrap-grid.min.css",
+      "path": "./dist/css/melodic-grid.min.css",
       "maxSize": "5 kB"
     },
     {
-      "path": "./dist/css/bootstrap-reboot.css",
+      "path": "./dist/css/melodic-reboot.css",
       "maxSize": "3 kB"
     },
     {
-      "path": "./dist/css/bootstrap-reboot.min.css",
+      "path": "./dist/css/melodic-reboot.min.css",
       "maxSize": "3 kB"
     },
     {
-      "path": "./dist/css/bootstrap.css",
+      "path": "./dist/css/melodic.css",
       "maxSize": "25 kB"
     },
     {
-      "path": "./dist/css/bootstrap.min.css",
+      "path": "./dist/css/melodic.min.css",
       "maxSize": "21 kB"
     },
     {
-      "path": "./dist/js/bootstrap.bundle.js",
+      "path": "./dist/js/melodic.bundle.js",
       "maxSize": "45 kB"
     },
     {
-      "path": "./dist/js/bootstrap.bundle.min.js",
+      "path": "./dist/js/melodic.bundle.min.js",
       "maxSize": "25 kB"
     },
     {
-      "path": "./dist/js/bootstrap.js",
+      "path": "./dist/js/melodic.js",
       "maxSize": "20 kB"
     },
     {
-      "path": "./dist/js/bootstrap.min.js",
+      "path": "./dist/js/melodic.min.js",
       "maxSize": "15 kB"
     }
   ]

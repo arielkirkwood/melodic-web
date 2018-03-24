@@ -189,6 +189,7 @@ For example, to generate color swatches from our `$theme-colors` map:
 @each $color, $value in $theme-colors {
   .swatch-#{$color} {
     color: color-yiq($value);
+    background-color: #{$value};
   }
 }
 {% endhighlight %}

@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('collapse', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapCollapse = $.fn.collapse.noConflict()
+      $.fn.melodicCollapse = $.fn.collapse.noConflict()
     },
     afterEach: function () {
-      $.fn.collapse = $.fn.bootstrapCollapse
-      delete $.fn.bootstrapCollapse
+      $.fn.collapse = $.fn.melodicCollapse
+      delete $.fn.melodicCollapse
     }
   })
 
@@ -27,9 +27,9 @@ $(function () {
   QUnit.test('should throw explicit error on undefined method', function (assert) {
     assert.expect(1)
     var $el = $('<div/>')
-    $el.bootstrapCollapse()
+    $el.melodicCollapse()
     try {
-      $el.bootstrapCollapse('noMethod')
+      $el.melodicCollapse('noMethod')
     } catch (err) {
       assert.strictEqual(err.message, 'No method named "noMethod"')
     }
@@ -38,14 +38,14 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>')
-    var $collapse = $el.bootstrapCollapse()
+    var $collapse = $el.melodicCollapse()
     assert.ok($collapse instanceof $, 'returns jquery collection')
     assert.strictEqual($collapse[0], $el[0], 'collection contains element')
   })
 
   QUnit.test('should show a collapsed element', function (assert) {
     assert.expect(2)
-    var $el = $('<div class="collapse"/>').bootstrapCollapse('show')
+    var $el = $('<div class="collapse"/>').melodicCollapse('show')
 
     assert.ok($el.hasClass('show'), 'has class "show"')
     assert.ok(!/height/i.test($el.attr('style')), 'has height reset')
@@ -57,11 +57,11 @@ $(function () {
     var $target = $('<a role="button" data-toggle="collapse" class="collapsed" href=".multi"/>').appendTo('#qunit-fixture')
     var $el = $('<div class="collapse multi"/>').appendTo('#qunit-fixture')
     var $el2 = $('<div class="collapse multi"/>').appendTo('#qunit-fixture')
-    $el.one('shown.bs.collapse', function () {
+    $el.one('shown.mel.collapse', function () {
       assert.ok($el.hasClass('show'), 'has class "show"')
       assert.ok(!/height/i.test($el.attr('style')), 'has height reset')
     })
-    $el2.one('shown.bs.collapse', function () {
+    $el2.one('shown.mel.collapse', function () {
       assert.ok($el2.hasClass('show'), 'has class "show"')
       assert.ok(!/height/i.test($el2.attr('style')), 'has height reset')
       done()
@@ -87,16 +87,16 @@ $(function () {
     $(html).appendTo('#qunit-fixture')
     var $el1 = $('#collapse1')
     var $el2 = $('#collapse2')
-    $el1.one('shown.bs.collapse', function () {
+    $el1.one('shown.mel.collapse', function () {
       assert.ok($el1.hasClass('show'))
       assert.ok($el2.hasClass('show'))
       done()
-    }).bootstrapCollapse('show')
+    }).melodicCollapse('show')
   })
 
   QUnit.test('should hide a collapsed element', function (assert) {
     assert.expect(1)
-    var $el = $('<div class="collapse"/>').bootstrapCollapse('hide')
+    var $el = $('<div class="collapse"/>').melodicCollapse('hide')
 
     assert.ok(!$el.hasClass('show'), 'does not have class "show"')
   })
@@ -106,15 +106,15 @@ $(function () {
     var done = assert.async()
 
     $('<div class="collapse"/>')
-      .on('show.bs.collapse', function (e) {
+      .on('show.mel.collapse', function (e) {
         e.preventDefault()
         assert.ok(true, 'show event fired')
         done()
       })
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok(false, 'shown event fired')
       })
-      .bootstrapCollapse('show')
+      .melodicCollapse('show')
   })
 
   QUnit.test('should reset style to auto after finishing opening collapse', function (assert) {
@@ -122,14 +122,14 @@ $(function () {
     var done = assert.async()
 
     $('<div class="collapse" style="height: 0px"/>')
-      .on('show.bs.collapse', function () {
+      .on('show.mel.collapse', function () {
         assert.strictEqual(this.style.height, '0px', 'height is 0px')
       })
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.strictEqual(this.style.height, '', 'height is auto')
         done()
       })
-      .bootstrapCollapse('show')
+      .melodicCollapse('show')
   })
 
   QUnit.test('should reset style to auto after finishing closing collapse', function (assert) {
@@ -137,14 +137,14 @@ $(function () {
     var done = assert.async()
 
     $('<div class="collapse"/>')
-      .on('shown.bs.collapse', function () {
-        $(this).bootstrapCollapse('hide')
+      .on('shown.mel.collapse', function () {
+        $(this).melodicCollapse('hide')
       })
-      .on('hidden.bs.collapse', function () {
+      .on('hidden.mel.collapse', function () {
         assert.strictEqual(this.style.height, '', 'height is auto')
         done()
       })
-      .bootstrapCollapse('show')
+      .melodicCollapse('show')
   })
 
   QUnit.test('should remove "collapsed" class from target when collapse is shown', function (assert) {
@@ -155,7 +155,7 @@ $(function () {
 
     $('<div id="test1"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok(!$target.hasClass('collapsed'), 'target does not have collapsed class')
         done()
       })
@@ -171,7 +171,7 @@ $(function () {
 
     $('<div id="test1" class="show"/>')
       .appendTo('#qunit-fixture')
-      .on('hidden.bs.collapse', function () {
+      .on('hidden.mel.collapse', function () {
         assert.ok($target.hasClass('collapsed'), 'target has collapsed class')
         done()
       })
@@ -188,7 +188,7 @@ $(function () {
 
     $('<div id="test1"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok(!$target.hasClass('collapsed'), 'target trigger does not have collapsed class')
         assert.ok(!$alt.hasClass('collapsed'), 'alt trigger does not have collapsed class')
         done()
@@ -206,7 +206,7 @@ $(function () {
 
     $('<div id="test1" class="show"/>')
       .appendTo('#qunit-fixture')
-      .on('hidden.bs.collapse', function () {
+      .on('hidden.mel.collapse', function () {
         assert.ok($target.hasClass('collapsed'), 'target has collapsed class')
         assert.ok($alt.hasClass('collapsed'), 'alt trigger has collapsed class')
         done()
@@ -221,11 +221,11 @@ $(function () {
 
     var $test = $('<div id="test1" class="show"/>')
       .appendTo('#qunit-fixture')
-      .on('hide.bs.collapse', function () {
+      .on('hide.mel.collapse', function () {
         assert.ok(false)
       })
 
-    $test.bootstrapCollapse('show')
+    $test.melodicCollapse('show')
 
     setTimeout(done, 0)
   })
@@ -236,11 +236,11 @@ $(function () {
 
     var $test = $('<div id="test1" />')
       .appendTo('#qunit-fixture')
-      .on('show.bs.collapse', function () {
+      .on('show.mel.collapse', function () {
         assert.ok(true)
       })
 
-    $test.bootstrapCollapse('show')
+    $test.melodicCollapse('show')
 
     setTimeout(done, 0)
   })
@@ -251,10 +251,10 @@ $(function () {
 
     $('<div class="collapse"></div>')
       .appendTo('#qunit-fixture')
-      .on('show.bs.collapse', function () {
+      .on('show.mel.collapse', function () {
         assert.ok(false, 'showing a previously-uninitialized hidden collapse when the "hide" method is called')
       })
-      .bootstrapCollapse('hide')
+      .melodicCollapse('hide')
 
     setTimeout(done, 0)
   })
@@ -265,10 +265,10 @@ $(function () {
 
     $('<div class="collapse show"></div>')
       .appendTo('#qunit-fixture')
-      .on('hide.bs.collapse', function () {
+      .on('hide.mel.collapse', function () {
         assert.ok(true, 'hiding a previously-uninitialized shown collapse when the "hide" method is called')
       })
-      .bootstrapCollapse('hide')
+      .melodicCollapse('hide')
 
     setTimeout(done, 0)
   })
@@ -296,7 +296,7 @@ $(function () {
 
     $('<div id="body3" data-parent="#accordion"/>')
       .appendTo($groups.eq(2))
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok($target1.hasClass('collapsed'), 'inactive target 1 does have class "collapsed"')
         assert.ok($target2.hasClass('collapsed'), 'inactive target 2 does have class "collapsed"')
         assert.ok(!$target3.hasClass('collapsed'), 'active target 3 does not have class "collapsed"')
@@ -330,7 +330,7 @@ $(function () {
 
     $('<div id="body3" data-parent=".accordion"/>')
       .appendTo($groups.eq(2))
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok($target1.hasClass('collapsed'), 'inactive target 1 does have class "collapsed"')
         assert.ok($target2.hasClass('collapsed'), 'inactive target 2 does have class "collapsed"')
         assert.ok(!$target3.hasClass('collapsed'), 'active target 3 does not have class "collapsed"')
@@ -349,7 +349,7 @@ $(function () {
 
     $('<div id="test1"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.strictEqual($target.attr('aria-expanded'), 'true', 'aria-expanded on target is "true"')
         done()
       })
@@ -365,7 +365,7 @@ $(function () {
 
     $('<div id="test1" class="show"/>')
       .appendTo('#qunit-fixture')
-      .on('hidden.bs.collapse', function () {
+      .on('hidden.mel.collapse', function () {
         assert.strictEqual($target.attr('aria-expanded'), 'false', 'aria-expanded on target is "false"')
         done()
       })
@@ -382,7 +382,7 @@ $(function () {
 
     $('<div id="test1"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.strictEqual($target.attr('aria-expanded'), 'true', 'aria-expanded on trigger/control is "true"')
         assert.strictEqual($alt.attr('aria-expanded'), 'true', 'aria-expanded on alternative trigger/control is "true"')
         done()
@@ -400,7 +400,7 @@ $(function () {
 
     $('<div id="test1" class="show"/>')
       .appendTo('#qunit-fixture')
-      .on('hidden.bs.collapse', function () {
+      .on('hidden.mel.collapse', function () {
         assert.strictEqual($target.attr('aria-expanded'), 'false', 'aria-expanded on trigger/control is "false"')
         assert.strictEqual($alt.attr('aria-expanded'), 'false', 'aria-expanded on alternative trigger/control is "false"')
         done()
@@ -432,7 +432,7 @@ $(function () {
 
     $('<div id="body3" data-parent="#accordion"/>')
       .appendTo($groups.eq(2))
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.strictEqual($target1.attr('aria-expanded'), 'false', 'inactive trigger/control 1 has aria-expanded="false"')
         assert.strictEqual($target2.attr('aria-expanded'), 'false', 'inactive trigger/control 2 has aria-expanded="false"')
         assert.strictEqual($target3.attr('aria-expanded'), 'true', 'active trigger/control 3 has aria-expanded="true"')
@@ -458,7 +458,7 @@ $(function () {
 
     $('<div id="body1" class="collapse" data-parent="#accordion"/>')
       .appendTo($groups.eq(0))
-      .on('show.bs.collapse', function () {
+      .on('show.mel.collapse', function () {
         showFired = true
       })
 
@@ -469,7 +469,7 @@ $(function () {
 
     $body2
       .toggleClass('show collapsing')
-      .data('bs.collapse')._isTransitioning = 1
+      .data('mel.collapse')._isTransitioning = 1
 
     $target1.trigger('click')
 
@@ -487,11 +487,11 @@ $(function () {
 
     $('<div id="test1" class="show"/>')
       .appendTo('#qunit-fixture')
-      .on('hidden.bs.collapse', function () {
+      .on('hidden.mel.collapse', function () {
         assert.ok($target.hasClass('collapsed'))
         done()
       })
-      .bootstrapCollapse('hide')
+      .melodicCollapse('hide')
   })
 
   QUnit.test('should remove "collapsed" class from target when collapse is shown via manual invocation', function (assert) {
@@ -502,11 +502,11 @@ $(function () {
 
     $('<div id="test1"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok(!$target.hasClass('collapsed'))
         done()
       })
-      .bootstrapCollapse('show')
+      .melodicCollapse('show')
   })
 
   QUnit.test('should allow accordion to use children other than card', function (assert) {
@@ -528,10 +528,10 @@ $(function () {
     var $triggerTwo = $('#linkTriggerTwo')
     var $collapseOne = $('#collapseOne')
     var $collapseTwo = $('#collapseTwo')
-    $collapseOne.on('shown.bs.collapse', function () {
+    $collapseOne.on('shown.mel.collapse', function () {
       assert.ok($collapseOne.hasClass('show'), '#collapseOne is shown')
       assert.ok(!$collapseTwo.hasClass('show'), '#collapseTwo is not shown')
-      $collapseTwo.on('shown.bs.collapse', function () {
+      $collapseTwo.on('shown.mel.collapse', function () {
         assert.ok(!$collapseOne.hasClass('show'), '#collapseOne is not shown')
         assert.ok($collapseTwo.hasClass('show'), '#collapseTwo is shown')
         done()
@@ -566,10 +566,10 @@ $(function () {
     var $triggerTwo = $('#linkTriggerTwo')
     var $collapseOne = $('#collapseOne')
     var $collapseTwo = $('#collapseTwo')
-    $collapseOne.on('shown.bs.collapse', function () {
+    $collapseOne.on('shown.mel.collapse', function () {
       assert.ok($collapseOne.hasClass('show'), '#collapseOne is shown')
       assert.ok(!$collapseTwo.hasClass('show'), '#collapseTwo is not shown')
-      $collapseTwo.on('shown.bs.collapse', function () {
+      $collapseTwo.on('shown.mel.collapse', function () {
         assert.ok(!$collapseOne.hasClass('show'), '#collapseOne is not shown')
         assert.ok($collapseTwo.hasClass('show'), '#collapseTwo is shown')
         done()
@@ -619,7 +619,7 @@ $(function () {
       done()
     }
 
-    $collapseOneOne.on('shown.bs.collapse', function () {
+    $collapseOneOne.on('shown.mel.collapse', function () {
       if (collapsedElements.one) {
         firstTest()
       } else {
@@ -627,7 +627,7 @@ $(function () {
       }
     })
 
-    $collapseOneTwo.on('shown.bs.collapse', function () {
+    $collapseOneTwo.on('shown.mel.collapse', function () {
       if (collapsedElements.one) {
         firstTest()
       } else {
@@ -635,7 +635,7 @@ $(function () {
       }
     })
 
-    $collapseTwoOne.on('shown.bs.collapse', function () {
+    $collapseTwoOne.on('shown.mel.collapse', function () {
       if (collapsedElements.two) {
         secondTest()
       } else {
@@ -643,7 +643,7 @@ $(function () {
       }
     })
 
-    $collapseTwoTwo.on('shown.bs.collapse', function () {
+    $collapseTwoTwo.on('shown.mel.collapse', function () {
       if (collapsedElements.two) {
         secondTest()
       } else {
@@ -682,15 +682,15 @@ $(function () {
     var $collapseTwo = $('#collapseTwo')
     var $nestedCollapseOne = $('#nestedCollapseOne')
 
-    $collapseOne.one('shown.bs.collapse', function () {
+    $collapseOne.one('shown.mel.collapse', function () {
       assert.ok($collapseOne.hasClass('show'), '#collapseOne is shown')
       assert.ok(!$collapseTwo.hasClass('show'), '#collapseTwo is not shown')
       assert.ok(!$('#nestedCollapseOne').hasClass('show'), '#nestedCollapseOne is not shown')
-      $nestedCollapseOne.one('shown.bs.collapse', function () {
+      $nestedCollapseOne.one('shown.mel.collapse', function () {
         assert.ok($collapseOne.hasClass('show'), '#collapseOne is shown')
         assert.ok(!$collapseTwo.hasClass('show'), '#collapseTwo is not shown')
         assert.ok($nestedCollapseOne.hasClass('show'), '#nestedCollapseOne is shown')
-        $collapseTwo.one('shown.bs.collapse', function () {
+        $collapseTwo.one('shown.mel.collapse', function () {
           assert.ok(!$collapseOne.hasClass('show'), '#collapseOne is not shown')
           assert.ok($collapseTwo.hasClass('show'), '#collapseTwo is shown')
           assert.ok($nestedCollapseOne.hasClass('show'), '#nestedCollapseOne is shown')
@@ -710,7 +710,7 @@ $(function () {
 
     $('<div id="collapsediv1"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok($(this).hasClass('show'))
         assert.ok($target.attr('aria-expanded') === 'true')
         assert.ok($target.prop('checked'))
@@ -731,15 +731,15 @@ $(function () {
     var $target1 = $('<div id="test1" class="multi"/>').appendTo('#qunit-fixture')
     var $target2 = $('<div id="test2" class="multi"/>').appendTo('#qunit-fixture')
 
-    $target2.one('shown.bs.collapse', function () {
+    $target2.one('shown.mel.collapse', function () {
       assert.ok(!$trigger1.hasClass('collapsed'), 'trigger1 does not have collapsed class')
       assert.ok(!$trigger2.hasClass('collapsed'), 'trigger2 does not have collapsed class')
       assert.ok(!$trigger3.hasClass('collapsed'), 'trigger3 does not have collapsed class')
-      $target2.one('hidden.bs.collapse', function () {
+      $target2.one('hidden.mel.collapse', function () {
         assert.ok(!$trigger1.hasClass('collapsed'), 'trigger1 does not have collapsed class')
         assert.ok($trigger2.hasClass('collapsed'), 'trigger2 has collapsed class')
         assert.ok(!$trigger3.hasClass('collapsed'), 'trigger3 does not have collapsed class')
-        $target1.one('hidden.bs.collapse', function () {
+        $target1.one('hidden.mel.collapse', function () {
           assert.ok($trigger1.hasClass('collapsed'), 'trigger1 has collapsed class')
           assert.ok($trigger2.hasClass('collapsed'), 'trigger2 has collapsed class')
           assert.ok($trigger3.hasClass('collapsed'), 'trigger3 has collapsed class')
@@ -763,15 +763,15 @@ $(function () {
     var $target1 = $('<div id="test1" class="multi collapse"/>').appendTo('#qunit-fixture')
     var $target2 = $('<div id="test2" class="multi collapse"/>').appendTo('#qunit-fixture')
 
-    $target2.one('shown.bs.collapse', function () {
+    $target2.one('shown.mel.collapse', function () {
       assert.strictEqual($trigger1.attr('aria-expanded'), 'true', 'aria-expanded on trigger1 is "true"')
       assert.strictEqual($trigger2.attr('aria-expanded'), 'true', 'aria-expanded on trigger2 is "true"')
       assert.strictEqual($trigger3.attr('aria-expanded'), 'true', 'aria-expanded on trigger3 is "true"')
-      $target2.one('hidden.bs.collapse', function () {
+      $target2.one('hidden.mel.collapse', function () {
         assert.strictEqual($trigger1.attr('aria-expanded'), 'true', 'aria-expanded on trigger1 is "true"')
         assert.strictEqual($trigger2.attr('aria-expanded'), 'false', 'aria-expanded on trigger2 is "false"')
         assert.strictEqual($trigger3.attr('aria-expanded'), 'true', 'aria-expanded on trigger3 is "true"')
-        $target1.one('hidden.bs.collapse', function () {
+        $target1.one('hidden.mel.collapse', function () {
           assert.strictEqual($trigger1.attr('aria-expanded'), 'false', 'aria-expanded on trigger1 is "fasle"')
           assert.strictEqual($trigger2.attr('aria-expanded'), 'false', 'aria-expanded on trigger2 is "false"')
           assert.strictEqual($trigger3.attr('aria-expanded'), 'false', 'aria-expanded on trigger3 is "false"')
@@ -796,7 +796,7 @@ $(function () {
 
     $(htmlCollapse)
       .appendTo('#qunit-fixture')
-      .on('shown.bs.collapse', function () {
+      .on('shown.mel.collapse', function () {
         assert.ok($target.prop('checked'), '$trigger is checked')
         var $testCheckbox = $('#testCheckbox')
         $testCheckbox.trigger($.Event('click'))
@@ -821,7 +821,7 @@ $(function () {
 
     $(html).appendTo('#qunit-fixture')
     try {
-      $('[data-toggle="collapse"]').bootstrapCollapse({
+      $('[data-toggle="collapse"]').melodicCollapse({
         parent: $('.my-collapse')
       })
       assert.ok(true, 'collapse correctly created')
@@ -842,7 +842,7 @@ $(function () {
 
     $(html).appendTo('#qunit-fixture')
     try {
-      $('[data-toggle="collapse"]').bootstrapCollapse({
+      $('[data-toggle="collapse"]').melodicCollapse({
         parent: $('.my-collapse')[0]
       })
       assert.ok(true, 'collapse correctly created')

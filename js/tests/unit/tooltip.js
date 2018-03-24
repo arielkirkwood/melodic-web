@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('tooltip', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapTooltip = $.fn.tooltip.noConflict()
+      $.fn.melodicTooltip = $.fn.tooltip.noConflict()
     },
     afterEach: function () {
-      $.fn.tooltip = $.fn.bootstrapTooltip
-      delete $.fn.bootstrapTooltip
+      $.fn.tooltip = $.fn.melodicTooltip
+      delete $.fn.melodicTooltip
       $('.tooltip').remove()
     }
   })
@@ -28,9 +28,9 @@ $(function () {
   QUnit.test('should throw explicit error on undefined method', function (assert) {
     assert.expect(1)
     var $el = $('<div/>')
-    $el.bootstrapTooltip()
+    $el.melodicTooltip()
     try {
-      $el.bootstrapTooltip('noMethod')
+      $el.melodicTooltip('noMethod')
     } catch (err) {
       assert.strictEqual(err.message, 'No method named "noMethod"')
     }
@@ -39,34 +39,34 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>')
-    var $tooltip = $el.bootstrapTooltip()
+    var $tooltip = $el.melodicTooltip()
     assert.ok($tooltip instanceof $, 'returns jquery collection')
     assert.strictEqual($tooltip[0], $el[0], 'collection contains element')
   })
 
   QUnit.test('should expose default settings', function (assert) {
     assert.expect(1)
-    assert.ok($.fn.bootstrapTooltip.Constructor.Default, 'defaults is defined')
+    assert.ok($.fn.melodicTooltip.Constructor.Default, 'defaults is defined')
   })
 
   QUnit.test('should empty title attribute', function (assert) {
     assert.expect(1)
-    var $trigger = $('<a href="#" rel="tooltip" title="Another tooltip"/>').bootstrapTooltip()
+    var $trigger = $('<a href="#" rel="tooltip" title="Another tooltip"/>').melodicTooltip()
     assert.strictEqual($trigger.attr('title'), '', 'title attribute was emptied')
   })
 
   QUnit.test('should add data attribute for referencing original title', function (assert) {
     assert.expect(1)
-    var $trigger = $('<a href="#" rel="tooltip" title="Another tooltip"/>').bootstrapTooltip()
+    var $trigger = $('<a href="#" rel="tooltip" title="Another tooltip"/>').melodicTooltip()
     assert.strictEqual($trigger.attr('data-original-title'), 'Another tooltip', 'original title preserved in data attribute')
   })
 
   QUnit.test('should add aria-describedby to the trigger on show', function (assert) {
     assert.expect(3)
     var $trigger = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
-      .bootstrapTooltip()
+      .melodicTooltip()
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
 
     var id = $('.tooltip').attr('id')
 
@@ -78,13 +78,13 @@ $(function () {
   QUnit.test('should remove aria-describedby from trigger on hide', function (assert) {
     assert.expect(2)
     var $trigger = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
-      .bootstrapTooltip()
+      .melodicTooltip()
       .appendTo('#qunit-fixture')
 
-    $trigger.bootstrapTooltip('show')
+    $trigger.melodicTooltip('show')
     assert.ok($trigger[0].hasAttribute('aria-describedby'), 'trigger has aria-describedby')
 
-    $trigger.bootstrapTooltip('hide')
+    $trigger.melodicTooltip('hide')
     assert.ok(!$trigger[0].hasAttribute('aria-describedby'), 'trigger does not have aria-describedby')
   })
 
@@ -92,7 +92,7 @@ $(function () {
     assert.expect(2)
     $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
 
     var id = $('.tooltip').attr('id')
 
@@ -104,34 +104,34 @@ $(function () {
     assert.expect(2)
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         placement: 'bottom'
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
 
     assert
       .ok($('.tooltip')
-        .is('.fade.bs-tooltip-bottom.show'), 'has correct classes applied')
+        .is('.fade.mel-tooltip-bottom.show'), 'has correct classes applied')
 
-    $tooltip.bootstrapTooltip('hide')
+    $tooltip.melodicTooltip('hide')
 
-    assert.strictEqual($tooltip.data('bs.tooltip').tip.parentNode, null, 'tooltip removed')
+    assert.strictEqual($tooltip.data('mel.tooltip').tip.parentNode, null, 'tooltip removed')
   })
 
   QUnit.test('should allow html entities', function (assert) {
     assert.expect(2)
     var $tooltip = $('<a href="#" rel="tooltip" title="&lt;b&gt;@fat&lt;/b&gt;"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         html: true
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
     assert.notEqual($('.tooltip b').length, 0, 'b tag was inserted')
 
-    $tooltip.bootstrapTooltip('hide')
-    assert.strictEqual($tooltip.data('bs.tooltip').tip.parentNode, null, 'tooltip removed')
+    $tooltip.melodicTooltip('hide')
+    assert.strictEqual($tooltip.data('mel.tooltip').tip.parentNode, null, 'tooltip removed')
   })
 
   QUnit.test('should allow DOMElement title (html: false)', function (assert) {
@@ -139,11 +139,11 @@ $(function () {
     var title = document.createTextNode('<3 writing tests')
     var $tooltip = $('<a href="#" rel="tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         title: title
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
 
     assert.notEqual($('.tooltip').length, 0, 'tooltip inserted')
     assert.strictEqual($('.tooltip').text(), '<3 writing tests', 'title inserted')
@@ -155,12 +155,12 @@ $(function () {
     var title = document.createTextNode('<3 writing tests')
     var $tooltip = $('<a href="#" rel="tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         html: true,
         title: title
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
 
     assert.notEqual($('.tooltip').length, 0, 'tooltip inserted')
     assert.strictEqual($('.tooltip').text(), '<3 writing tests', 'title inserted')
@@ -171,15 +171,15 @@ $(function () {
     assert.expect(2)
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         template: '<div class="tooltip some-class"><div class="tooltip-arrow"/><div class="tooltip-inner"/></div>'
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
     assert.ok($('.tooltip').hasClass('some-class'), 'custom class is present')
 
-    $tooltip.bootstrapTooltip('hide')
-    assert.strictEqual($tooltip.data('bs.tooltip').tip.parentNode, null, 'tooltip removed')
+    $tooltip.melodicTooltip('hide')
+    assert.strictEqual($tooltip.data('mel.tooltip').tip.parentNode, null, 'tooltip removed')
   })
 
   QUnit.test('should fire show event', function (assert) {
@@ -187,11 +187,11 @@ $(function () {
     var done = assert.async()
 
     $('<div title="tooltip title"/>')
-      .on('show.bs.tooltip', function () {
+      .on('show.mel.tooltip', function () {
         assert.ok(true, 'show event fired')
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should throw an error when show is called on hidden elements', function (assert) {
@@ -199,7 +199,7 @@ $(function () {
     var done = assert.async()
 
     try {
-      $('<div title="tooltip title" style="display: none"/>').bootstrapTooltip('show')
+      $('<div title="tooltip title" style="display: none"/>').melodicTooltip('show')
     } catch (err) {
       assert.strictEqual(err.message, 'Please use show on visible elements')
       done()
@@ -212,12 +212,12 @@ $(function () {
 
     $('<div title="tooltip title"/>')
       .appendTo('#qunit-fixture')
-      .on('inserted.bs.tooltip', function () {
+      .on('inserted.mel.tooltip', function () {
         assert.notEqual($('.tooltip').length, 0, 'tooltip was inserted')
         assert.ok(true, 'inserted event fired')
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should fire shown event', function (assert) {
@@ -226,11 +226,11 @@ $(function () {
 
     $('<div title="tooltip title"></div>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.tooltip', function () {
+      .on('shown.mel.tooltip', function () {
         assert.ok(true, 'shown was called')
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should not fire shown event when show was prevented', function (assert) {
@@ -238,15 +238,15 @@ $(function () {
     var done = assert.async()
 
     $('<div title="tooltip title"/>')
-      .on('show.bs.tooltip', function (e) {
+      .on('show.mel.tooltip', function (e) {
         e.preventDefault()
         assert.ok(true, 'show event fired')
         done()
       })
-      .on('shown.bs.tooltip', function () {
+      .on('shown.mel.tooltip', function () {
         assert.ok(false, 'shown event fired')
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should fire hide event', function (assert) {
@@ -255,14 +255,14 @@ $(function () {
 
     $('<div title="tooltip title"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.tooltip', function () {
-        $(this).bootstrapTooltip('hide')
+      .on('shown.mel.tooltip', function () {
+        $(this).melodicTooltip('hide')
       })
-      .on('hide.bs.tooltip', function () {
+      .on('hide.mel.tooltip', function () {
         assert.ok(true, 'hide event fired')
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should fire hidden event', function (assert) {
@@ -271,14 +271,14 @@ $(function () {
 
     $('<div title="tooltip title"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.tooltip', function () {
-        $(this).bootstrapTooltip('hide')
+      .on('shown.mel.tooltip', function () {
+        $(this).melodicTooltip('hide')
       })
-      .on('hidden.bs.tooltip', function () {
+      .on('hidden.mel.tooltip', function () {
         assert.ok(true, 'hidden event fired')
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should not fire hidden event when hide was prevented', function (assert) {
@@ -287,35 +287,35 @@ $(function () {
 
     $('<div title="tooltip title"/>')
       .appendTo('#qunit-fixture')
-      .on('shown.bs.tooltip', function () {
-        $(this).bootstrapTooltip('hide')
+      .on('shown.mel.tooltip', function () {
+        $(this).melodicTooltip('hide')
       })
-      .on('hide.bs.tooltip', function (e) {
+      .on('hide.mel.tooltip', function (e) {
         e.preventDefault()
         assert.ok(true, 'hide event fired')
         done()
       })
-      .on('hidden.bs.tooltip', function () {
+      .on('hidden.mel.tooltip', function () {
         assert.ok(false, 'hidden event fired')
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should destroy tooltip', function (assert) {
     assert.expect(7)
     var $tooltip = $('<div/>')
-      .bootstrapTooltip()
+      .melodicTooltip()
       .on('click.foo', function () {})  // eslint-disable-line no-empty-function
 
-    assert.ok($tooltip.data('bs.tooltip'), 'tooltip has data')
+    assert.ok($tooltip.data('mel.tooltip'), 'tooltip has data')
     assert.ok($._data($tooltip[0], 'events').mouseover && $._data($tooltip[0], 'events').mouseout, 'tooltip has hover events')
     assert.strictEqual($._data($tooltip[0], 'events').click[0].namespace, 'foo', 'tooltip has extra click.foo event')
 
-    $tooltip.bootstrapTooltip('show')
-    $tooltip.bootstrapTooltip('dispose')
+    $tooltip.melodicTooltip('show')
+    $tooltip.melodicTooltip('dispose')
 
     assert.ok(!$tooltip.hasClass('show'), 'tooltip is hidden')
-    assert.ok(!$._data($tooltip[0], 'bs.tooltip'), 'tooltip does not have data')
+    assert.ok(!$._data($tooltip[0], 'mel.tooltip'), 'tooltip does not have data')
     assert.strictEqual($._data($tooltip[0], 'events').click[0].namespace, 'foo', 'tooltip still has click.foo')
     assert.ok(!$._data($tooltip[0], 'events').mouseover && !$._data($tooltip[0], 'events').mouseout, 'tooltip does not have hover events')
   })
@@ -324,7 +324,7 @@ $(function () {
   //   assert.expect(2)
   //   var $div = $('<div><a href="#" rel="tooltip" title="Another tooltip"/></div>')
   //     .appendTo('#qunit-fixture')
-  //     .bootstrapTooltip({
+  //     .melodicTooltip({
   //       selector: 'a[rel="tooltip"]',
   //       trigger: 'click'
   //     })
@@ -333,17 +333,17 @@ $(function () {
   //   assert.ok($('.tooltip').is('.fade.in'), 'tooltip is faded in')
 
   //   $div.find('a').trigger('click')
-  //   assert.strictEqual($div.data('bs.tooltip').tip.parentNode, null, 'tooltip removed')
+  //   assert.strictEqual($div.data('mel.tooltip').tip.parentNode, null, 'tooltip removed')
   // })
 
   QUnit.test('should show tooltip when toggle is called', function (assert) {
     assert.expect(1)
     $('<a href="#" rel="tooltip" title="tooltip on toggle"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         trigger: 'manual'
       })
-      .bootstrapTooltip('toggle')
+      .melodicTooltip('toggle')
 
     assert.ok($('.tooltip').is('.fade.show'), 'tooltip is faded active')
   })
@@ -352,12 +352,12 @@ $(function () {
     assert.expect(1)
     $('<a href="#" rel="tooltip" title="tooltip on toggle">@ResentedHook</a>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         trigger: 'manual'
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
 
-    $('.tooltip').bootstrapTooltip('toggle')
+    $('.tooltip').melodicTooltip('toggle')
     assert.ok($('.tooltip').not('.fade.show'), 'tooltip was faded out')
   })
 
@@ -365,15 +365,15 @@ $(function () {
     assert.expect(3)
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         container: 'body'
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
 
     assert.notEqual($('body > .tooltip').length, 0, 'tooltip is direct descendant of body')
     assert.strictEqual($('#qunit-fixture > .tooltip').length, 0, 'tooltip is not in parent')
 
-    $tooltip.bootstrapTooltip('hide')
+    $tooltip.melodicTooltip('hide')
     assert.strictEqual($('body > .tooltip').length, 0, 'tooltip was removed from dom')
   })
 
@@ -381,38 +381,38 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var styles = '<style>' +
-      '.bs-tooltip-right { white-space: nowrap; }' +
-      '.bs-tooltip-right .tooltip-inner { max-width: none; }' +
+      '.mel-tooltip-right { white-space: nowrap; }' +
+      '.mel-tooltip-right .tooltip-inner { max-width: none; }' +
       '</style>'
     var $styles = $(styles).appendTo('head')
 
     var $container = $('<div/>').appendTo('#qunit-fixture')
     $('<a href="#" rel="tooltip" title="very very very very very very very very long tooltip in one line"/>')
       .appendTo($container)
-      .bootstrapTooltip({
+      .melodicTooltip({
         placement: 'right',
         trigger: 'manual'
       })
-      .on('inserted.bs.tooltip', function () {
-        var $tooltip = $($(this).data('bs.tooltip').tip)
-        assert.ok($tooltip.hasClass('bs-tooltip-right'))
+      .on('inserted.mel.tooltip', function () {
+        var $tooltip = $($(this).data('mel.tooltip').tip)
+        assert.ok($tooltip.hasClass('mel-tooltip-right'))
         assert.ok(typeof $tooltip.attr('style') === 'undefined')
         $styles.remove()
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should use title attribute for tooltip text', function (assert) {
     assert.expect(2)
     var $tooltip = $('<a href="#" rel="tooltip" title="Simple tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip()
+      .melodicTooltip()
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
     assert.strictEqual($('.tooltip').children('.tooltip-inner').text(), 'Simple tooltip', 'title from title attribute is set')
 
-    $tooltip.bootstrapTooltip('hide')
+    $tooltip.melodicTooltip('hide')
     assert.strictEqual($('.tooltip').length, 0, 'tooltip removed from dom')
   })
 
@@ -420,14 +420,14 @@ $(function () {
     assert.expect(2)
     var $tooltip = $('<a href="#" rel="tooltip" title="Simple tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         title: 'This is a tooltip with some content'
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
     assert.strictEqual($('.tooltip').children('.tooltip-inner').text(), 'Simple tooltip', 'title is set from title attribute while preferred over title option')
 
-    $tooltip.bootstrapTooltip('hide')
+    $tooltip.melodicTooltip('hide')
     assert.strictEqual($('.tooltip').length, 0, 'tooltip removed from dom')
   })
 
@@ -435,14 +435,14 @@ $(function () {
     assert.expect(2)
     var $tooltip = $('<a href="#" rel="tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         title: 'This is a tooltip with some content'
       })
 
-    $tooltip.bootstrapTooltip('show')
+    $tooltip.melodicTooltip('show')
     assert.strictEqual($('.tooltip').children('.tooltip-inner').text(), 'This is a tooltip with some content', 'title from title option is set')
 
-    $tooltip.bootstrapTooltip('hide')
+    $tooltip.melodicTooltip('hide')
     assert.strictEqual($('.tooltip').length, 0, 'tooltip removed from dom')
   })
 
@@ -451,15 +451,15 @@ $(function () {
     var passed = true
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .one('show.bs.tooltip', function () {
+      .one('show.mel.tooltip', function () {
         $(this).remove()
       })
-      .bootstrapTooltip({
+      .melodicTooltip({
         placement: 'top'
       })
 
     try {
-      $tooltip.bootstrapTooltip('show')
+      $tooltip.melodicTooltip('show')
     } catch (err) {
       passed = false
       console.log(err)
@@ -492,12 +492,12 @@ $(function () {
     $container
       .find('a')
       .css('margin-top', 200)
-      .bootstrapTooltip({
+      .melodicTooltip({
         placement: 'top',
         animate: false
       })
-      .on('shown.bs.tooltip', function () {
-        var $tooltip = $($(this).data('bs.tooltip').tip)
+      .on('shown.mel.tooltip', function () {
+        var $tooltip = $($(this).data('mel.tooltip').tip)
         if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
           assert.ok(Math.round($tooltip.offset().top + $tooltip.outerHeight()) <= Math.round($(this).offset().top))
         } else {
@@ -505,7 +505,7 @@ $(function () {
         }
         done()
       })
-      .bootstrapTooltip('show')
+      .melodicTooltip('show')
   })
 
   QUnit.test('should show tooltip if leave event hasn\'t occurred before delay expires', function (assert) {
@@ -514,7 +514,7 @@ $(function () {
 
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         delay: 150
       })
 
@@ -536,7 +536,7 @@ $(function () {
 
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         delay: 150
       })
 
@@ -559,7 +559,7 @@ $(function () {
 
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         delay: {
           show: 0,
           hide: 150
@@ -590,7 +590,7 @@ $(function () {
 
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         delay: 150
       })
 
@@ -613,7 +613,7 @@ $(function () {
 
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         delay: {
           show: 150,
           hide: 0
@@ -639,7 +639,7 @@ $(function () {
 
     var $tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         delay: {
           show: 0,
           hide: 150
@@ -647,16 +647,16 @@ $(function () {
       })
 
     setTimeout(function () {
-      assert.ok($($tooltip.data('bs.tooltip').tip).is('.fade.show'), '1ms: tooltip faded active')
+      assert.ok($($tooltip.data('mel.tooltip').tip).is('.fade.show'), '1ms: tooltip faded active')
 
       $tooltip.trigger('mouseout')
 
       setTimeout(function () {
-        assert.ok($($tooltip.data('bs.tooltip').tip).is('.fade.show'), '100ms: tooltip still faded active')
+        assert.ok($($tooltip.data('mel.tooltip').tip).is('.fade.show'), '100ms: tooltip still faded active')
       }, 100)
 
       setTimeout(function () {
-        assert.ok(!$($tooltip.data('bs.tooltip').tip).is('.show'), '200ms: tooltip removed')
+        assert.ok(!$($tooltip.data('mel.tooltip').tip).is('.show'), '200ms: tooltip removed')
         done()
       }, 200)
     }, 0)
@@ -674,7 +674,7 @@ $(function () {
     var $tooltip = $('<span id="tt-outer" rel="tooltip" data-trigger="hover" data-placement="top">some text</span>')
       .appendTo('#qunit-fixture')
 
-    $tooltip.bootstrapTooltip({
+    $tooltip.melodicTooltip({
       html: true,
       animation: false,
       trigger: 'hover',
@@ -705,7 +705,7 @@ $(function () {
     var $tooltip = $('<span id="tt-outer" rel="tooltip" data-trigger="hover" data-placement="top">some text</span>')
       .appendTo('#qunit-fixture')
 
-    $tooltip.bootstrapTooltip({
+    $tooltip.melodicTooltip({
       html: true,
       animation: false,
       trigger: 'hover',
@@ -716,7 +716,7 @@ $(function () {
       title: titleHtml
     })
 
-    var obj = $tooltip.data('bs.tooltip')
+    var obj = $tooltip.data('mel.tooltip')
 
     $('#tt-outer').trigger('mouseenter')
 
@@ -738,22 +738,22 @@ $(function () {
 
     var $tooltip = $('<span data-toggle="tooltip" title="some tip">some text</span>')
       .appendTo('#qunit-fixture')
-      .on('hidden.bs.tooltip shown.bs.tooltip', function () {
+      .on('hidden.mel.tooltip shown.mel.tooltip', function () {
         assert.ok(false, 'should not fire any tooltip events')
       })
-      .bootstrapTooltip('hide')
-    assert.strictEqual(typeof $tooltip.data('bs.tooltip'), 'undefined', 'should not initialize the tooltip')
+      .melodicTooltip('hide')
+    assert.strictEqual(typeof $tooltip.data('mel.tooltip'), 'undefined', 'should not initialize the tooltip')
   })
 
   QUnit.test('should not remove tooltip if multiple triggers are set and one is still active', function (assert) {
     assert.expect(41)
     var $el = $('<button>Trigger</button>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         trigger: 'click hover focus',
         animation: false
       })
-    var tooltip = $el.data('bs.tooltip')
+    var tooltip = $el.data('mel.tooltip')
     var $tooltip = $(tooltip.getTipElement())
 
     function showingTooltip() {
@@ -792,12 +792,12 @@ $(function () {
     assert.expect(3)
     var $el = $('<a href="#" rel="tooltip" title="Test tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip({
+      .melodicTooltip({
         trigger: 'click hover focus',
         animation: false
       })
 
-    var tooltip = $el.data('bs.tooltip')
+    var tooltip = $el.data('mel.tooltip')
     var $tooltip = $(tooltip.getTipElement())
 
     function showingTooltip() {
@@ -807,7 +807,7 @@ $(function () {
     $el.trigger('click')
     assert.ok(showingTooltip(), 'tooltip is faded in')
 
-    $el.bootstrapTooltip('hide')
+    $el.melodicTooltip('hide')
     assert.ok(!showingTooltip(), 'tooltip was faded out')
 
     $el.trigger('click')
@@ -829,20 +829,20 @@ $(function () {
 
     $(templateHTML).appendTo('#qunit-fixture')
     $('#tooltipTest')
-      .bootstrapTooltip({
+      .melodicTooltip({
         trigger: 'manuel'
       })
-      .on('shown.bs.tooltip', function () {
+      .on('shown.mel.tooltip', function () {
         $('#modal-test').modal('hide')
       })
-      .on('hide.bs.tooltip', function () {
+      .on('hide.mel.tooltip', function () {
         assert.ok(true, 'tooltip hide')
         done()
       })
 
     $('#modal-test')
-      .on('shown.bs.modal', function () {
-        $('#tooltipTest').bootstrapTooltip('show')
+      .on('shown.mel.modal', function () {
+        $('#tooltipTest').melodicTooltip('show')
       })
       .modal('show')
   })
@@ -852,16 +852,16 @@ $(function () {
     var done = assert.async()
     var $el = $('<a href="#" rel="tooltip" title="Test tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip('show')
-      .on('hidden.bs.tooltip', function () {
-        var tooltip = $el.data('bs.tooltip')
+      .melodicTooltip('show')
+      .on('hidden.mel.tooltip', function () {
+        var tooltip = $el.data('mel.tooltip')
         var $tooltip = $(tooltip.getTipElement())
         assert.ok($tooltip.hasClass('tooltip'))
         assert.ok($tooltip.hasClass('fade'))
         done()
       })
 
-    $el.bootstrapTooltip('hide')
+    $el.melodicTooltip('hide')
   })
 
   QUnit.test('should convert number in title to string', function (assert) {
@@ -869,15 +869,15 @@ $(function () {
     var done = assert.async()
     var $el = $('<a href="#" rel="tooltip" title="7"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip('show')
-      .on('shown.bs.tooltip', function () {
-        var tooltip = $el.data('bs.tooltip')
+      .melodicTooltip('show')
+      .on('shown.mel.tooltip', function () {
+        var tooltip = $el.data('mel.tooltip')
         var $tooltip = $(tooltip.getTipElement())
         assert.strictEqual($tooltip.children().text(), '7')
         done()
       })
 
-    $el.bootstrapTooltip('show')
+    $el.melodicTooltip('show')
   })
 
   QUnit.test('tooltip should be shown right away after the call of disable/enable', function (assert) {
@@ -886,17 +886,17 @@ $(function () {
 
     var $trigger = $('<a href="#" rel="tooltip" data-trigger="click" title="Another tooltip"/>')
       .appendTo('#qunit-fixture')
-      .bootstrapTooltip()
-      .on('shown.bs.tooltip', function () {
+      .melodicTooltip()
+      .on('shown.mel.tooltip', function () {
         assert.strictEqual($('.tooltip').hasClass('show'), true)
         done()
       })
 
-    $trigger.bootstrapTooltip('disable')
+    $trigger.melodicTooltip('disable')
     $trigger.trigger($.Event('click'))
     setTimeout(function () {
       assert.strictEqual($('.tooltip').length === 0, true)
-      $trigger.bootstrapTooltip('enable')
+      $trigger.melodicTooltip('enable')
       $trigger.trigger($.Event('click'))
     }, 200)
   })

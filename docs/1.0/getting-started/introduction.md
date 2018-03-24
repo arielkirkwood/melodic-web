@@ -5,8 +5,8 @@ description: Get started with Melodic, the world's most popular framework for bu
 group: getting-started
 redirect_from:
   - /docs/
-  - /docs/4.0/
-  - /docs/4.0/getting-started/
+  - /docs/1.0/
+  - /docs/1.0/getting-started/
   - /docs/getting-started/
 toc: true
 ---
@@ -15,7 +15,7 @@ toc: true
 
 Using a package manager or need to download the source files? [Head to the downloads page.]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/)
 
-### JS
+### JavaScript
 
 Many of our components require the use of JavaScript to function. Specifically, they require [jQuery](https://jquery.com), [Popper.js](https://popper.js.org/), and our own JavaScript plugins. Place the following `<script>`s near the end of your pages, right before the closing `</body>` tag, to enable them. jQuery must come first, then Popper.js, and then our JavaScript plugins.
 
@@ -27,7 +27,7 @@ We use [jQuery's slim build](https://blog.jquery.com/2016/06/09/jquery-3-0-final
 <!-- insert Melodic <script> tag here -->
 {% endhighlight %}
 
-Curious which components explicitly require jQuery, our JS, and Popper.js? Click the show components link below. If you're at all unsure about the general page structure, keep reading for an example page template.
+Curious which components explicitly require jQuery, our JavaScript, and Popper.js? Click the show components link below. If you're at all unsure about the general page structure, keep reading for an example page template.
 
 <details>
 <summary class="text-primary mb-3">Show components requiring JavaScript</summary>

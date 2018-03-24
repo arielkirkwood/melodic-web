@@ -6,6 +6,7 @@
  * JavaScript for Bootstrap's docs (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
+ * Portions copyright 2018 Inspire Energy Holdings, LLC
  * Licensed under the Creative Commons Attribution 3.0 Unported License. For
  * details, see https://creativecommons.org/licenses/by/3.0/.
  */
@@ -37,7 +38,7 @@
     })
 
     // Modal relatedTarget demo
-    $('#exampleModal').on('show.bs.modal', function (event) {
+    $('#exampleModal').on('show.mel.modal', function (event) {
       var $button = $(event.relatedTarget)      // Button that triggered the modal
       var recipient = $button.data('whatever')  // Extract info from data-* attributes
       // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -105,7 +106,7 @@
     if (window.docsearch) {
       window.docsearch({
         apiKey: '48cb48b22351bc71ea5f12f4d1ede198',
-        indexName: 'bootstrap-v4',
+        indexName: 'melodic-v1',
         inputSelector: '#search-input',
         handleSelected: function (input, event, suggestion) {
           var url = suggestion.url
@@ -125,8 +126,8 @@
 
     // Holder
     Holder.addTheme('gray', {
-      bg: '#777',
-      fg: 'rgba(255,255,255,.75)',
+      bg: '#282b2d',
+      fg: '#a9bbc3',
       font: 'Helvetica',
       fontweight: 'normal'
     })

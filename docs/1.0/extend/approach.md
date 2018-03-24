@@ -55,7 +55,7 @@ Each overlay component increases it's `z-index` value slightly in such a way tha
 
 Learn more about this in our [`z-index` layout page](/docs/4.0/layout/overview/#z-index).
 
-## HTML and CSS over JS
+## HTML and CSS over JavaScript
 
 Whenever possible, we prefer to write HTML and CSS over JavaScript. In general, HTML and CSS are more prolific and accessible to more people of all different experience levels. HTML and CSS are also faster in your browser than JavaScript, and your browser generally provides a great deal of functionality for you.
 

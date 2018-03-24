@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('button', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapButton = $.fn.button.noConflict()
+      $.fn.melodicButton = $.fn.button.noConflict()
     },
     afterEach: function () {
-      $.fn.button = $.fn.bootstrapButton
-      delete $.fn.bootstrapButton
+      $.fn.button = $.fn.melodicButton
+      delete $.fn.melodicButton
     }
   })
 
@@ -27,7 +27,7 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>')
-    var $button = $el.bootstrapButton()
+    var $button = $el.melodicButton()
     assert.ok($button instanceof $, 'returns jquery collection')
     assert.strictEqual($button[0], $el[0], 'collection contains element')
   })
@@ -36,7 +36,7 @@ $(function () {
     assert.expect(2)
     var $btn = $('<button class="btn" data-toggle="button">mdo</button>')
     assert.ok(!$btn.hasClass('active'), 'btn does not have active class')
-    $btn.bootstrapButton('toggle')
+    $btn.melodicButton('toggle')
     assert.ok($btn.hasClass('active'), 'btn has class active')
   })
 
@@ -56,7 +56,7 @@ $(function () {
     assert.expect(2)
     var $btn = $('<button class="btn" data-toggle="button" aria-pressed="false">redux</button>')
     assert.strictEqual($btn.attr('aria-pressed'), 'false', 'btn aria-pressed state is false')
-    $btn.bootstrapButton('toggle')
+    $btn.melodicButton('toggle')
     assert.strictEqual($btn.attr('aria-pressed'), 'true', 'btn aria-pressed state is true')
   })
 
@@ -67,7 +67,7 @@ $(function () {
         '<button class="btn btn-secondary" type="button">Two</button>' +
       '</div>'
     $('#qunit-fixture').append(groupHTML)
-    $('#btn1').bootstrapButton('toggle')
+    $('#btn1').melodicButton('toggle')
     assert.strictEqual($('#btn1').attr('aria-pressed'), 'true')
   })
 

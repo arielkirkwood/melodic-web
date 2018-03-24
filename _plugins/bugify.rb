@@ -2,6 +2,7 @@ module Jekyll
   module BugFilter
     def bugify(input)
       upstream_map = {
+        "Melodic": "https://github.com/DWPHoldings/melodic-web/issues/",
         "Bootstrap": "https://github.com/twbs/bootstrap/issues/",
         "Edge": ["https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/", "Edge issue"],
         "A11yUserVoice": ["https://microsoftaccessibility.uservoice.com/forums/307429-microsoft-accessibility-feedback/suggestions/",

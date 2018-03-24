@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('tabs', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapTab = $.fn.tab.noConflict()
+      $.fn.melodicTab = $.fn.tab.noConflict()
     },
     afterEach: function () {
-      $.fn.tab = $.fn.bootstrapTab
-      delete $.fn.bootstrapTab
+      $.fn.tab = $.fn.melodicTab
+      delete $.fn.melodicTab
     }
   })
 
@@ -27,9 +27,9 @@ $(function () {
   QUnit.test('should throw explicit error on undefined method', function (assert) {
     assert.expect(1)
     var $el = $('<div/>')
-    $el.bootstrapTab()
+    $el.melodicTab()
     try {
-      $el.bootstrapTab('noMethod')
+      $el.melodicTab('noMethod')
     } catch (err) {
       assert.strictEqual(err.message, 'No method named "noMethod"')
     }
@@ -38,7 +38,7 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>')
-    var $tab = $el.bootstrapTab()
+    var $tab = $el.melodicTab()
     assert.ok($tab instanceof $, 'returns jquery collection')
     assert.strictEqual($tab[0], $el[0], 'collection contains element')
   })
@@ -52,10 +52,10 @@ $(function () {
 
     $('<ul><li id="home"/><li id="profile"/></ul>').appendTo('#qunit-fixture')
 
-    $(tabsHTML).find('li:last-child a').bootstrapTab('show')
+    $(tabsHTML).find('li:last-child a').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'profile')
 
-    $(tabsHTML).find('li:first-child a').bootstrapTab('show')
+    $(tabsHTML).find('li:first-child a').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'home')
   })
 
@@ -68,10 +68,10 @@ $(function () {
 
     $('<ul><li id="home"/><li id="profile"/></ul>').appendTo('#qunit-fixture')
 
-    $(pillsHTML).find('li:last-child a').bootstrapTab('show')
+    $(pillsHTML).find('li:last-child a').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'profile')
 
-    $(pillsHTML).find('li:first-child a').bootstrapTab('show')
+    $(pillsHTML).find('li:first-child a').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'home')
   })
 
@@ -84,10 +84,10 @@ $(function () {
 
     $('<ol><li id="home"/><li id="profile"/></ol>').appendTo('#qunit-fixture')
 
-    $(pillsHTML).find('li:last-child a').bootstrapTab('show')
+    $(pillsHTML).find('li:last-child a').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'profile')
 
-    $(pillsHTML).find('li:first-child a').bootstrapTab('show')
+    $(pillsHTML).find('li:first-child a').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'home')
   })
 
@@ -100,10 +100,10 @@ $(function () {
 
     $('<nav><div id="home"></div><div id="profile"></div></nav>').appendTo('#qunit-fixture')
 
-    $(tabsHTML).find('a:last-child').bootstrapTab('show')
+    $(tabsHTML).find('a:last-child').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'profile')
 
-    $(tabsHTML).find('a:first-child').bootstrapTab('show')
+    $(tabsHTML).find('a:first-child').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'home')
   })
 
@@ -116,10 +116,10 @@ $(function () {
 
     $('<nav><div id="home"></div><div id="profile"></div></nav>').appendTo('#qunit-fixture')
 
-    $(tabsHTML).find('a:last-child').bootstrapTab('show')
+    $(tabsHTML).find('a:last-child').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'profile')
 
-    $(tabsHTML).find('a:first-child').bootstrapTab('show')
+    $(tabsHTML).find('a:first-child').melodicTab('show')
     assert.strictEqual($('#qunit-fixture').find('.active').attr('id'), 'home')
   })
 
@@ -128,15 +128,15 @@ $(function () {
     var done = assert.async()
 
     $('<div class="nav"/>')
-      .on('show.bs.tab', function (e) {
+      .on('show.mel.tab', function (e) {
         e.preventDefault()
         assert.ok(true, 'show event fired')
         done()
       })
-      .on('shown.bs.tab', function () {
+      .on('shown.mel.tab', function () {
         assert.ok(false, 'shown event fired')
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('should not fire shown when tab is already active', function (assert) {
@@ -152,10 +152,10 @@ $(function () {
 
     $(tabsHTML)
       .find('a.active')
-      .on('shown.bs.tab', function () {
+      .on('shown.mel.tab', function () {
         assert.ok(true, 'shown event fired')
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('should not fire shown when tab is disabled', function (assert) {
@@ -171,10 +171,10 @@ $(function () {
 
     $(tabsHTML)
       .find('a.disabled')
-      .on('shown.bs.tab', function () {
+      .on('shown.mel.tab', function () {
         assert.ok(true, 'shown event fired')
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('show and shown events should reference correct relatedTarget', function (assert) {
@@ -193,17 +193,17 @@ $(function () {
 
     $(dropHTML)
       .find('ul > li:first-child a')
-      .bootstrapTab('show')
+      .melodicTab('show')
       .end()
       .find('ul > li:last-child a')
-      .on('show.bs.tab', function (e) {
+      .on('show.mel.tab', function (e) {
         assert.strictEqual(e.relatedTarget.hash, '#1-1', 'references correct element as relatedTarget')
       })
-      .on('shown.bs.tab', function (e) {
+      .on('shown.mel.tab', function (e) {
         assert.strictEqual(e.relatedTarget.hash, '#1-1', 'references correct element as relatedTarget')
         done()
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('should fire hide and hidden events', function (assert) {
@@ -217,24 +217,24 @@ $(function () {
 
     $(tabsHTML)
       .find('li:first-child a')
-      .on('hide.bs.tab', function () {
+      .on('hide.mel.tab', function () {
         assert.ok(true, 'hide event fired')
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
       .end()
       .find('li:last-child a')
-      .bootstrapTab('show')
+      .melodicTab('show')
 
     $(tabsHTML)
       .find('li:first-child a')
-      .on('hidden.bs.tab', function () {
+      .on('hidden.mel.tab', function () {
         assert.ok(true, 'hidden event fired')
         done()
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
       .end()
       .find('li:last-child a')
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('should not fire hidden when hide is prevented', function (assert) {
@@ -248,18 +248,18 @@ $(function () {
 
     $(tabsHTML)
       .find('li:first-child a')
-      .on('hide.bs.tab', function (e) {
+      .on('hide.mel.tab', function (e) {
         e.preventDefault()
         assert.ok(true, 'hide event fired')
         done()
       })
-      .on('hidden.bs.tab', function () {
+      .on('hidden.mel.tab', function () {
         assert.ok(false, 'hidden event fired')
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
       .end()
       .find('li:last-child a')
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('hide and hidden events contain correct relatedTarget', function (assert) {
@@ -273,17 +273,17 @@ $(function () {
 
     $(tabsHTML)
       .find('li:first-child a')
-      .on('hide.bs.tab', function (e) {
+      .on('hide.mel.tab', function (e) {
         assert.strictEqual(e.relatedTarget.hash, '#profile', 'references correct element as relatedTarget')
       })
-      .on('hidden.bs.tab', function (e) {
+      .on('hidden.mel.tab', function (e) {
         assert.strictEqual(e.relatedTarget.hash, '#profile', 'references correct element as relatedTarget')
         done()
       })
-      .bootstrapTab('show')
+      .melodicTab('show')
       .end()
       .find('li:last-child a')
-      .bootstrapTab('show')
+      .melodicTab('show')
   })
 
   QUnit.test('selected tab should have aria-selected', function (assert) {
@@ -294,7 +294,7 @@ $(function () {
         '</ul>'
     var $tabs = $(tabsHTML).appendTo('#qunit-fixture')
 
-    $tabs.find('li:first-child a').bootstrapTab('show')
+    $tabs.find('li:first-child a').melodicTab('show')
     assert.strictEqual($tabs.find('.active').attr('aria-selected'), 'true', 'shown tab has aria-selected = true')
     assert.strictEqual($tabs.find('a:not(.active)').attr('aria-selected'), 'false', 'hidden tab has aria-selected = false')
 
@@ -302,7 +302,7 @@ $(function () {
     assert.strictEqual($tabs.find('.active').attr('aria-selected'), 'true', 'after click, shown tab has aria-selected = true')
     assert.strictEqual($tabs.find('a:not(.active)').attr('aria-selected'), 'false', 'after click, hidden tab has aria-selected = false')
 
-    $tabs.find('li:first-child a').bootstrapTab('show')
+    $tabs.find('li:first-child a').melodicTab('show')
     assert.strictEqual($tabs.find('.active').attr('aria-selected'), 'true', 'shown tab has aria-selected = true')
     assert.strictEqual($tabs.find('a:not(.active)').attr('aria-selected'), 'false', 'hidden tab has aria-selected = false')
 
@@ -370,12 +370,12 @@ $(function () {
 
     $(tabsHTML).appendTo('#qunit-fixture')
 
-    $('#tabNested2').on('shown.bs.tab', function () {
+    $('#tabNested2').on('shown.mel.tab', function () {
       assert.ok($('#x-tab1').hasClass('active'))
       done()
     })
 
-    $('#tab1').on('shown.bs.tab', function () {
+    $('#tab1').on('shown.mel.tab', function () {
       assert.ok($('#x-tab1').hasClass('active'))
       $('#tabNested2').trigger($.Event('click'))
     })
@@ -396,12 +396,12 @@ $(function () {
 
     $(tabsHTML).appendTo('#qunit-fixture')
     $('#tab-profile')
-      .on('shown.bs.tab', function () {
+      .on('shown.mel.tab', function () {
         assert.ok($('#profile').hasClass('fade'))
         assert.ok($('#profile').hasClass('show'))
 
         $('#tab-home')
-          .on('shown.bs.tab', function () {
+          .on('shown.mel.tab', function () {
             assert.ok($('#profile').hasClass('fade'))
             assert.notOk($('#profile').hasClass('show'))
             assert.ok($('#home').hasClass('fade'))

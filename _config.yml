@@ -31,7 +31,7 @@ exclude:
   - package.json
   - package-lock.json
   - README.md
-  - twbsconfig.yml
+  - melodic_config.yml
 
 plugins:
   - jekyll-redirect-from

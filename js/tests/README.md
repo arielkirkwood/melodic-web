@@ -1,8 +1,8 @@
-## How does Bootstrap's test suite work?
+## How does Melodic's test suite work?
 
-Bootstrap uses [QUnit](https://qunitjs.com/), a powerful, easy-to-use JavaScript unit test framework. Each plugin has a file dedicated to its tests in `unit/<plugin-name>.js`.
+Melodic uses [QUnit](https://qunitjs.com/), a powerful, easy-to-use JavaScript unit test framework. Each plugin has a file dedicated to its tests in `unit/<plugin-name>.js`.
 
-* `unit/` contains the unit test files for each Bootstrap plugin.
+* `unit/` contains the unit test files for each Melodic plugin.
 * `vendor/` contains third-party testing-related code (QUnit and jQuery).
 * `visual/` contains "visual" tests which are run interactively in real browsers and require manual verification by humans.
 
@@ -25,7 +25,7 @@ To run the unit test suite via a real web browser, open `index.html` in the brow
 * Each test should have a unique name clearly stating what unit is being tested.
 * Each test should test only one unit per test, although one test can include several assertions. Create multiple tests for multiple units of functionality.
 * Each test should begin with [`assert.expect`](https://api.qunitjs.com/assert/expect/) to ensure that the expected assertions are run.
-* Each test should follow the project's [JavaScript Code Guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md#js)
+* Each test should follow the project's [JavaScript Code Guidelines](https://github.com/DWPHoldings/melodic-web/blob/master/CONTRIBUTING.md#js)
 
 ### Example tests
 
@@ -37,7 +37,7 @@ QUnit.test('should describe the unit being tested', function (assert) {
       + '<a class="close" href="#" data-dismiss="alert">×</a>'
       + '<p><strong>Template necessary for the test.</p>'
       + '</div>'
-  var $alert = $(templateHTML).appendTo('#qunit-fixture').bootstrapAlert()
+  var $alert = $(templateHTML).appendTo('#qunit-fixture').melodicAlert()
 
   $alert.find('.close').trigger('click')
 
@@ -52,10 +52,10 @@ QUnit.test('should describe the unit being tested', function (assert) {
 
   $('<div title="tooltip title"></div>')
     .appendTo('#qunit-fixture')
-    .on('shown.bs.tooltip', function () {
+    .on('shown.mel.tooltip', function () {
       assert.ok(true, '"shown" event was fired after calling "show"')
       done()
     })
-    .bootstrapTooltip('show')
+    .melodicTooltip('show')
 })
 ```

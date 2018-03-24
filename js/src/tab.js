@@ -3,8 +3,8 @@ import Util from './util'
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): tab.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): tab.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -16,8 +16,8 @@ const Tab = (($) => {
    */
 
   const NAME                = 'tab'
-  const VERSION             = '4.0.0'
-  const DATA_KEY            = 'bs.tab'
+  const VERSION             = '1.0.0-alpha'
+  const DATA_KEY            = 'mel.tab'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
   const JQUERY_NO_CONFLICT  = $.fn[NAME]

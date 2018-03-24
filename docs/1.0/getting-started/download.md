@@ -6,7 +6,7 @@ group: getting-started
 toc: true
 ---
 
-## Compiled CSS and JS
+## Compiled CSS and JavaScript
 
 Download ready-to-use compiled code for **Melodic v{{ site.current_version}}** to easily drop into your project, which includes:
 

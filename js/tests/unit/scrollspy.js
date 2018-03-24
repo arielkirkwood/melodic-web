@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('scrollspy', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapScrollspy = $.fn.scrollspy.noConflict()
+      $.fn.melodicScrollspy = $.fn.scrollspy.noConflict()
     },
     afterEach: function () {
-      $.fn.scrollspy = $.fn.bootstrapScrollspy
-      delete $.fn.bootstrapScrollspy
+      $.fn.scrollspy = $.fn.melodicScrollspy
+      delete $.fn.melodicScrollspy
     }
   })
 
@@ -27,9 +27,9 @@ $(function () {
   QUnit.test('should throw explicit error on undefined method', function (assert) {
     assert.expect(1)
     var $el = $('<div/>').appendTo('#qunit-fixture')
-    $el.bootstrapScrollspy()
+    $el.melodicScrollspy()
     try {
-      $el.bootstrapScrollspy('noMethod')
+      $el.melodicScrollspy('noMethod')
     } catch (err) {
       assert.strictEqual(err.message, 'No method named "noMethod"')
     }
@@ -38,7 +38,7 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>').appendTo('#qunit-fixture')
-    var $scrollspy = $el.bootstrapScrollspy()
+    var $scrollspy = $el.melodicScrollspy()
     assert.ok($scrollspy instanceof $, 'returns jquery collection')
     assert.strictEqual($scrollspy[0], $el[0], 'collection contains element')
   })
@@ -78,7 +78,7 @@ $(function () {
     var $scrollspy = $section
       .show()
       .find('#scrollspy-example')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         target: '#ss-target'
       })
 
@@ -125,7 +125,7 @@ $(function () {
     var $scrollspy = $section
       .show()
       .find('#scrollspy-example')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         target: document.getElementById('#ss-target')
       })
 
@@ -159,7 +159,7 @@ $(function () {
       .show()
       .filter('#content')
 
-    $scrollspy.bootstrapScrollspy({
+    $scrollspy.melodicScrollspy({
       target: '#navigation',
       offset: $scrollspy.position().top
     })
@@ -192,7 +192,7 @@ $(function () {
     $(navbarHtml).appendTo('#qunit-fixture')
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '.navbar'
       })
@@ -236,7 +236,7 @@ $(function () {
     $(navbarHtml).appendTo('#qunit-fixture')
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '.navbar'
       })
@@ -280,7 +280,7 @@ $(function () {
     $(navbarHtml).appendTo('#qunit-fixture')
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '.navbar'
       })
@@ -330,7 +330,7 @@ $(function () {
 
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '#navigation'
       })
@@ -375,7 +375,7 @@ $(function () {
 
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '#navigation'
       })
@@ -420,7 +420,7 @@ $(function () {
 
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '#navigation'
       })
@@ -465,7 +465,7 @@ $(function () {
 
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '#navigation'
       })
@@ -511,7 +511,7 @@ $(function () {
     var $scrollspy = $(scrollspyHTML).appendTo('#qunit-fixture')
 
     $scrollspy
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         target: '#navigation',
         offset: $scrollspy.position().top
       })
@@ -554,7 +554,7 @@ $(function () {
     var $scrollspy = $(scrollspyHTML).appendTo('#qunit-fixture')
 
     $scrollspy
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         target: '#navigation',
         offset: $scrollspy.position().top
       })
@@ -596,7 +596,7 @@ $(function () {
     $(navbarHtml).appendTo('#qunit-fixture')
     var $content = $(contentHtml)
       .appendTo('#qunit-fixture')
-      .bootstrapScrollspy({
+      .melodicScrollspy({
         offset: 0,
         target: '.navbar'
       })
@@ -656,7 +656,7 @@ $(function () {
       $content.appendTo('#qunit-fixture')
 
       if (type === 'js') {
-        $content.bootstrapScrollspy({
+        $content.melodicScrollspy({
           target: '.navbar',
           offset: 0,
           method: 'offset'
@@ -666,7 +666,7 @@ $(function () {
       }
 
       var $target = $('#div-' + type + 'm-2')
-      var scrollspy = $content.data('bs.scrollspy')
+      var scrollspy = $content.data('mel.scrollspy')
 
       assert.ok(scrollspy._offsets[1] === $target.offset().top, 'offset method with ' + type + ' option')
       assert.ok(scrollspy._offsets[1] !== $target.position().top, 'position method with ' + type + ' option')
@@ -703,7 +703,7 @@ $(function () {
       $content.appendTo('#qunit-fixture')
 
       if (type === 'js') {
-        $content.bootstrapScrollspy({
+        $content.melodicScrollspy({
           target: '.navbar',
           offset: 0,
           method: 'position'
@@ -713,7 +713,7 @@ $(function () {
       }
 
       var $target = $('#div-' + type + 'm-2')
-      var scrollspy = $content.data('bs.scrollspy')
+      var scrollspy = $content.data('mel.scrollspy')
 
       assert.ok(scrollspy._offsets[1] !== $target.offset().top, 'offset method with ' + type + ' option')
       assert.ok(scrollspy._offsets[1] === $target.position().top, 'position method with ' + type + ' option')

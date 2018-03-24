@@ -26,13 +26,13 @@ $(function () {
     },
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapModal = $.fn.modal.noConflict()
+      $.fn.melodicModal = $.fn.modal.noConflict()
     },
     afterEach: function () {
       $('.modal-backdrop, #modal-test').remove()
       $(document.body).removeClass('modal-open')
-      $.fn.modal = $.fn.bootstrapModal
-      delete $.fn.bootstrapModal
+      $.fn.modal = $.fn.melodicModal
+      delete $.fn.melodicModal
     }
   })
 
@@ -44,9 +44,9 @@ $(function () {
   QUnit.test('should throw explicit error on undefined method', function (assert) {
     assert.expect(1)
     var $el = $('<div id="modal-test"/>')
-    $el.bootstrapModal()
+    $el.melodicModal()
     try {
-      $el.bootstrapModal('noMethod')
+      $el.melodicModal('noMethod')
     } catch (err) {
       assert.strictEqual(err.message, 'No method named "noMethod"')
     }
@@ -55,14 +55,14 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div id="modal-test"/>')
-    var $modal = $el.bootstrapModal()
+    var $modal = $el.melodicModal()
     assert.ok($modal instanceof $, 'returns jquery collection')
     assert.strictEqual($modal[0], $el[0], 'collection contains element')
   })
 
   QUnit.test('should expose defaults var for settings', function (assert) {
     assert.expect(1)
-    assert.ok($.fn.bootstrapModal.Constructor.Default, 'default object exposed')
+    assert.ok($.fn.melodicModal.Constructor.Default, 'default object exposed')
   })
 
   QUnit.test('should insert into dom when show method is called', function (assert) {
@@ -70,11 +70,11 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.notEqual($('#modal-test').length, 0, 'modal inserted into dom')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should fire show event', function (assert) {
@@ -82,11 +82,11 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"/>')
-      .on('show.bs.modal', function () {
+      .on('show.mel.modal', function () {
         assert.ok(true, 'show event fired')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should not fire shown when show was prevented', function (assert) {
@@ -94,15 +94,15 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"/>')
-      .on('show.bs.modal', function (e) {
+      .on('show.mel.modal', function (e) {
         e.preventDefault()
         assert.ok(true, 'show event fired')
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok(false, 'shown event fired')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should hide modal when hide is called', function (assert) {
@@ -110,16 +110,16 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
         assert.notEqual($('#modal-test').length, 0, 'modal inserted into dom')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should toggle when toggle is called', function (assert) {
@@ -127,16 +127,16 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
         assert.notEqual($('#modal-test').length, 0, 'modal inserted into dom')
-        $(this).bootstrapModal('toggle')
+        $(this).melodicModal('toggle')
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
         done()
       })
-      .bootstrapModal('toggle')
+      .melodicModal('toggle')
   })
 
   QUnit.test('should remove from dom when click [data-dismiss="modal"]', function (assert) {
@@ -144,16 +144,16 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"><span class="close" data-dismiss="modal"/></div>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
         assert.notEqual($('#modal-test').length, 0, 'modal inserted into dom')
         $(this).find('.close').trigger('click')
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
         done()
       })
-      .bootstrapModal('toggle')
+      .melodicModal('toggle')
   })
 
   QUnit.test('should allow modal close with "backdrop:false"', function (assert) {
@@ -161,15 +161,15 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test" data-backdrop="false"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should close modal when clicking outside of modal-content', function (assert) {
@@ -177,17 +177,17 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"><div class="contents"/></div>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.notEqual($('#modal-test').length, 0, 'modal inserted into dom')
         $('.contents').trigger('click')
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
         $('#modal-test').trigger('click')
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should not close modal when clicking outside of modal-content if data-backdrop="true"', function (assert) {
@@ -195,12 +195,12 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test" data-backdrop="false"><div class="contents"/></div>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         $('#modal-test').trigger('click')
         assert.ok($('#modal-test').is(':visible'), 'modal not hidden')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should close modal when escape key is pressed via keydown', function (assert) {
@@ -209,7 +209,7 @@ $(function () {
 
     var $div = $('<div id="modal-test"/>')
     $div
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok($('#modal-test').length, 'modal inserted into dom')
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
         $div.trigger($.Event('keydown', {
@@ -222,7 +222,7 @@ $(function () {
           done()
         }, 0)
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should not close modal when escape key is pressed via keyup', function (assert) {
@@ -231,7 +231,7 @@ $(function () {
 
     var $div = $('<div id="modal-test"/>')
     $div
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.ok($('#modal-test').length, 'modal inserted into dom')
         assert.ok($('#modal-test').is(':visible'), 'modal visible')
         $div.trigger($.Event('keyup', {
@@ -244,7 +244,7 @@ $(function () {
           done()
         }, 0)
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should trigger hide event once when clicking outside of modal-content', function (assert) {
@@ -254,16 +254,16 @@ $(function () {
     var triggered
 
     $('<div id="modal-test"><div class="contents"/></div>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         triggered = 0
         $('#modal-test').trigger('click')
       })
-      .on('hide.bs.modal', function () {
+      .on('hide.mel.modal', function () {
         triggered += 1
         assert.strictEqual(triggered, 1, 'modal hide triggered once')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should remove aria-hidden attribute when shown, add it back when hidden', function (assert) {
@@ -271,16 +271,16 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test" aria-hidden="true"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.notOk($('#modal-test').is('[aria-hidden]'), 'aria-hidden attribute removed')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.ok($('#modal-test').is('[aria-hidden]'), 'aria-hidden attribute added')
         assert.strictEqual($('#modal-test').attr('aria-hidden'), 'true', 'correct aria-hidden="true" added')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should close reopened modal with [data-dismiss="modal"] click', function (assert) {
@@ -288,23 +288,23 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"><div class="contents"><div id="close" data-dismiss="modal"/></div></div>')
-      .one('shown.bs.modal', function () {
+      .one('shown.mel.modal', function () {
         $('#close').trigger('click')
       })
-      .one('hidden.bs.modal', function () {
+      .one('hidden.mel.modal', function () {
         // After one open-close cycle
         assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
         $(this)
-          .one('shown.bs.modal', function () {
+          .one('shown.mel.modal', function () {
             $('#close').trigger('click')
           })
-          .one('hidden.bs.modal', function () {
+          .one('hidden.mel.modal', function () {
             assert.ok(!$('#modal-test').is(':visible'), 'modal hidden')
             done()
           })
-          .bootstrapModal('show')
+          .melodicModal('show')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should restore focus to toggling element when modal is hidden after having been opened via data-api', function (assert) {
@@ -314,13 +314,13 @@ $(function () {
     var $toggleBtn = $('<button data-toggle="modal" data-target="#modal-test"/>').appendTo('#qunit-fixture')
 
     $('<div id="modal-test"><div class="contents"><div id="close" data-dismiss="modal"/></div></div>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         setTimeout(function () {
           assert.ok($(document.activeElement).is($toggleBtn), 'toggling element is once again focused')
           done()
         }, 0)
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         $('#close').trigger('click')
       })
       .appendTo('#qunit-fixture')
@@ -335,20 +335,20 @@ $(function () {
     var $otherBtn = $('<button id="other-btn"/>').appendTo('#qunit-fixture')
 
     $('<div id="modal-test"><div class="contents"><div id="close" data-dismiss="modal"/></div>')
-      .one('show.bs.modal', function (e) {
+      .one('show.mel.modal', function (e) {
         e.preventDefault()
         $otherBtn.trigger('focus')
         setTimeout($.proxy(function () {
-          $(this).bootstrapModal('show')
+          $(this).melodicModal('show')
         }, this), 0)
       })
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         setTimeout(function () {
           assert.ok($(document.activeElement).is($otherBtn), 'focus returned to toggling element')
           done()
         }, 0)
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         $('#close').trigger('click')
       })
       .appendTo('#qunit-fixture')
@@ -361,13 +361,13 @@ $(function () {
     var done = assert.async()
 
     $('<div id="modal-test"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         var expectedPadding = $(this).getScrollbarWidth() + 'px'
         var currentPadding = $(this).css('padding-right')
         assert.strictEqual(currentPadding, expectedPadding, 'modal padding should be adjusted while opening')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should adjust the inline body padding when opening and restore when closing', function (assert) {
@@ -377,19 +377,19 @@ $(function () {
     var originalPadding = $body.css('padding-right')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         var currentPadding = $body.css('padding-right')
         assert.strictEqual(currentPadding, originalPadding, 'body padding should be reset after closing')
         $body.removeAttr('style')
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         var expectedPadding = parseFloat(originalPadding) + $(this).getScrollbarWidth() + 'px'
         var currentPadding = $body.css('padding-right')
         assert.strictEqual(currentPadding, expectedPadding, 'body padding should be adjusted while opening')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should store the original body padding in data-padding-right before showing', function (assert) {
@@ -400,16 +400,16 @@ $(function () {
     $body.css('padding-right', originalPadding)
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual(typeof $body.data('padding-right'), 'undefined', 'data-padding-right should be cleared after closing')
         $body.removeAttr('style')
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.strictEqual($body.data('padding-right'), originalPadding, 'original body padding should be stored in data-padding-right')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should not adjust the inline body padding when it does not overflow', function (assert) {
@@ -423,17 +423,17 @@ $(function () {
     $('html').css('padding-right', '0px')  // Simulated scrollbar (for PhantomJS)
 
     $('<div id="modal-test"/>')
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         var currentPadding = $body.css('padding-right')
         assert.strictEqual(currentPadding, originalPadding, 'body padding should not be adjusted')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
 
         // Restore scrollbars
         $body.css('overflow', 'auto')
         $('html').css('padding-right', '16px')
         done()
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should adjust the inline padding of fixed elements when opening and restore when closing', function (assert) {
@@ -443,19 +443,19 @@ $(function () {
     var originalPadding = $element.css('padding-right')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         var currentPadding = $element.css('padding-right')
         assert.strictEqual(currentPadding, originalPadding, 'fixed element padding should be reset after closing')
         $element.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         var expectedPadding = parseFloat(originalPadding) + $(this).getScrollbarWidth() + 'px'
         var currentPadding = $element.css('padding-right')
         assert.strictEqual(currentPadding, expectedPadding, 'fixed element padding should be adjusted while opening')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should store the original padding of fixed elements in data-padding-right before showing', function (assert) {
@@ -466,16 +466,16 @@ $(function () {
     $element.css('padding-right', originalPadding)
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual(typeof $element.data('padding-right'), 'undefined', 'data-padding-right should be cleared after closing')
         $element.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.strictEqual($element.data('padding-right'), originalPadding, 'original fixed element padding should be stored in data-padding-right')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should adjust the inline margin of sticky elements when opening and restore when closing', function (assert) {
@@ -485,19 +485,19 @@ $(function () {
     var originalPadding = $element.css('margin-right')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         var currentPadding = $element.css('margin-right')
         assert.strictEqual(currentPadding, originalPadding, 'sticky element margin should be reset after closing')
         $element.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         var expectedPadding = parseFloat(originalPadding) - $(this).getScrollbarWidth() + 'px'
         var currentPadding = $element.css('margin-right')
         assert.strictEqual(currentPadding, expectedPadding, 'sticky element margin should be adjusted while opening')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should store the original margin of sticky elements in data-margin-right before showing', function (assert) {
@@ -508,16 +508,16 @@ $(function () {
     $element.css('margin-right', originalPadding)
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual(typeof $element.data('margin-right'), 'undefined', 'data-margin-right should be cleared after closing')
         $element.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.strictEqual($element.data('margin-right'), originalPadding, 'original sticky element margin should be stored in data-margin-right')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should adjust the inline margin of the navbar-toggler when opening and restore when closing', function (assert) {
@@ -527,19 +527,19 @@ $(function () {
     var originalMargin = $element.css('margin-right')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         var currentMargin = $element.css('margin-right')
         assert.strictEqual(currentMargin, originalMargin, 'navbar-toggler margin should be reset after closing')
         $element.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         var expectedMargin = parseFloat(originalMargin) + $(this).getScrollbarWidth() + 'px'
         var currentMargin = $element.css('margin-right')
         assert.strictEqual(currentMargin, expectedMargin, 'navbar-toggler margin should be adjusted while opening')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should store the original margin of the navbar-toggler in data-margin-right before showing', function (assert) {
@@ -550,16 +550,16 @@ $(function () {
     $element.css('margin-right', originalMargin)
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual(typeof $element.data('margin-right'), 'undefined', 'data-margin-right should be cleared after closing')
         $element.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
+      .on('shown.mel.modal', function () {
         assert.strictEqual($element.data('margin-right'), originalMargin, 'original navbar-toggler margin should be stored in data-margin-right')
-        $(this).bootstrapModal('hide')
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should ignore values set via CSS when trying to restore body padding after closing', function (assert) {
@@ -569,15 +569,15 @@ $(function () {
     var $style = $('<style>body { padding-right: 42px; }</style>').appendTo('head')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual($body.attr('style').indexOf('padding-right'), -1, 'body does not have inline padding set')
         $style.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
-        $(this).bootstrapModal('hide')
+      .on('shown.mel.modal', function () {
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should ignore other inline styles when trying to restore body padding after closing', function (assert) {
@@ -589,17 +589,17 @@ $(function () {
     $body.css('color', 'red')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual($body[0].style.paddingRight, '', 'body does not have inline padding set')
         assert.strictEqual($body[0].style.color, 'red', 'body still has other inline styles set')
         $body.removeAttr('style')
         $style.remove()
         done()
       })
-      .on('shown.bs.modal', function () {
-        $(this).bootstrapModal('hide')
+      .on('shown.mel.modal', function () {
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should properly restore non-pixel inline body padding after closing', function (assert) {
@@ -610,15 +610,15 @@ $(function () {
     $body.css('padding-right', '5%')
 
     $('<div id="modal-test"/>')
-      .on('hidden.bs.modal', function () {
+      .on('hidden.mel.modal', function () {
         assert.strictEqual($body[0].style.paddingRight, '5%', 'body does not have inline padding set')
         $body.removeAttr('style')
         done()
       })
-      .on('shown.bs.modal', function () {
-        $(this).bootstrapModal('hide')
+      .on('shown.mel.modal', function () {
+        $(this).melodicModal('hide')
       })
-      .bootstrapModal('show')
+      .melodicModal('show')
   })
 
   QUnit.test('should not follow link in area tag', function (assert) {
@@ -632,7 +632,7 @@ $(function () {
       .appendTo('#qunit-fixture')
 
     $('#test')
-      .on('click.bs.modal.data-api', function (event) {
+      .on('click.mel.modal.data-api', function (event) {
         assert.notOk(event.isDefaultPrevented(), 'navigating to href will happen')
 
         setTimeout(function () {
@@ -684,14 +684,14 @@ $(function () {
     var done = assert.async()
     var count = 0
 
-    $('<div id="modal-test"/>').on('shown.bs.modal', function () {
+    $('<div id="modal-test"/>').on('shown.mel.modal', function () {
       count++
-    }).on('hidden.bs.modal', function () {
+    }).on('hidden.mel.modal', function () {
       assert.strictEqual(count, 1, 'show() runs only once')
       done()
     })
-      .bootstrapModal('show')
-      .bootstrapModal('show')
-      .bootstrapModal('hide')
+      .melodicModal('show')
+      .melodicModal('show')
+      .melodicModal('hide')
   })
 })

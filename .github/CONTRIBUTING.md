@@ -137,16 +137,16 @@ Please adhere to the [coding guidelines](#code-guidelines) used throughout the
 project (indentation, accurate comments, etc.) and any other requirements
 (such as test coverage).
 
-**Do not edit `bootstrap.css`, or `bootstrap.js`
+**Do not edit `melodic.css`, or `melodic.js`
 directly!** Those files are automatically generated. You should edit the
-source files in [`/bootstrap/scss/`](https://github.com/twbs/bootstrap/tree/master/scss)
-and/or [`/bootstrap/js/`](https://github.com/twbs/bootstrap/tree/master/js) instead.
+source files in [`/melodic-web/scss/`](https://github.com/DWPHoldings/melodic-web/tree/master/scss)
+and/or [`/melodic-web/js/`](https://github.com/DWPHoldings/melodic-web/tree/master/js) instead.
 
-Similarly, when contributing to Bootstrap's documentation, you should edit the
+Similarly, when contributing to Melodic's documentation, you should edit the
 documentation source files in
-[the `/bootstrap/docs/` directory of the `master` branch](https://github.com/twbs/bootstrap/tree/master/docs).
+[the `/melodic-web/docs/` directory of the `master` branch](https://github.com/DWPHoldings/melodic-web/tree/master/docs).
 **Do not edit the `gh-pages` branch.** That branch is generated from the
-documentation source files and is managed separately by the Bootstrap Core Team.
+documentation source files and is managed separately by the Melodic Core Team.
 
 Adhering to the following process is the best way to get your work
 included in the project:
@@ -156,11 +156,11 @@ included in the project:
 
    ```bash
    # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/bootstrap.git
+   git clone https://github.com/<your-username>/melodic-web.git
    # Navigate to the newly cloned directory
-   cd bootstrap
+   cd melodic-web
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/twbs/bootstrap.git
+   git remote add upstream https://github.com/DWPHoldings/melodic-web.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:
@@ -248,5 +248,3 @@ Run `npm run test` before committing to ensure your changes follow our coding st
 
 By contributing your code, you agree to license your contribution under the [MIT License](LICENSE).
 By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](docs/LICENSE).
-
-Prior to v3.1.0, Bootstrap's code was released under the Apache License v2.0.
