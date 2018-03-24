@@ -18,7 +18,7 @@ const Dropdown = (($) => {
 
   const NAME                     = 'dropdown'
   const VERSION                  = '1.0.0-alpha'
-  const DATA_KEY                 = 'bs.dropdown'
+  const DATA_KEY                 = 'mel.dropdown'
   const EVENT_KEY                = `.${DATA_KEY}`
   const DATA_API_KEY             = '.data-api'
   const JQUERY_NO_CONFLICT       = $.fn[NAME]
