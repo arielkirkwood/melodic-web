@@ -131,10 +131,10 @@ See [the Releases section of our GitHub project](https://github.com/DWPHoldings/
 
 **Greg Beck**
 
-- <https://twitter.com/fat>
-- <https://github.com/fat>
+- <https://twitter.com/gbeck419>
+- <https://github.com/gbeck419>
 
-and other wonderful Inspire Avengers who contribute to the evolution of this system.
+as well as [Inspire Avengers and other contributors](https://github.com/DWPHoldings/melodic-web/graphs/contributors).
 
 
 ## Copyright and license
