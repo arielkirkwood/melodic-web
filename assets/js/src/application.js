@@ -3,7 +3,7 @@
 // ++++++++++++++++++++++++++++++++++++++++++
 
 /*!
- * JavaScript for Bootstrap's docs (https://getbootstrap.com)
+ * JavaScript for Melodic's docs (https://melodic.helloinspire.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
  * Portions copyright 2018 Inspire Energy Holdings, LLC
