@@ -12,10 +12,11 @@
     "web"
   ],
   "homepage": "https://melodic.helloinspire.com",
-  "author": "The Avengers of Inspire, with thanks to Mark Otto, Jacob Thornton, and Bootstrap contributors",
+  "author": "Inspire Energy Holdings, LLC",
   "contributors": [
     "Twitter, Inc.",
-    "Inspire Energy Holdings, LLC"
+    "Mark Otto, Jacob Thornton, and Bootstrap contributors",
+    "The lovely Avengers of Inspire"
   ],
   "scripts": {
     "bundlesize": "bundlesize",
