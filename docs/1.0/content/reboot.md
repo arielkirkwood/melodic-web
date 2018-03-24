@@ -9,7 +9,7 @@ toc: true
 
 ## Approach
 
-Reboot builds upon Normalize, providing many HTML elements with somewhat opinionated styles using only element selectors. Additional styling is done only with classes. For example, we reboot some `<table>` styles for a simpler baseline and later provide `.table`, `.table-bordered`, and more.
+Reboot builds upon [Normalize](https://necolas.github.io/normalize.css/), providing many HTML elements with somewhat opinionated styles using only element selectors. Additional styling is done only with classes. For example, we reboot some `<table>` styles for a simpler baseline and later provide `.table`, `.table-bordered`, and more.
 
 Here are our guidelines and reasons for choosing what to override in Reboot:
 

@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Introduction
-description: Get started with Melodic, the world's most popular framework for building responsive, mobile-first sites.
+description: Get started with Melodic, Inspire's front-end design system for Web.
 group: getting-started
 redirect_from:
   - /docs/
