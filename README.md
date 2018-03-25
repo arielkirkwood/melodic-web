@@ -102,10 +102,7 @@ Learn more about using Jekyll by reading its [documentation](https://jekyllrb.co
 
 ### Documentation for previous releases
 
-- For v2.3.2: <https://melodic.helloinspire.com/2.3.2/>
-- For v3.3.x: <https://melodic.helloinspire.com/docs/3.3/>
-
-[Previous releases](https://github.com/DWPHoldings/melodic-web/releases) and their documentation are also available for download.
+[Previous releases](https://github.com/DWPHoldings/melodic-web/releases) and their documentation are available for download.
 
 ## Contributing
 
@@ -117,7 +114,7 @@ Editor preferences are available in the [editor config](https://github.com/DWPHo
 
 ## Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility, Melodic is maintained under [the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
+For transparency into our release cycle and in striving to maintain backward compatibility, Melodic is maintained under [the Semantic Versioning guidelines](http://semver.org/).
 
 See [the Releases section of our GitHub project](https://github.com/DWPHoldings/melodic-web/releases) for changelogs for each release version of Melodic.
 
