@@ -5,13 +5,16 @@ layout: home
 <main class="mwd-masthead" id="content" role="main">
   <div class="container">
     <div class="row">
-      <div class="col text-center text-md-left pr-md-5">
+      <div class="col-6 col-md-4 col-lg-3 m-auto p-3 order-md-2">
+        {% include icons/landscape.svg class="img-responsive" %}
+      </div>
+      <div class="col-md-8 col-lg-6 text-center text-md-left pr-md-5 order-md-1">
         <h1 class="mb-3 mwd-text-fuschia">Melodic</h1>
         <p class="lead">
           Build responsive, mobile-first projects with Inspire's front-end design system for the Web.
         </p>
         <p class="lead mb-4">
-          Melodic is Inspire's toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.
+          Melodic is Inspire's toolkit for developing with HTML, CSS, and JavaScript. Consider it a living style guide. This package consists of Sass variables and mixins, a responsive grid system, extensive prebuilt components, and  JavaScript sprinkles built on jQuery to add interactivity.
         </p>
         <div class="d-flex flex-column flex-md-row lead mb-3">
           <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/" class="btn btn-lg btn-outline-primary mb-3 mb-md-0 mr-md-3">Get started</a>
@@ -25,12 +28,14 @@ layout: home
   </div>
 </main>
 
-<div class="masthead-followup row m-0 bg-light border border-white">
-  <div class="col p-3 p-md-5 border-top border-bottom border-white">
-    <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
-    {% include icons/import.svg width="32" height="32" class="text-primary mb-2" %}
-    <h3>Installation</h3>
-    <p>Include Melodic's source Sass and JavaScript files via npm, Yarn, or Rubygems. Package managed installs don't include documentation, but do include our build system and readme.</p>
+<div class="masthead-followup bg-light border-bottom border-white">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-6 order-md-2 p-3 p-md-5">
+        <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
+        {% include icons/import.svg width="32" height="32" class="text-primary mb-2" %}
+        <h3>Installation</h3>
+        <p>Include Melodic's source Sass and JavaScript files via npm, Yarn, or Rubygems. Package managed installs don't include documentation, but do include our build system and readme.</p>
 
 {% highlight sh %}
 npm install melodic@{{ site.current_version }}
@@ -44,7 +49,14 @@ yarn add melodic@{{ site.current_version }}
 gem install melodic -v {{ site.current_ruby_version }}
 {% endhighlight %}
 
-    <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download">Read installation docs</a>
+        <hr class="half-rule">
+        <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download">Read installation docs</a>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3 m-auto p-3 order-md-1">
+        <div class="d-flex flex-column align-items-center">
+          {% include icons/windmill.svg class="img-responsive" %}
+        </div>
+      </div>
+    </div>
   </div>
 </div>

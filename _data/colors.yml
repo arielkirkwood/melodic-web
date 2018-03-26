@@ -20,6 +20,8 @@
   hex: "#ffaa67"
 - name: yellow
   hex: "#ffc107"
+- name: mango
+  hex: "#f8cc1c"
 - name: vis-vis
   hex: "#fff5a5"
 - name: green
