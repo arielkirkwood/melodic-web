@@ -53,7 +53,7 @@
     "docs-compile": "bundle exec jekyll build",
     "docs-github": "shx echo \"github: true\" > melodic_config.yml && npm run docs-compile -- --config _config.yml,melodic_config.yml && shx rm ./melodic_config.yml",
     "docs-github-serve": "bundle exec jekyll serve --skip-initial-build --no-watch",
-    "docs-lint": "npm-run-all docs-lint-*",
+    "docs-lint": "npm-run-all docs-lint-* *-lint-docs",
     "docs-lint-htmllint": "htmllint --rc build/.htmllintrc \"_gh_pages/**/*.html\" \"js/tests/**/*.html\"",
     "docs-lint-vnu-jar": "node build/vnu-jar.js",
     "docs-lint-rubocop": "bundle exec rubocop .",
