@@ -3,8 +3,8 @@ import Tooltip from './tooltip'
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): popover.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): popover.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -16,12 +16,12 @@ const Popover = (($) => {
    */
 
   const NAME                = 'popover'
-  const VERSION             = '4.0.0'
-  const DATA_KEY            = 'bs.popover'
+  const VERSION             = '1.0.0-alpha'
+  const DATA_KEY            = 'mel.popover'
   const EVENT_KEY           = `.${DATA_KEY}`
   const JQUERY_NO_CONFLICT  = $.fn[NAME]
-  const CLASS_PREFIX        = 'bs-popover'
-  const BSCLS_PREFIX_REGEX  = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
+  const CLASS_PREFIX        = 'mel-popover'
+  const MELCLS_PREFIX_REGEX  = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 
   const Default = {
     ...Tooltip.Default,
@@ -137,7 +137,7 @@ const Popover = (($) => {
 
     _cleanTipClass() {
       const $tip = $(this.getTipElement())
-      const tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX)
+      const tabClass = $tip.attr('class').match(MELCLS_PREFIX_REGEX)
       if (tabClass !== null && tabClass.length > 0) {
         $tip.removeClass(tabClass.join(''))
       }

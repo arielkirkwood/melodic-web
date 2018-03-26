@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../../../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../dist/css/melodic.min.css">
     <title>Carousel</title>
   </head>
   <body>
     <div class="container">
-      <h1>Carousel <small>Bootstrap Visual Test</small></h1>
+      <h1>Carousel <small>Melodic Visual Test</small></h1>
 
       <p>Also, the carousel shouldn't slide when its window/tab is hidden. Check the console log.</p>
 
@@ -47,7 +47,7 @@
     <script>
       $(function() {
         // Test to show that the carousel doesn't slide when the current tab isn't visible
-        $('#carousel-example-generic').on('slid.bs.carousel', function(event) {
+        $('#carousel-example-generic').on('slid.mel.carousel', function(event) {
           console.log('slid at ', event.timeStamp)
         })
       })

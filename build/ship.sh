@@ -2,8 +2,8 @@
 #
 # Usage
 # ---------------
-# 1. Clone second version of Bootstrap in sibling directory named `bs-docs`.
-# 2. Within `bs-docs` copy, switch to `gh-pages` branch.
+# 1. Clone second version of Melodic in sibling directory named `mel-docs`.
+# 2. Within `mel-docs` copy, switch to `gh-pages` branch.
 # 3. Pull latest, re-bundle, re-npm.
 # 4. Run script.
 
@@ -26,7 +26,7 @@ fi
 printf "\n${magenta}=======================================================${end}"
 printf "\n${magenta}Pulling latest changes...${end}"
 printf "\n${magenta}=======================================================\n\n${end}"
-git pull origin v4-dev
+git pull origin v1-dev
 
 # Update version number
 printf "\n${magenta}=======================================================${end}"

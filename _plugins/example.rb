@@ -13,29 +13,30 @@ module Jekyll
       def initialize(tag_name, markup, tokens)
         super
         if markup.strip =~ SYNTAX
-          @lang = $1.downcase
+          @lang = Regexp.last_match(1).downcase
           @options = {}
-          if defined?($2) && $2 != ''
+          if defined?(Regexp.last_match(2)) && Regexp.last_match(2) != ''
             # Split along 3 possible forms -- key="<quoted list>", key=value, or key
-            $2.scan(/(?:\w+(?:=(?:(?:\w|[0-9_-])+|"[^"]*")?)?)/) do |opt|
+            Regexp.last_match(2).scan(/(?:\w+(?:=(?:(?:\w|[0-9_-])+|"[^"]*")?)?)/) do |opt|
               key, value = opt.split('=')
               # If a quoted list, convert to array
-              if value && value.include?("\"")
-                  value.gsub!(/"/, "")
-                  value = value.split
+              if value&.include?("\"")
+                value.delete!("\"")
+                value = value.split
               end
               @options[key.to_sym] = value || true
             end
           end
           @options[:linenos] = false
         else
-          raise SyntaxError.new <<-eos
-Syntax Error in tag 'example' while parsing the following markup:
+          raise SyntaxError,
+            <<~ERROR
+              Syntax Error in tag 'example' while parsing the following markup:
 
-  #{markup}
+              #{markup}
 
-Valid syntax: example <lang> [id=foo]
-eos
+              Valid syntax: example <lang> [id=foo]
+            ERROR
         end
       end
 
@@ -45,30 +46,31 @@ eos
         code = super.to_s.strip
 
         output = case context.registers[:site].highlighter
-
-        when 'rouge'
-          render_rouge(code)
-        end
+                 when 'rouge'
+                   render_rouge(code)
+                 end
 
         rendered_output = example(code) + add_code_tag(output)
         prefix + rendered_output + suffix
       end
 
       def example(output)
-        "<div class=\"bd-example\"" + (@options[:id] ? " data-example-id=\"#{@options[:id]}\"" : "") + ">\n#{output}\n</div>"
+        "<div class=\"mwd-example\"" +
+          (@options[:id] ? " data-example-id=\"#{@options[:id]}\"" : "") +
+          ">\n#{output}\n</div>"
       end
 
       def remove_holderjs(code)
-        code = code.gsub(/data-src="holder.js.+?"/, 'src="..."')
+        code.gsub(/data-src="holder.js.+?"/, 'src="..."')
       end
 
       def remove_example_classes(code)
-        # Find `bd-` classes and remove them from the highlighted code. Because of how this regex works, it will also
-        # remove classes that are after the `bd-` class. While this is a bug, I left it because it can be helpful too.
+        # Find `mwd-` classes and remove them from the highlighted code. Because of how this regex works, it will also
+        # remove classes that are after the `mwd-` class. While this is a bug, I left it because it can be helpful too.
         # To fix the bug, replace `(?=")` with `(?=("|\ ))`.
-        code = code.gsub(/(?!class=".)\ *?bd-.+?(?=")/, "")
+        code = code.gsub(/(?!class=".)\ *?mwd-.+?(?=")/, "")
         # Find empty class attributes after the previous regex and remove those too.
-        code = code.gsub(/\ class=""/, "")
+        code.gsub(/\ class=""/, "")
       end
 
       def render_rouge(code)
@@ -83,11 +85,11 @@ eos
 
       def add_code_tag(code)
         # Add nested <code> tags to code blocks
-        code = code.sub(/<pre>\n*/,'<pre><code class="language-' + @lang.to_s.gsub("+", "-") + '" data-lang="' + @lang.to_s + '">')
-        code = code.sub(/\n*<\/pre>/,"</code></pre>")
+        code = code.sub(/<pre>\n*/, '<pre><code class="language-' +
+                          @lang.to_s.tr("+", "-") + '" data-lang="' + @lang.to_s + '">')
+        code = code.sub(%r{\n*<\/pre>}, "</code></pre>")
         code.strip
       end
-
     end
   end
 end

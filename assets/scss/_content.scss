@@ -1,10 +1,10 @@
 // stylelint-disable no-duplicate-selectors, selector-max-combinators, selector-max-compound-selectors, selector-max-type, selector-no-qualifying-type
 
 //
-// Automatically style Markdown-based tables like a Bootstrap `.table`.
+// Automatically style Markdown-based tables like a Melodic `.table`.
 //
 
-.bd-content {
+.mwd-content {
   order: 1;
 
   // Hack the sticky header
@@ -71,7 +71,7 @@
 // Docs sections
 //
 
-.bd-content {
+.mwd-content {
   > h2:not(:first-child) {
     margin-top: 3rem;
   }
@@ -94,7 +94,7 @@
   }
 }
 
-.bd-title {
+.mwd-title {
   margin-top: 1rem;
   margin-bottom: .5rem;
   font-weight: 300;
@@ -104,7 +104,7 @@
   }
 }
 
-.bd-lead {
+.mwd-lead {
   font-size: 1.125rem;
   font-weight: 300;
 
@@ -115,5 +115,5 @@
   }
 }
 
-.bd-text-purple { color: $bd-purple; }
-.bd-text-purple-bright { color: $bd-purple-bright; }
+.mwd-text-fuschia { color: $mwd-fuschia; }
+.mwd-text-fuschia-bright { color: $mwd-fuschia-bright; }

@@ -12,5 +12,5 @@
 # Don't diff or textually merge source maps
 *.map   binary
 
-bootstrap.css linguist-vendored=false
-bootstrap.js linguist-vendored=false
+melodic.css linguist-vendored=false
+melodic.js linguist-vendored=false

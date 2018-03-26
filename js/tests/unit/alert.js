@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('alert', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapAlert = $.fn.alert.noConflict()
+      $.fn.melodicAlert = $.fn.alert.noConflict()
     },
     afterEach: function () {
-      $.fn.alert = $.fn.bootstrapAlert
-      delete $.fn.bootstrapAlert
+      $.fn.alert = $.fn.melodicAlert
+      delete $.fn.melodicAlert
     }
   })
 
@@ -27,7 +27,7 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>')
-    var $alert = $el.bootstrapAlert()
+    var $alert = $el.melodicAlert()
     assert.ok($alert instanceof $, 'returns jquery collection')
     assert.strictEqual($alert[0], $el[0], 'collection contains element')
   })
@@ -39,7 +39,7 @@ $(function () {
         '<p><strong>Holy guacamole!</strong> Best check yo self, you\'re not looking too good.</p>' +
         '</div>'
 
-    var $alert = $(alertHTML).bootstrapAlert().appendTo($('#qunit-fixture'))
+    var $alert = $(alertHTML).melodicAlert().appendTo($('#qunit-fixture'))
 
     $alert.find('.close').trigger('click')
 
@@ -52,7 +52,7 @@ $(function () {
         '<a class="close" href="#" data-dismiss="alert">×</a>' +
         '<p><strong>Holy guacamole!</strong> Best check yo self, you\'re not looking too good.</p>' +
         '</div>'
-    var $alert = $(alertHTML).appendTo('#qunit-fixture').bootstrapAlert()
+    var $alert = $(alertHTML).appendTo('#qunit-fixture').melodicAlert()
 
     assert.notEqual($('#qunit-fixture').find('.alert').length, 0, 'element added to dom')
 
@@ -65,14 +65,14 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     $('<div class="alert"/>')
-      .on('close.bs.alert', function (e) {
+      .on('close.mel.alert', function (e) {
         e.preventDefault()
         assert.ok(true, 'close event fired')
         done()
       })
-      .on('closed.bs.alert', function () {
+      .on('closed.mel.alert', function () {
         assert.ok(false, 'closed event fired')
       })
-      .bootstrapAlert('close')
+      .melodicAlert('close')
   })
 })

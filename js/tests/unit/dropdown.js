@@ -11,11 +11,11 @@ $(function () {
   QUnit.module('dropdowns', {
     beforeEach: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
-      $.fn.bootstrapDropdown = $.fn.dropdown.noConflict()
+      $.fn.melodicDropdown = $.fn.dropdown.noConflict()
     },
     afterEach: function () {
-      $.fn.dropdown = $.fn.bootstrapDropdown
-      delete $.fn.bootstrapDropdown
+      $.fn.dropdown = $.fn.melodicDropdown
+      delete $.fn.melodicDropdown
     }
   })
 
@@ -27,9 +27,9 @@ $(function () {
   QUnit.test('should throw explicit error on undefined method', function (assert) {
     assert.expect(1)
     var $el = $('<div/>')
-    $el.bootstrapDropdown()
+    $el.melodicDropdown()
     try {
-      $el.bootstrapDropdown('noMethod')
+      $el.melodicDropdown('noMethod')
     } catch (err) {
       assert.strictEqual(err.message, 'No method named "noMethod"')
     }
@@ -38,7 +38,7 @@ $(function () {
   QUnit.test('should return jquery collection containing the element', function (assert) {
     assert.expect(2)
     var $el = $('<div/>')
-    var $dropdown = $el.bootstrapDropdown()
+    var $dropdown = $el.melodicDropdown()
     assert.ok($dropdown instanceof $, 'returns jquery collection')
     assert.strictEqual($dropdown[0], $el[0], 'collection contains element')
   })
@@ -58,7 +58,7 @@ $(function () {
         '</div>' +
         '</div>'
     $(dropdownHTML).appendTo('#qunit-fixture')
-    var $dropdown = $('#qunit-fixture').find('[data-toggle="dropdown"]').bootstrapDropdown()
+    var $dropdown = $('#qunit-fixture').find('[data-toggle="dropdown"]').melodicDropdown()
     $dropdown.on('click', function () {
       assert.ok(!$dropdown.parent('.dropdown').hasClass('show'))
       done()
@@ -78,10 +78,10 @@ $(function () {
         '</div>' +
         '</div>' +
         '</div>'
-    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
+    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').melodicDropdown()
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok(!$dropdown.parent('.dropdown').hasClass('position-static'), '"position-static" class not added')
         done()
       })
@@ -100,10 +100,10 @@ $(function () {
         '</div>' +
         '</div>' +
         '</div>'
-    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
+    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').melodicDropdown()
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('position-static'), '"position-static" class added')
         done()
       })
@@ -127,10 +127,10 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.strictEqual($dropdown.attr('aria-expanded'), 'true', 'aria-expanded is set to string "true" on click')
         done()
       })
@@ -154,11 +154,11 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     $dropdown
       .parent('.dropdown')
-      .on('hidden.bs.dropdown', function () {
+      .on('hidden.mel.dropdown', function () {
         assert.strictEqual($dropdown.attr('aria-expanded'), 'false', 'aria-expanded is set to string "false" on hide')
         done()
       })
@@ -183,7 +183,7 @@ $(function () {
         '</div>'
 
     $(dropdownHTML).appendTo('#qunit-fixture')
-    var $dropdown = $('#qunit-fixture').find('[data-toggle="dropdown"]').bootstrapDropdown()
+    var $dropdown = $('#qunit-fixture').find('[data-toggle="dropdown"]').melodicDropdown()
     $dropdown.on('click', function () {
       assert.ok(!$dropdown.parent('.dropdown').hasClass('show'))
       done()
@@ -205,10 +205,10 @@ $(function () {
         '</div>' +
         '</div>' +
         '</div>'
-    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
+    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').melodicDropdown()
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), '"show" class added on click')
         done()
       })
@@ -229,10 +229,10 @@ $(function () {
         '</div>' +
         '</div>' +
         '</div>'
-    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').bootstrapDropdown()
+    var $dropdown = $(dropdownHTML).find('[data-toggle="dropdown"]').melodicDropdown()
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), '"show" class added on click')
         done()
       })
@@ -256,14 +256,14 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), '"show" class added on click')
         $(document.body).trigger('click')
-      }).on('hidden.bs.dropdown', function () {
+      }).on('hidden.mel.dropdown', function () {
         assert.ok(!$dropdown.parent('.dropdown').hasClass('show'), '"show" class removed')
         done()
       })
@@ -287,15 +287,15 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), '"show" class added on click')
         var e = $.Event('keyup')
         e.which = 9 // Tab
         $(document.body).trigger(e)
-      }).on('hidden.bs.dropdown', function () {
+      }).on('hidden.mel.dropdown', function () {
         assert.ok(!$dropdown.parent('.dropdown').hasClass('show'), '"show" class removed')
         done()
       })
@@ -327,21 +327,21 @@ $(function () {
     assert.strictEqual($dropdowns.length, 2, 'two dropdowns')
 
     $first.parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.strictEqual($first.parents('.show').length, 1, '"show" class added on click')
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 1, 'only one dropdown is shown')
         $(document.body).trigger('click')
-      }).on('hidden.bs.dropdown', function () {
+      }).on('hidden.mel.dropdown', function () {
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
         $last.trigger('click')
       })
 
     $last.parent('.btn-group')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.strictEqual($last.parent('.show').length, 1, '"show" class added on click')
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 1, 'only one dropdown is shown')
         $(document.body).trigger('click')
-      }).on('hidden.bs.dropdown', function () {
+      }).on('hidden.mel.dropdown', function () {
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
         done()
       })
@@ -373,25 +373,25 @@ $(function () {
     assert.strictEqual($dropdowns.length, 2, 'two dropdowns')
 
     $first.parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.strictEqual($first.parents('.show').length, 1, '"show" class added on click')
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 1, 'only one dropdown is shown')
         var e = $.Event('keyup')
         e.which = 9 // Tab
         $(document.body).trigger(e)
-      }).on('hidden.bs.dropdown', function () {
+      }).on('hidden.mel.dropdown', function () {
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
         $last.trigger('click')
       })
 
     $last.parent('.btn-group')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.strictEqual($last.parent('.show').length, 1, '"show" class added on click')
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 1, 'only one dropdown is shown')
         var e = $.Event('keyup')
         e.which = 9 // Tab
         $(document.body).trigger(e)
-      }).on('hidden.bs.dropdown', function () {
+      }).on('hidden.mel.dropdown', function () {
         assert.strictEqual($('#qunit-fixture .dropdown-menu.show').length, 0, '"show" class removed')
         done()
       })
@@ -414,16 +414,16 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var done = assert.async()
 
     $dropdown
       .parent('.dropdown')
-      .on('show.bs.dropdown', function () {
+      .on('show.mel.dropdown', function () {
         assert.ok(true, 'show was fired')
       })
-      .on('hide.bs.dropdown', function () {
+      .on('hide.mel.dropdown', function () {
         assert.ok(true, 'hide was fired')
         done()
       })
@@ -448,16 +448,16 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var done = assert.async()
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok(true, 'shown was fired')
       })
-      .on('hidden.bs.dropdown', function () {
+      .on('hidden.mel.dropdown', function () {
         assert.ok(true, 'hidden was fired')
         done()
       })
@@ -482,15 +482,15 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
     var done = assert.async()
 
     $dropdown.parent('.dropdown')
-      .on('hidden.bs.dropdown', function (e) {
+      .on('hidden.mel.dropdown', function (e) {
         assert.strictEqual(e.relatedTarget, $dropdown[0])
         done()
       })
-      .on('shown.bs.dropdown', function (e) {
+      .on('shown.mel.dropdown', function (e) {
         assert.strictEqual(e.relatedTarget, $dropdown[0])
         $(document.body).trigger('click')
       })
@@ -518,14 +518,14 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var $input = $('#input')
     var $textarea = $('#textarea')
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok(true, 'shown was fired')
 
         $input.trigger('focus').trigger($.Event('keydown', {
@@ -559,11 +559,11 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok(true, 'shown was fired')
         $dropdown.trigger($.Event('keydown', {
           which: 40
@@ -592,11 +592,11 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok(true, 'shown was fired')
         $dropdown.trigger($.Event('keydown', {
           which: 40
@@ -629,7 +629,7 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var $textfield = $('#textField')
     $textfield.on('click', function () {
@@ -639,7 +639,7 @@ $(function () {
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), 'dropdown menu is shown')
         $textfield.trigger($.Event('click'))
       })
@@ -658,7 +658,7 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var $textarea = $('#textArea')
     $textarea.on('click', function () {
@@ -668,7 +668,7 @@ $(function () {
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok($dropdown.parent('.dropdown').hasClass('show'), 'dropdown menu is shown')
         $textarea.trigger($.Event('click'))
       })
@@ -692,12 +692,12 @@ $(function () {
     $(html).appendTo('#qunit-fixture')
     var $triggerDropdown = $('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
     var $dropdownMenu = $triggerDropdown.next()
 
     $triggerDropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         assert.ok(typeof $dropdownMenu.attr('style') === 'undefined', 'No inline style applied by Popper.js')
         done()
       })
@@ -724,14 +724,14 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var $input = $('#input')
     var $textarea = $('#textarea')
 
     $dropdown
       .parent('.dropdown')
-      .on('shown.bs.dropdown', function () {
+      .on('shown.mel.dropdown', function () {
         // Space key
         $input.trigger('focus').trigger($.Event('keydown', {
           which: 32
@@ -793,13 +793,13 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var $input = $('#input')
 
     $dropdown
       .parent('.dropdown')
-      .one('shown.bs.dropdown', function () {
+      .one('shown.mel.dropdown', function () {
         assert.ok(true, 'shown was fired')
 
         // Key space
@@ -817,7 +817,7 @@ $(function () {
 
         $dropdown
           .parent('.dropdown')
-          .one('shown.bs.dropdown', function () {
+          .one('shown.mel.dropdown', function () {
             // Key down
             $input.trigger('focus').trigger($.Event('keydown', {
               which: 40
@@ -826,14 +826,14 @@ $(function () {
 
             $dropdown
               .parent('.dropdown')
-              .one('shown.bs.dropdown', function () {
+              .one('shown.mel.dropdown', function () {
                 // Key up
                 $input.trigger('focus').trigger($.Event('keydown', {
                   which: 38
                 }))
                 assert.ok(document.activeElement === $('#item1')[0], 'item1 is focused')
                 done()
-              }).bootstrapDropdown('toggle')
+              }).melodicDropdown('toggle')
             $input.trigger('click')
           })
         $input.trigger('click')
@@ -861,13 +861,13 @@ $(function () {
     var $dropdown = $(dropdownHTML)
       .appendTo('#qunit-fixture')
       .find('[data-toggle="dropdown"]')
-      .bootstrapDropdown()
+      .melodicDropdown()
 
     var $textarea = $('#textarea')
 
     $dropdown
       .parent('.dropdown')
-      .one('shown.bs.dropdown', function () {
+      .one('shown.mel.dropdown', function () {
         assert.ok(true, 'shown was fired')
 
         // Key space
@@ -885,7 +885,7 @@ $(function () {
 
         $dropdown
           .parent('.dropdown')
-          .one('shown.bs.dropdown', function () {
+          .one('shown.mel.dropdown', function () {
             // Key down
             $textarea.trigger('focus').trigger($.Event('keydown', {
               which: 40
@@ -894,14 +894,14 @@ $(function () {
 
             $dropdown
               .parent('.dropdown')
-              .one('shown.bs.dropdown', function () {
+              .one('shown.mel.dropdown', function () {
                 // Key up
                 $textarea.trigger('focus').trigger($.Event('keydown', {
                   which: 38
                 }))
                 assert.ok(document.activeElement === $('#item1')[0], 'item1 is focused')
                 done()
-              }).bootstrapDropdown('toggle')
+              }).melodicDropdown('toggle')
             $textarea.trigger('click')
           })
         $textarea.trigger('click')

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../../../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../dist/css/melodic.min.css">
     <title>Modal</title>
     <style>
       #tall {
@@ -32,7 +32,7 @@
     </nav>
 
     <div class="container mt-3">
-      <h1>Modal <small>Bootstrap Visual Test</small></h1>
+      <h1>Modal <small>Melodic Visual Test</small></h1>
 
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -168,7 +168,7 @@
         Tall body content to force the page to have a scrollbar.
       </div>
 
-      <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="&#x3C;div class=&#x22;modal fade the-bad&#x22; tabindex=&#x22;-1&#x22; role=&#x22;dialog&#x22;&#x3E;&#x3C;div class=&#x22;modal-dialog&#x22; role=&#x22;document&#x22;&#x3E;&#x3C;div class=&#x22;modal-content&#x22;&#x3E;&#x3C;div class=&#x22;modal-header&#x22;&#x3E;&#x3C;button type=&#x22;button&#x22; class=&#x22;close&#x22; data-dismiss=&#x22;modal&#x22; aria-label=&#x22;Close&#x22;&#x3E;&#x3C;span aria-hidden=&#x22;true&#x22;&#x3E;&#x26;times;&#x3C;/span&#x3E;&#x3C;/button&#x3E;&#x3C;h4 class=&#x22;modal-title&#x22;&#x3E;The Bad Modal&#x3C;/h4&#x3E;&#x3C;/div&#x3E;&#x3C;div class=&#x22;modal-body&#x22;&#x3E;This modal&#x27;s HTTML source code is declared inline, inside the data-target attribute of it&#x27;s show-button&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;">
+      <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="&#x3C;div class=&#x22;modal fade the-bad&#x22; tabindex=&#x22;-1&#x22; role=&#x22;dialog&#x22;&#x3E;&#x3C;div class=&#x22;modal-dialog&#x22; role=&#x22;document&#x22;&#x3E;&#x3C;div class=&#x22;modal-content&#x22;&#x3E;&#x3C;div class=&#x22;modal-header&#x22;&#x3E;&#x3C;button type=&#x22;button&#x22; class=&#x22;close&#x22; data-dismiss=&#x22;modal&#x22; aria-label=&#x22;Close&#x22;&#x3E;&#x3C;span aria-hidden=&#x22;true&#x22;&#x3E;&#x26;times;&#x3C;/span&#x3E;&#x3C;/button&#x3E;&#x3C;h4 class=&#x22;modal-title&#x22;&#x3E;The Bad Modal&#x3C;/h4&#x3E;&#x3C;/div&#x3E;&#x3C;div class=&#x22;modal-body&#x22;&#x3E;This modal&#x27;s HTML source code is declared inline, inside the data-target attribute of it&#x27;s show-button&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;">
         Modal with an XSS inside the data-target
       </button>
 
@@ -211,12 +211,12 @@
         })
 
         $('#btnPreventModal').on('click', function () {
-          $('#firefoxModal').one('shown.bs.modal', function () {
+          $('#firefoxModal').one('shown.mel.modal', function () {
             $(this).modal('hide')
           })
-          .one('hide.bs.modal', function (event) {
+          .one('hide.mel.modal', function (event) {
             event.preventDefault()
-            if ($(this).data('bs.modal')._isTransitioning) {
+            if ($(this).data('mel.modal')._isTransitioning) {
               console.error('Modal plugin should not set _isTransitioning when hide event is prevented')
             } else {
               console.log('Test passed')

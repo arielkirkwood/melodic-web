@@ -13,7 +13,7 @@
     *,
     *::before,
     *::after {
-      // Bootstrap specific; comment out `color` and `background`
+      // Melodic specific; comment out `color` and `background`
       //color: #000 !important; // Black prints faster: http://www.sanbeiji.com/archives/953
       text-shadow: none !important;
       //background: transparent !important;
@@ -26,7 +26,7 @@
       }
     }
 
-    // Bootstrap specific; comment the following selector out
+    // Melodic specific; comment the following selector out
     //a[href]::after {
     //  content: " (" attr(href) ")";
     //}
@@ -35,7 +35,7 @@
       content: " (" attr(title) ")";
     }
 
-    // Bootstrap specific; comment the following selector out
+    // Melodic specific; comment the following selector out
     //
     // Don't show links that are fragment identifiers,
     // or use the `javascript:` pseudo protocol
@@ -51,7 +51,7 @@
     }
     pre,
     blockquote {
-      border: $border-width solid #999;   // Bootstrap custom code; using `$border-width` instead of 1px
+      border: $border-width solid #999;   // Melodic custom code; using `$border-width` instead of 1px
       page-break-inside: avoid;
     }
 
@@ -81,7 +81,7 @@
       page-break-after: avoid;
     }
 
-    // Bootstrap specific changes start
+    // Melodic specific changes start
 
     // Specify a size and min-width to make printing closer across browsers.
     // We don't set margin here because it breaks `size` in Chrome. We also
@@ -96,7 +96,7 @@
       min-width: $print-body-min-width !important;
     }
 
-    // Bootstrap components
+    // Melodic components
     .navbar {
       display: none;
     }
@@ -119,6 +119,6 @@
       }
     }
 
-    // Bootstrap specific changes end
+    // Melodic specific changes end
   }
 }

@@ -1,4 +1,4 @@
-// Bootstrap functions
+// Melodic functions
 //
 // Utility mixins and functions for evalutating source code across our variables, maps, and mixins.
 
@@ -64,7 +64,7 @@
 }
 
 // Retrieve color Sass maps
-@function color($key: "blue") {
+@function color($key: "fuschia") {
   @return map-get($colors, $key);
 }
 

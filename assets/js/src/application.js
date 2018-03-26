@@ -3,9 +3,10 @@
 // ++++++++++++++++++++++++++++++++++++++++++
 
 /*!
- * JavaScript for Bootstrap's docs (https://getbootstrap.com)
+ * JavaScript for Melodic's docs (https://melodic.helloinspire.com)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
+ * Portions copyright 2018 Inspire Energy Holdings, LLC
  * Licensed under the Creative Commons Attribution 3.0 Unported License. For
  * details, see https://creativecommons.org/licenses/by/3.0/.
  */
@@ -29,15 +30,15 @@
     $('.popover-test').popover()
 
     // Indeterminate checkbox example
-    $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
+    $('.mwd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
 
     // Disable empty links in docs examples
-    $('.bd-content [href="#"]').click(function (e) {
+    $('.mwd-content [href="#"]').click(function (e) {
       e.preventDefault()
     })
 
     // Modal relatedTarget demo
-    $('#exampleModal').on('show.bs.modal', function (event) {
+    $('#exampleModal').on('show.mel.modal', function (event) {
       var $button = $(event.relatedTarget)      // Button that triggered the modal
       var recipient = $button.data('whatever')  // Extract info from data-* attributes
       // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -48,13 +49,13 @@
     })
 
     // Activate animated progress bar
-    $('.bd-toggle-animated-progress').on('click', function () {
+    $('.mwd-toggle-animated-progress').on('click', function () {
       $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated')
     })
 
     // Insert copy to clipboard button before .highlight
     $('figure.highlight, div.highlight').each(function () {
-      var btnHtml = '<div class="bd-clipboard"><button class="btn-clipboard" title="Copy to clipboard">Copy</button></div>'
+      var btnHtml = '<div class="mwd-clipboard"><button class="btn-clipboard" title="Copy to clipboard">Copy</button></div>'
       $(this).before(btnHtml)
       $('.btn-clipboard')
         .tooltip()
@@ -98,14 +99,14 @@
     anchors.options = {
       icon: '#'
     }
-    anchors.add('.bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5')
-    $('.bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5').wrapInner('<div></div>')
+    anchors.add('.mwd-content > h2, .mwd-content > h3, .mwd-content > h4, .mwd-content > h5')
+    $('.mwd-content > h2, .mwd-content > h3, .mwd-content > h4, .mwd-content > h5').wrapInner('<div></div>')
 
     // Search
     if (window.docsearch) {
       window.docsearch({
         apiKey: '48cb48b22351bc71ea5f12f4d1ede198',
-        indexName: 'bootstrap-v4',
+        indexName: 'melodic-v1',
         inputSelector: '#search-input',
         handleSelected: function (input, event, suggestion) {
           var url = suggestion.url
@@ -125,8 +126,8 @@
 
     // Holder
     Holder.addTheme('gray', {
-      bg: '#777',
-      fg: 'rgba(255,255,255,.75)',
+      bg: '#282b2d',
+      fg: '#a9bbc3',
       font: 'Helvetica',
       fontweight: 'normal'
     })

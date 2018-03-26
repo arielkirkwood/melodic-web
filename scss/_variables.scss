@@ -20,6 +20,7 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
+$panther:  #282b2d !default;
 
 $grays: () !default;
 $grays: map-merge((
@@ -34,42 +35,62 @@ $grays: map-merge((
   "900": $gray-900
 ), $grays);
 
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+$blue:           #007bff !default;
+$mariner:        #3b71d6 !default;
+$blue-violet:    #5147ad !default;
+$indigo:         #6610f2 !default;
+$purple:         #6f42c1 !default;
+$brilliant-rose: #ef5fb0 !default;
+$fuschia:        #e6168b !default;
+$red:            #dc3545 !default;
+$orange:         #fd7e14 !default;
+$tangerine:      #ffaa67 !default;
+$yellow:         #ffc107 !default;
+$mango:          #f8cc1c !default;
+$vis-vis:        #fff5a5 !default;
+$green:          #28a745 !default;
+$ice-cold:       #a8f8e3 !default;
+$aquamarine:     #50e3ae !default;
+$teal:           #20c997 !default;
+$anakiwa:        #87dffc !default;
+$pelorous:       #41b3c6 !default;
+$cyan:           #17a2b8 !default;
 
 $colors: () !default;
 $colors: map-merge((
-  "blue":       $blue,
-  "indigo":     $indigo,
-  "purple":     $purple,
-  "pink":       $pink,
-  "red":        $red,
-  "orange":     $orange,
-  "yellow":     $yellow,
-  "green":      $green,
-  "teal":       $teal,
-  "cyan":       $cyan,
-  "white":      $white,
-  "gray":       $gray-600,
-  "gray-dark":  $gray-800
+  "blue":           $blue,
+  "mariner":        $mariner,
+  "blue-violet":    $blue-violet,
+  "indigo":         $indigo,
+  "purple":         $purple,
+  "brilliant-rose": $brilliant-rose,
+  "fuschia":        $fuschia,
+  "red":            $red,
+  "orange":         $orange,
+  "tangerine":      $tangerine,
+  "yellow":         $yellow,
+  "mango":          $mango,
+  "vis-vis":        $vis-vis,
+  "green":          $green,
+  "ice-cold":       $ice-cold,
+  "aquamarine":     $aquamarine,
+  "teal":           $teal,
+  "anakiwa":        $anakiwa,
+  "pelorous":       $pelorous,
+  "cyan":           $cyan,
+  "white":          $white,
+  "gray":           $gray-600,
+  "gray-dark":      $gray-800
 ), $colors);
 
-$primary:       $blue !default;
+$primary:       $fuschia !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
-$dark:          $gray-800 !default;
+$dark:          $panther !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge((
@@ -100,17 +121,16 @@ $yiq-text-light: $white !default;
 
 $enable-caret:              true !default;
 $enable-rounded:            true !default;
-$enable-shadows:            false !default;
+$enable-shadows:            true !default;
 $enable-gradients:          false !default;
 $enable-transitions:        true !default;
-$enable-hover-media-query:  false !default; // Deprecated, no longer affects any compiled CSS
 $enable-grid-classes:       true !default;
 $enable-print-styles:       true !default;
 
 
 // Spacing
 //
-// Control the default styling of most Bootstrap elements by modifying these
+// Control the default styling of most Melodic elements by modifying these
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
@@ -212,7 +232,7 @@ $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;
 
 $component-active-color:      $white !default;
-$component-active-bg:         theme-color("primary") !default;
+$component-active-bg:         color("blue") !default;
 
 $caret-width:                 .3em !default;
 
@@ -226,15 +246,17 @@ $transition-collapse:         height .35s ease !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif:      Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-serif:           Merriweather, Georgia, serif !default;
+$font-family-monospace:       "Roboto Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base:              .875rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg:                ($font-size-base * 1.25) !default;
 $font-size-sm:                ($font-size-base * .875) !default;
 
+$font-weight-thin:            100 !default;
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
 $font-weight-bold:            700 !default;
@@ -250,7 +272,7 @@ $h5-font-size:                $font-size-base * 1.25 !default;
 $h6-font-size:                $font-size-base !default;
 
 $headings-margin-bottom:      ($spacer / 2) !default;
-$headings-font-family:        inherit !default;
+$headings-font-family:        $font-family-serif !default;
 $headings-font-weight:        500 !default;
 $headings-line-height:        1.2 !default;
 $headings-color:              inherit !default;
@@ -272,6 +294,7 @@ $lead-font-weight:            300 !default;
 $small-font-size:             80% !default;
 
 $text-muted:                  $gray-600 !default;
+$text-letter-spacing:         3px !default;
 
 $blockquote-small-color:      $gray-600 !default;
 $blockquote-font-size:        ($font-size-base * 1.25) !default;
@@ -343,10 +366,10 @@ $input-btn-border-width:      $border-width !default;
 
 // Buttons
 //
-// For each of Bootstrap's buttons, define text, background, and border color.
+// For each of Melodic's buttons, define text, background, and border color.
 
 $btn-padding-y:               $input-btn-padding-y !default;
-$btn-padding-x:               $input-btn-padding-x !default;
+$btn-padding-x:               $input-btn-padding-x * 2 !default;
 $btn-line-height:             $input-btn-line-height !default;
 
 $btn-padding-y-sm:            $input-btn-padding-y-sm !default;
@@ -360,10 +383,10 @@ $btn-line-height-lg:          $input-btn-line-height-lg !default;
 $btn-border-width:            $input-btn-border-width !default;
 
 $btn-font-weight:             $font-weight-normal !default;
-$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-box-shadow:              none !default;
 $btn-focus-width:             $input-btn-focus-width !default;
 $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
-$btn-disabled-opacity:        .65 !default;
+$btn-disabled-opacity:        .2 !default;
 $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
 
 $btn-link-disabled-color:     $gray-600 !default;
@@ -371,9 +394,9 @@ $btn-link-disabled-color:     $gray-600 !default;
 $btn-block-spacing-y:         .5rem !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius:           $border-radius !default;
-$btn-border-radius-lg:        $border-radius-lg !default;
-$btn-border-radius-sm:        $border-radius-sm !default;
+$btn-border-radius:           20px !default;
+$btn-border-radius-lg:        $btn-border-radius * 1.5 !default;
+$btn-border-radius-sm:        $btn-border-radius !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
@@ -658,7 +681,7 @@ $jumbotron-bg:                      $gray-200 !default;
 $card-spacer-y:                     .75rem !default;
 $card-spacer-x:                     1.25rem !default;
 $card-border-width:                 $border-width !default;
-$card-border-radius:                $border-radius !default;
+$card-border-radius:                $border-radius * 2 !default;
 $card-border-color:                 rgba($black, .125) !default;
 $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
 $card-cap-bg:                       rgba($black, .03) !default;
@@ -680,7 +703,7 @@ $tooltip-font-size:           $font-size-sm !default;
 $tooltip-max-width:           200px !default;
 $tooltip-color:               $white !default;
 $tooltip-bg:                  $black !default;
-$tooltip-border-radius:        $border-radius !default;
+$tooltip-border-radius:       $border-radius !default;
 $tooltip-opacity:             .9 !default;
 $tooltip-padding-y:           .25rem !default;
 $tooltip-padding-x:           .5rem !default;
@@ -723,7 +746,7 @@ $badge-font-size:                   75% !default;
 $badge-font-weight:                 $font-weight-bold !default;
 $badge-padding-y:                   .25em !default;
 $badge-padding-x:                   .4em !default;
-$badge-border-radius:               $border-radius !default;
+$badge-border-radius:               0 !default;
 
 $badge-pill-padding-x:              .6em !default;
 // Use a higher than normal value to ensure completely rounded edges when
@@ -877,7 +900,7 @@ $close-text-shadow:                 0 1px 0 $white !default;
 // Code
 
 $code-font-size:                    87.5% !default;
-$code-color:                        $pink !default;
+$code-color:                        $fuschia !default;
 
 $kbd-padding-y:                     .2rem !default;
 $kbd-padding-x:                     .4rem !default;

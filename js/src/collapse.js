@@ -3,8 +3,8 @@ import Util from './util'
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): collapse.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): collapse.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -16,8 +16,8 @@ const Collapse = (($) => {
    */
 
   const NAME                = 'collapse'
-  const VERSION             = '4.0.0'
-  const DATA_KEY            = 'bs.collapse'
+  const VERSION             = '1.0.0-alpha'
+  const DATA_KEY            = 'mel.collapse'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
   const JQUERY_NO_CONFLICT  = $.fn[NAME]

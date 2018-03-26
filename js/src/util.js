@@ -2,8 +2,8 @@ import $ from 'jquery'
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): util.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): util.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -89,7 +89,7 @@ const Util = (($) => {
 
   const Util = {
 
-    TRANSITION_END: 'bsTransitionEnd',
+    TRANSITION_END: 'melTransitionEnd',
 
     getUID(prefix) {
       do {
