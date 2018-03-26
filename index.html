@@ -1,12 +1,121 @@
----
-layout: home
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Inspire’s front-end design system for the Web.">
+<meta name="author" content="The Avengers of Inspire, with thanks to Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Jekyll v3.7.0">
 
-<main class="mwd-masthead" id="content" role="main">
+<title>Melodic · Inspire’s front-end design system for the Web.</title>
+
+<!-- Melodic core CSS -->
+
+<link href="/dist/css/melodic.min.css" rel="stylesheet" integrity="sha384-LktL9d5A4xOdlDHEh1ts0Xrq9sXiyig9x7FkvDfx3KBedW3YS4/hPP1XhLZdEdcb" crossorigin="anonymous">
+
+
+<!-- Documentation extras -->
+
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#e6168b">
+<link rel="icon" href="/favicon.ico">
+<meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#e6168b">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@helloinspire">
+<meta name="twitter:creator" content="@helloinspire">
+<meta name="twitter:title" content="Melodic">
+<meta name="twitter:description" content="Inspire’s front-end design system for the Web.">
+<meta name="twitter:image" content="https://melodic.helloinspire.com/assets/brand/melodic-social.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://melodic.helloinspire.com/">
+<meta property="og:title" content="Melodic">
+<meta property="og:description" content="Inspire’s front-end design system for the Web.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://melodic.helloinspire.com/assets/brand/melodic-social.png">
+<meta property="og:image:secure_url" content="https://melodic.helloinspire.com/assets/brand/melodic-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+
+  </head>
+  <body>
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+
+    <header class="navbar navbar-expand flex-column flex-md-row mwd-navbar">
+  <a class="navbar-brand mr-0 mr-md-3" href="/" aria-label="Melodic">
+    <img src="/assets/brand/lumen.png" alt="The Inspire Lumen" srcset="/assets/brand/lumen.png, /assets/brand/lumen@2x.png 2x, /assets/brand/lumen@3x.png 3x">
+  </a>
+
+  <div class="navbar-nav-scroll navbar-dark">
+    <ul class="navbar-nav mwd-navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/docs/1.0/getting-started/introduction/">Documentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/docs/1.0/examples/">Examples</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="navbar-light flex-row ml-md-auto d-none d-md-flex">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="mwd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          v1.0
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mwd-versions">
+          <a class="dropdown-item active" href="/docs/1.0/">Latest (1.x)</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link p-2" href="https://github.com/DWPHoldings/melodic-web" target="_blank" rel="noopener" aria-label="GitHub"><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/></svg>
+</a>
+      </li>
+    </ul>
+  </div>
+
+  <a class="btn btn-outline-dark d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="https://github.com/DWPHoldings/melodic-web/archive/v1.0.0-alpha.zip">Download</a>
+</header>
+
+
+    <main class="mwd-masthead" id="content" role="main">
   <div class="container">
     <div class="row">
       <div class="col-6 col-md-4 col-lg-3 m-auto p-3 order-md-2">
-        {% include icons/landscape.svg class="img-responsive" %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 93">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#DCDCDC" stroke-linecap="round" stroke-linejoin="round" d="M15.661 69.132l13.204-11.585 16.097 14.88M36.516 60.507l19.746-13.661 19.073 16.803M.678 67.386c5.876-2.41 15.762-1.672 22.745 7.228"/>
+        <path fill="#50e3ae" d="M39.434 79.019H29.308l5.064-42.725z"/>
+        <path stroke="#50e3ae" stroke-linecap="round" stroke-linejoin="round" d="M39.434 79.019H29.308l5.064-42.725z"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M34.371 85.588V51.346"/>
+        <path fill="#50e3ae" d="M65.996 73.911H44.52L55.26.035z"/>
+        <path stroke="#50e3ae" stroke-linecap="round" stroke-linejoin="round" d="M65.996 73.911H44.52L55.26.035z"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M55.258 92.231V14.672M50.585 60.605l4.673 5.682 4.493-9.715M57.904 50.04l-2.79 3.392-2.68-5.798"/>
+        <path stroke="#F8CC1C" stroke-linecap="round" stroke-linejoin="round" d="M34.65 15.267a3.972 3.972 0 1 1-7.943-.003 3.972 3.972 0 0 1 7.944.003zM30.679 8.498V5.92M30.679 24.614v-2.579M26.006 7.172l1.292 2.237M34.061 21.124l1.292 2.237M36.537 18.648l2.236 1.292M22.585 10.593l2.236 1.292M40.026 15.267h-2.578M23.91 15.267h-2.577M24.822 18.648l-2.236 1.292M36.537 11.885l2.236-1.292M35.353 7.172L34.061 9.41M27.298 21.124l-1.292 2.237M1.48 48.853H26.18M18.282 46.164a3.017 3.017 0 0 1 4.382 2.689M1.48 48.853a5.099 5.099 0 0 1 7.592-4.448h-.001M8.564 46.58a4.859 4.859 0 0 1 9.717 0M2.717 62.028l1.136 4.4M5.556 61.744l-.284 4.4"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M32.118 72.427l2.253 2.186M36.331 65.335l-1.96 2.187"/>
+    </g>
+</svg>
+
       </div>
       <div class="col-md-8 col-lg-6 text-center text-md-left pr-md-5 order-md-1">
         <h1 class="mb-3 mwd-text-fuschia">Melodic</h1>
@@ -17,11 +126,11 @@ layout: home
           Melodic is Inspire's toolkit for developing with HTML, CSS, and JavaScript. Consider it a living style guide. This package consists of Sass variables and mixins, a responsive grid system, extensive prebuilt components, and  JavaScript sprinkles built on jQuery to add interactivity.
         </p>
         <div class="d-flex flex-column flex-md-row lead mb-3">
-          <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/" class="btn btn-lg btn-outline-primary mb-3 mb-md-0 mr-md-3">Get started</a>
-          <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download/" class="btn btn-lg btn-outline-secondary">Download</a>
+          <a href="/docs/1.0/getting-started/introduction/" class="btn btn-lg btn-outline-primary mb-3 mb-md-0 mr-md-3">Get started</a>
+          <a href="/docs/1.0/getting-started/download/" class="btn btn-lg btn-outline-secondary">Download</a>
         </div>
         <p class="text-muted mb-0">
-          Currently v{{ site.current_version }}
+          Currently v1.0.0-alpha
         </p>
       </div>
     </div>
@@ -33,30 +142,66 @@ layout: home
     <div class="row">
       <div class="col col-lg-6 order-md-2 p-3 p-md-5">
         <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
-        {% include icons/import.svg width="32" height="32" class="text-primary mb-2" %}
+        <svg xmlns="http://www.w3.org/2000/svg" focusable="false" width="32" height="32" fill="none" stroke="currentcolor" stroke-width="2" class="text-primary mb-2" viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round"><title>Import icon</title><path d="M28 22v8H4v-8M16 4v20m-8-8l8 8 8-8"/></svg>
+
         <h3>Installation</h3>
         <p>Include Melodic's source Sass and JavaScript files via npm, Yarn, or Rubygems. Package managed installs don't include documentation, but do include our build system and readme.</p>
 
-{% highlight sh %}
-npm install melodic@{{ site.current_version }}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">npm <span class="nb">install </span>melodic@1.0.0-alpha</code></pre></figure>
 
-{% highlight sh %}
-yarn add melodic@{{ site.current_version }}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">yarn add melodic@1.0.0-alpha</code></pre></figure>
 
-{% highlight sh %}
-gem install melodic -v {{ site.current_ruby_version }}
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">gem <span class="nb">install </span>melodic <span class="nt">-v</span> 1.0.0.alpha</code></pre></figure>
 
         <hr class="half-rule">
-        <a class="btn btn-outline-primary" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/download">Read installation docs</a>
+        <a class="btn btn-outline-primary" href="/docs/1.0/getting-started/download">Read installation docs</a>
       </div>
       <div class="col-6 col-md-4 col-lg-3 m-auto p-3 order-md-1">
         <div class="d-flex flex-column align-items-center">
-          {% include icons/windmill.svg class="img-responsive" %}
+          <svg xmlns="http://www.w3.org/2000/svg" class="img-responsive" viewBox="0 0 73 94">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#DCDCDC" stroke-linecap="round" stroke-linejoin="round" d="M.688 78.592s11.786 5.265 34.362 5.265c28.139 0 36.823 2.28 36.823 2.28"/>
+        <path fill="#FFF" d="M52.566 20.985L70.234 1.057a1.092 1.092 0 0 1 1.73 1.324l-9.802 14.936a3.522 3.522 0 0 1-3.099 1.584 3.52 3.52 0 0 0-2.789 1.18l-1.06 1.197"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M52.566 20.985L70.234 1.057a1.092 1.092 0 0 1 1.73 1.324l-9.802 14.936a3.522 3.522 0 0 1-3.099 1.584 3.52 3.52 0 0 0-2.789 1.18l-1.06 1.197"/>
+        <path fill="#e6168b" d="M47.298 93.852l7.369-.038-3.011-67.885-2.207.014z"/>
+        <path fill="#FFF" d="M54.636 25.703l8.427 25.27a1.134 1.134 0 0 1-2.09.871l-8.349-16.583a3.656 3.656 0 0 1 .185-3.612c.593-.93.735-2.077.385-3.123l-.863-2.59"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M54.636 25.703l8.427 25.27a1.134 1.134 0 0 1-2.09.871l-8.349-16.583a3.656 3.656 0 0 1 .185-3.612c.593-.93.735-2.077.385-3.123l-.863-2.59"/>
+        <path fill="#e6168b" d="M53.692 25.902a2.405 2.405 0 0 0-.029-4.81l-5.392.035a2.405 2.405 0 1 0 .03 4.809l5.391-.034z"/>
+        <path fill="#FFF" d="M49.981 24.666L22.865 19.12a1.134 1.134 0 0 1 .293-2.245l18.536 1.06a3.657 3.657 0 0 1 3.035 1.966 3.661 3.661 0 0 0 2.513 1.897l3.19.653"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M49.981 24.666L22.865 19.12a1.134 1.134 0 0 1 .293-2.245l18.536 1.06a3.657 3.657 0 0 1 3.035 1.966 3.661 3.661 0 0 0 2.513 1.897l3.19.653"/>
+        <path fill="#e6168b" d="M16.099 87.373l4.848-.026-1.98-44.465-1.454.01z"/>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M20.658 40.293l14.884 1.03a.641.641 0 0 1 .006 1.279l-10.457.79a2.063 2.063 0 0 1-1.846-.873c-.358-.51-1.639-.916-2.26-.96"/>
+        <path fill="#e6168b" d="M19.439 42.864a1.581 1.581 0 1 0-.021-3.163l-3.547.021a1.582 1.582 0 0 0 .02 3.164l3.548-.022z"/>
+        <g>
+            <path fill="#FFF" d="M17.289 41.793l-1.197 1.778a2.407 2.407 0 0 1-1.782 1.053 2.404 2.404 0 0 0-1.957 1.352L7.06 56.983a.747.747 0 0 0 1.293.741l10.337-15.355"/>
+            <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M17.289 41.793l-1.197 1.778a2.407 2.407 0 0 1-1.782 1.053 2.404 2.404 0 0 0-1.957 1.352L7.06 56.983a.747.747 0 0 0 1.293.741l10.337-15.355"/>
+        </g>
+        <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" d="M16.458 39.719L8.516 23.466a.79.79 0 0 1 1.362-.792l7.278 10.662a2.54 2.54 0 0 1 .205 2.506c-.323.695-.315 1.5.021 2.188l.77 1.577"/>
+    </g>
+</svg>
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+    <footer class="mwd-footer text-muted">
+  <div class="container-fluid p-3 p-md-5">
+    <ul class="mwd-footer-links">
+      <li><a href="https://github.com/DWPHoldings/melodic-web">GitHub</a></li>
+      <li><a href="/docs/1.0/examples/">Examples</a></li>
+      <li><a href="/docs/1.0/about/overview/">About</a></li>
+    </ul>
+    <p>This project stands on the shoulders of <a href="https://getbootstrap.com/">Bootstrap</a>; thank you <a href="https://twitter.com/mdo" target="_blank" rel="noopener">@mdo</a>, <a href="https://twitter.com/fat" target="_blank" rel="noopener">@fat</a>, the <a href="https://github.com/orgs/twbs/people">Bootstrap core team</a>, and all of <a href="https://github.com/twbs/bootstrap/graphs/contributors">Bootstrap's contributors</a>.</p>
+    <p>Currently v1.0.0-alpha. This code licensed <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</p>
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+
+<script src="/assets/js/vendor/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="/dist/js/melodic.min.js" integrity="sha384-B7PDzSOnhaGManpH+MekU5Qg5XrXpZYznfsEn9JyoeJ8JstHhnJzuMllEflSj/ec" crossorigin="anonymous"></script><script src="/assets/js/docs.min.js"></script>
+  </body>
+</html>
