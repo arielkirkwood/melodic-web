@@ -140,4 +140,4 @@ and other [Inspire Avengers and contributors](https://github.com/DWPHoldings/mel
 
 ## Copyright and license
 
-Code and documentation copyright 2011-2018 the [Bootstrap Authors](https://github.com/twbs/bootstrap/graphs/contributors) and [Twitter, Inc.](https://twitter.com) Portions copyright 2018 Inspire Energy Holdings, LLC. Code released under the [MIT License](https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE). Docs released under [Creative Commons](https://github.com/DWPHoldings/melodic-web/blob/master/docs/LICENSE).
+Code and documentation copyright 2011-2018 the [Bootstrap Authors](https://github.com/twbs/bootstrap/graphs/contributors) and [Twitter, Inc.](https://twitter.com) Portions copyright 2018 [Inspire Energy Holdings, LLC.](https://helloinspire.com) Code released under the [MIT License](https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE). Docs released under [Creative Commons](https://github.com/DWPHoldings/melodic-web/blob/master/docs/LICENSE).
