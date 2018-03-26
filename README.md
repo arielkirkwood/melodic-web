@@ -121,17 +121,21 @@ See [the Releases section of our GitHub project](https://github.com/DWPHoldings/
 
 ## Creators
 
+The Avengers
+
 **Ariel Kirkwood**
 
 - <https://twitter.com/ariel_kirkwood>
 - <https://github.com/arielkirkwood>
+
+and
 
 **Greg Beck**
 
 - <https://twitter.com/gbeck419>
 - <https://github.com/gbeck419>
 
-as well as [Inspire Avengers and other contributors](https://github.com/DWPHoldings/melodic-web/graphs/contributors).
+and other [Inspire Avengers and contributors](https://github.com/DWPHoldings/melodic-web/graphs/contributors).
 
 
 ## Copyright and license
