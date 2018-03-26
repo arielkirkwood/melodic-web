@@ -34,7 +34,7 @@ Several quick start options are available:
 - Clone the repo: `git clone https://github.com/DWPHoldings/melodic-web.git`
 - Install with [npm](https://www.npmjs.com/): `npm install melodic@1.0.0-alpha`
 - Install with [yarn](https://yarnpkg.com/): `yarn add melodic@1.0.0-alpha`
-<!-- TODO: Add quick start for Rubygems -->
+- Install with [Rubygems](https://rubygems.org/): `gem install melodic -v 1.0.0.alpha`
 
 Read the [Getting started page](https://melodic.helloinspire.com/docs/1.0/getting-started/introduction/) for information on the framework contents, templates and examples, and more.
 
