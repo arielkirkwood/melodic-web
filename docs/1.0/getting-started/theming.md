@@ -181,7 +181,7 @@ Additional functions could be added in the future or your own custom Sass to cre
 
 ### Color contrast
 
-One additional function we include in Melodic is the color contrast function, `color-yiq`. It utilizes the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) to automatically return a light (`#fff`) or dark (`#111`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
+One additional function we include in Melodic is the color contrast function, `color-yiq`. It utilizes the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) to automatically return a light (`#fff`) or dark (`#282b2d`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
 
 For example, to generate color swatches from our `$theme-colors` map:
 
@@ -310,7 +310,9 @@ $colors: (
   "cyan":           $cyan,
   "white":          $white,
   "gray":           $gray-600,
-  "gray-dark":      $gray-800
+  "gray-dark":      $gray-800,
+  "aluminum":       $aluminum,
+  "panther":        $panther
 ) !default;
 {% endhighlight %}
 
@@ -390,6 +392,8 @@ Here are the variables we include (note that the `:root` is required). They're l
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
+  --aluminum: #a9bbc3;
+  --panther: #282b2d;
   --primary: #e6168b;
   --secondary: #6c757d;
   --success: #28a745;
@@ -397,7 +401,7 @@ Here are the variables we include (note that the `:root` is required). They're l
   --warning: #ffc107;
   --danger: #dc3545;
   --light: #f8f9fa;
-  --dark: #343a40;
+  --dark: #282b2d;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
