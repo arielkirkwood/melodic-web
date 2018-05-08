@@ -5,7 +5,7 @@
 # 1. Clone second version of Melodic in sibling directory named `mel-docs`.
 # 2. Within `mel-docs` copy, switch to `gh-pages` branch.
 # 3. Pull latest, re-bundle, re-npm.
-# 4. Run script.
+# 4. Run script from the original `melodic-web` repo.
 
 red=$'\e[1;31m'
 green=$'\e[1;32m'
@@ -58,11 +58,11 @@ printf "\n${magenta}Compile hosted documentation...${end}"
 printf "\n${magenta}=======================================================\n${end}"
 npm run docs-github
 
-# Copy the contents of the built docs site over to `bs-docs` repo
+# Copy the contents of the built docs site over to `mel-docs` repo
 printf "\n${magenta}=======================================================${end}"
 printf "\n${magenta}Copy it over...${end}"
 printf "\n${magenta}=======================================================\n${end}"
-cp -rf _gh_pages/. ../bs-docs/
+cp -rf _gh_pages/. ../mel-docs/
 printf "\nDone!\n"
 
 printf "\n${green}=======================================================${end}"
