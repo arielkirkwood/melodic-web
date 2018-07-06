@@ -1,5 +1,5 @@
 {
-  "name": "melodic",
+  "name": "@helloinspire/melodic",
   "description": "Inspire's front-end design system for the Web.",
   "version": "1.0.0-alpha",
   "keywords": [
@@ -188,5 +188,8 @@
       "path": "./dist/js/melodic.min.js",
       "maxSize": "15 kB"
     }
-  ]
+  ],
+  "directories": {
+    "doc": "docs"
+  }
 }
