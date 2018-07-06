@@ -4,8 +4,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): button.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): button.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 var Button = function ($) {
@@ -15,8 +15,8 @@ var Button = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'button';
-  var VERSION = '4.0.0';
-  var DATA_KEY = 'bs.button';
+  var VERSION = '1.0.0-alpha';
+  var DATA_KEY = 'mel.button';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT = $.fn[NAME];

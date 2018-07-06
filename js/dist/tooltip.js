@@ -6,8 +6,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): tooltip.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): tooltip.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 var Tooltip = function ($) {
@@ -17,13 +17,13 @@ var Tooltip = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'tooltip';
-  var VERSION = '4.0.0';
-  var DATA_KEY = 'bs.tooltip';
+  var VERSION = '1.0.0-alpha';
+  var DATA_KEY = 'mel.tooltip';
   var EVENT_KEY = "." + DATA_KEY;
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var TRANSITION_DURATION = 150;
-  var CLASS_PREFIX = 'bs-tooltip';
-  var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
+  var CLASS_PREFIX = 'mel-tooltip';
+  var MELCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DefaultType = {
     animation: 'boolean',
     template: 'string',
@@ -106,7 +106,7 @@ var Tooltip = function ($) {
        * Popper - https://popper.js.org
        */
       if (typeof Popper === 'undefined') {
-        throw new TypeError('Bootstrap tooltips require Popper.js (https://popper.js.org)');
+        throw new TypeError('Melodic tooltips require Popper.js (https://popper.js.org)');
       } // private
 
 
@@ -175,7 +175,7 @@ var Tooltip = function ($) {
       clearTimeout(this._timeout);
       $.removeData(this.element, this.constructor.DATA_KEY);
       $(this.element).off(this.constructor.EVENT_KEY);
-      $(this.element).closest('.modal').off('hide.bs.modal');
+      $(this.element).closest('.modal').off('hide.mel.modal');
 
       if (this.tip) {
         $(this.tip).remove();
@@ -421,7 +421,7 @@ var Tooltip = function ($) {
           });
         }
 
-        $(_this3.element).closest('.modal').on('hide.bs.modal', function () {
+        $(_this3.element).closest('.modal').on('hide.mel.modal', function () {
           return _this3.hide();
         });
       });
@@ -558,7 +558,7 @@ var Tooltip = function ($) {
 
     _proto._cleanTipClass = function _cleanTipClass() {
       var $tip = $(this.getTipElement());
-      var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
+      var tabClass = $tip.attr('class').match(MELCLS_PREFIX_REGEX);
 
       if (tabClass !== null && tabClass.length > 0) {
         $tip.removeClass(tabClass.join(''));

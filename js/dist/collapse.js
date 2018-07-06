@@ -6,8 +6,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): collapse.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): collapse.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 var Collapse = function ($) {
@@ -17,8 +17,8 @@ var Collapse = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'collapse';
-  var VERSION = '4.0.0';
-  var DATA_KEY = 'bs.collapse';
+  var VERSION = '1.0.0-alpha';
+  var DATA_KEY = 'mel.collapse';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT = $.fn[NAME];

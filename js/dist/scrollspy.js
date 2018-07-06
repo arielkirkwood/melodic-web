@@ -6,8 +6,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0): scrollspy.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Melodic (v1.0.0-alpha): scrollspy.js
+ * Licensed under MIT (https://github.com/DWPHoldings/melodic-web/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 var ScrollSpy = function ($) {
@@ -17,8 +17,8 @@ var ScrollSpy = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'scrollspy';
-  var VERSION = '4.0.0';
-  var DATA_KEY = 'bs.scrollspy';
+  var VERSION = '1.0.0-alpha';
+  var DATA_KEY = 'mel.scrollspy';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
