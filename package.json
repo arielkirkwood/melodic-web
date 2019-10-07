@@ -56,7 +56,7 @@
     "docs-lint": "npm-run-all docs-lint-*",
     "docs-lint-htmllint": "htmllint --rc build/.htmllintrc \"_gh_pages/**/*.html\" \"js/tests/**/*.html\"",
     "docs-lint-vnu-jar": "node build/vnu-jar.js",
-    "docs-lint-rubocop": "bundle exec rubocop .",
+    "docs-lint-rubocop": "bundle exec rubocop Gemfile _plugins/",
     "docs-serve": "bundle exec jekyll serve",
     "docs-upload-preview": "build/upload-preview.sh",
     "maintenance-dependencies": "ncu -a -x jquery && npm update && bundle update && shx echo \"Manually update assets/js/vendor/*, js/tests/vendor/* and .travis.yml\"",
