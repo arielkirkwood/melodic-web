@@ -28,3 +28,7 @@ cache:
   directories:
     - node_modules
     - vendor/bundle
+deploy:
+  provider: pages:git
+  token: <encrypted token>
+  edge: true # opt in to dpl v2
