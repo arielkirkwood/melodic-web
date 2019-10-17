@@ -4,12 +4,27 @@
 // Font Family sources
 //
 
-// Roboto
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i");
+// Aeonik
+@font-face {
+  font-family: Aeonik;
+  src: font-url("Aeonik-Light.eot");
+  src: font-url("Aeonik-Light.eot?#iefix") format("embedded-opentype"), font-url("Aeonik-Light.woff2") format("woff2"), font-url("Aeonik-Light.woff") format("woff");
+  font-weight: $font-weight-light;
+}
 
-// Merriweather
-@import url("https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i");
+@font-face {
+  font-family: Aeonik;
+  src: font-url("Aeonik-Regular.eot");
+  src: font-url("Aeonik-Regular.eot?#iefix") format("embedded-opentype"), font-url("Aeonik-Regular.woff2") format("woff2"), font-url("Aeonik-Regular.woff") format("woff");
+  font-weight: $font-weight-normal;
+}
+
+@font-face {
+  font-family: Aeonik;
+  src: font-url("Aeonik-Black.eot");
+  src: font-url("Aeonik-Black.eot?#iefix") format("embedded-opentype"), font-url("Aeonik-Black.woff2") format("woff2"), font-url("Aeonik-Black.woff") format("woff");
+  font-weight: $font-weight-bold;
+}
 
 //
 // Headings

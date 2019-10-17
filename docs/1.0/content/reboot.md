@@ -29,14 +29,12 @@ The `<html>` and `<body>` elements are updated to provide better page-wide defau
 
 ## Inspire font stack
 
-We supply three font stacks; one for serif fonts, one for sans-serif, and one for monospace fonts. We default to Merriweather, Roboto, and Roboto Mono respectively. Inspired by Bootstrap, we've kept the native font stack as a fallback when Roboto is unavailable.
+Inspire's Identity 2.0 font is Aeonik. Inspired by Bootstrap, we've kept the native font stack as a fallback when Aeonik is unavailable.
 
 {% highlight sass %}
-$font-family-serif: Merriweather, Georgia, serif !default;
-
 $font-family-sans-serif:
   // Inspire default
-  Roboto,
+  Aeonik,
   // Safari for OS X and iOS (San Francisco)
   -apple-system,
   // Chrome < 56 for OS X (San Francisco)
@@ -51,8 +49,8 @@ $font-family-sans-serif:
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 $font-family-monospace:
-  "Roboto Mono",
-  "SFMono-Regular",
+  "Roboto Mono", // Android
+  "SFMono-Regular", // iOS & macOS
   Menlo,
   Monaco,
   Consolas,
