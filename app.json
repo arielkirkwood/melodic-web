@@ -1,6 +1,5 @@
 {
   "buildpacks": [
-    {"url": "https://dl.signalsciences.net/sigsci-heroku-buildpack/sigsci-heroku-buildpack_latest.tgz"},
     {"url": "heroku/ruby"}
   ],
   "env": {},
