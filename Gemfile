@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.0'
+ruby '2.5.7'
 
 group :development, :test do
   gem 'jekyll', '~> 3.7.0'
