@@ -1,0 +1,18 @@
+{
+  "buildpacks": [
+    {"url": "https://dl.signalsciences.net/sigsci-heroku-buildpack/sigsci-heroku-buildpack_latest.tgz"},
+    {"url": "heroku/ruby"}
+  ],
+  "env": {},
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm run test"
+      }
+    }
+  },
+  "scripts": {
+    // "postdeploy": "bundle exec rake dns:publish",
+    // "pr-predestroy": "bundle exec rake dns:teardown"
+  }
+}
