@@ -7,25 +7,25 @@
  * Forked from Bootstrap, licensed MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --rosewood: #cf126d;
+  --sand: #efdbcb;
+  --cosmos: #1b1b1b;
+  --malachite: #00524d;
+  --pacific: #2b6ca3;
+  --harvest: #ffa867;
   --blue-violet: #5147ad;
   --indigo: #6610f2;
   --purple: #6f42c1;
-  --rosewood: #cf126d;
   --red: #dc3545;
   --orange: #fd7e14;
-  --harvest: #ffa867;
-  --sand: #efdbcb;
   --yellow: #ffc107;
   --mango: #f8cc1c;
   --vis-vis: #fff5a5;
-  --malachite: #00524d;
   --green: #28a745;
   --teal: #20c997;
-  --pacific: #2b6ca3;
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
-  --cosmos: #1b1b1b;
   --primary: #cf126d;
   --secondary: #6c757d;
   --success: #00524d;
