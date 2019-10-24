@@ -21,7 +21,6 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$cosmos:   #1b1b1b !default;
 
 $grays: () !default;
 $grays: map-merge((
@@ -36,45 +35,59 @@ $grays: map-merge((
   "900": $gray-900
 ), $grays);
 
+// Brand colors
+$rosewood:       #cf126d !default;
+$sand:           #efdbcb !default;
+$cosmos:         #1b1b1b !default;
+$malachite:      #00524d !default;
+$pacific:        #2b6ca3 !default;
+$harvest:        #ffa867 !default;
+
+// Additional colors
 $blue-violet:    #5147ad !default;
 $indigo:         #6610f2 !default;
 $purple:         #6f42c1 !default;
-$rosewood:       #cf126d !default;
 $red:            #dc3545 !default;
 $orange:         #fd7e14 !default;
-$harvest:        #ffa867 !default;
-$sand:           #efdbcb !default;
 $yellow:         #ffc107 !default;
 $mango:          #f8cc1c !default;
 $vis-vis:        #fff5a5 !default;
-$malachite:      #00524d !default;
 $green:          #28a745 !default;
 $teal:           #20c997 !default;
-$pacific:        #2b6ca3 !default;
 $cyan:           #17a2b8 !default;
 
 $colors: () !default;
 $colors: map-merge((
+  "rosewood":       $rosewood,
+  "sand":           $sand,
+  "cosmos":         $cosmos,
+  "malachite":      $malachite,
+  "pacific":        $pacific,
+  "harvest":        $harvest,
   "blue-violet":    $blue-violet,
   "indigo":         $indigo,
   "purple":         $purple,
-  "rosewood":       $rosewood,
   "red":            $red,
   "orange":         $orange,
-  "harvest":        $harvest,
-  "sand":           $sand,
   "yellow":         $yellow,
   "mango":          $mango,
   "vis-vis":        $vis-vis,
-  "malachite":      $malachite,
   "green":          $green,
   "teal":           $teal,
-  "pacific":        $pacific,
   "cyan":           $cyan,
   "white":          $white,
   "gray":           $gray-600,
-  "cosmos":         $cosmos
 ), $colors);
+
+$brand-colors: () !default;
+$brand-colors: map-merge((
+  "rosewood":  $rosewood,
+  "sand":      $sand,
+  "cosmos":    $cosmos,
+  "malachite": $malachite,
+  "pacific":   $pacific,
+  "harvest":   $harvest
+), $brand-colors);
 
 $primary:       $rosewood !default;
 $secondary:     $gray-600 !default;

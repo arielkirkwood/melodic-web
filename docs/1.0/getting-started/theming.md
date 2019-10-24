@@ -169,6 +169,24 @@ We also have another function for getting a particular _level_ of color from the
 }
 {% endhighlight %}
 
+Here are some examples using Inspire's primary brand colors:
+<div class="row">
+  {% for color in site.data.brand-colors %}
+    <div class="col-md-2 mb-3">
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-80">Black +80</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-60">Black +60</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-40">Black +40</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-20">Black +20</div>
+      <div class="px-2 py-3 brand-swatch-{{ color.name }}"><strong>{{ color.name | capitalize }}</strong></div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-20">White +20</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-40">White +40</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-60">White +60</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-80">White +80</div>
+    </div>
+  {% endfor %}
+</div>
+
+
 In practice, you'd call the function and pass in two parameters: the name of the color from `$theme-colors` (e.g., primary or danger) and a numeric level.
 
 {% highlight scss %}

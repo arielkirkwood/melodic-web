@@ -1,0 +1,17 @@
+@each $color, $value in $brand-colors {
+  .brand-swatch-#{$color} {
+    color: color-yiq($value);
+    background-color: #{$value};
+  }
+
+  @for $i from 1 through 10 {
+    .brand-swatch-#{$color}-tint-#{$i * 10} {
+      color: color-yiq(color-level-mix($color, $i * -1));
+      background-color: color-level-mix($color, $i * -1);
+    }
+    .brand-swatch-#{$color}-shade-#{$i * 10} {
+      color: color-yiq(color-level-mix($color, $i));
+      background-color: color-level-mix($color, $i);
+    }
+  }
+}
