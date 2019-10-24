@@ -4,7 +4,7 @@
 
 .mwd-navbar {
   min-height: 4rem;
-  background-color: $mwd-fuschia;
+  background-color: $mwd-rosewood;
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1);
 
   @include media-breakpoint-down(md) {
@@ -25,7 +25,7 @@
   }
 
   @include media-breakpoint-up(md) {
-    @include gradient-x($fuschia, $mango);
+    @include gradient-x-three-colors($pacific, $rosewood, 50%, $harvest);
 
     @supports (position: sticky) {
       position: sticky;
