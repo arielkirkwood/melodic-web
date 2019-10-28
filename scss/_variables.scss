@@ -112,7 +112,7 @@ $theme-colors: map-merge((
 // stylelint-enable
 
 // Set a specific jump point for requesting color jumps
-$theme-color-interval:      8% !default;
+$theme-color-interval:     10% !default;
 
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
 $yiq-contrasted-threshold: 150 !default;
@@ -801,8 +801,8 @@ $alert-border-radius:               $border-radius !default;
 $alert-link-font-weight:            $font-weight-bold !default;
 $alert-border-width:                $border-width !default;
 
-$alert-bg-level:                    -10 !default;
-$alert-border-level:                -9 !default;
+$alert-bg-level:                    -9 !default;
+$alert-border-level:                -8 !default;
 $alert-color-level:                 6 !default;
 
 

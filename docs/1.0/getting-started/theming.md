@@ -157,7 +157,7 @@ These allow you to pick one color from a Sass map.
 }
 {% endhighlight %}
 
-We also have another function for getting a particular _level_ of color from the `$theme-colors` map. Negative level values will lighten the color, while higher levels will darken.
+We also have another function for getting a particular _level_ of color from the `$theme-colors` map. Negative level values will lighten the color, while higher levels will darken. With a `$theme-color-interval` value less than 10%, you can request a color level of `10` or `-10`; at a value of 10% or higher, those color levels will return `black` and `white` colors respectively.
 
 {% highlight scss %}
 @function theme-color-level($color-name: "primary", $level: 0) {
