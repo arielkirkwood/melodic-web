@@ -157,7 +157,7 @@ These allow you to pick one color from a Sass map.
 }
 {% endhighlight %}
 
-We also have another function for getting a particular _level_ of color from the `$theme-colors` map. Negative level values will lighten the color, while higher levels will darken.
+We also have another function for getting a particular _level_ of color from the `$theme-colors` map. Negative level values will lighten the color, while higher levels will darken. With a `$theme-color-interval` value less than 10%, you can request a color level of `10` or `-10`; at a value of 10% or higher, those color levels will return `black` and `white` colors respectively.
 
 {% highlight scss %}
 @function theme-color-level($color-name: "primary", $level: 0) {
@@ -168,6 +168,24 @@ We also have another function for getting a particular _level_ of color from the
   @return mix($color-base, $color, $level * $theme-color-interval);
 }
 {% endhighlight %}
+
+Here are some examples using Inspire's primary brand colors:
+<div class="row">
+  {% for color in site.data.brand-colors %}
+    <div class="col-md-2 mb-3">
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-80">Black +80</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-60">Black +60</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-40">Black +40</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-shade-20">Black +20</div>
+      <div class="px-2 py-3 brand-swatch-{{ color.name }}"><strong>{{ color.name | capitalize }}</strong></div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-20">White +20</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-40">White +40</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-60">White +60</div>
+      <div class="p-2 brand-swatch-{{ color.name }}-tint-80">White +80</div>
+    </div>
+  {% endfor %}
+</div>
+
 
 In practice, you'd call the function and pass in two parameters: the name of the color from `$theme-colors` (e.g., primary or danger) and a numeric level.
 
@@ -181,7 +199,7 @@ Additional functions could be added in the future or your own custom Sass to cre
 
 ### Color contrast
 
-One additional function we include in Melodic is the color contrast function, `color-yiq`. It utilizes the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) to automatically return a light (`#fff`) or dark (`#111`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
+One additional function we include in Melodic is the color contrast function, `color-yiq`. It utilizes the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) to automatically return a light (`#fff`) or dark (`#1b1b1b`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
 
 For example, to generate color swatches from our `$theme-colors` map:
 
@@ -237,9 +255,9 @@ All colors available in Melodic, are available as Sass variables and a Sass map 
 
 <div class="row">
   {% for color in site.data.colors %}
-    {% unless color.name == "white" or color.name == "gray" or color.name == "gray-dark" %}
+    {% unless color.name == "white" or color.name == "gray" %}
     <div class="col-md-4">
-        <div class="p-3 mb-3 swatch-{{ color.name }}">{{ color.name | capitalize }}</div>
+      <div class="p-3 mb-3 swatch-{{ color.name }}">{{ color.name | capitalize }}</div>
     </div>
     {% endunless %}
   {% endfor %}
@@ -289,28 +307,27 @@ Within `_variables.scss`, you'll find our color variables and Sass map. Here's a
 
 {% highlight scss %}
 $colors: (
-  "blue":           $blue,
-  "mariner":        $mariner,
-  "blue-violet":    $blue-violet,
-  "indigo":         $indigo,
-  "purple":         $purple,
-  "brilliant-rose": $brilliant-rose,
-  "fuschia":        $fuschia,
-  "red":            $red,
-  "orange":         $orange,
-  "tangerine":      $tangerine,
-  "yellow":         $yellow,
-  "vis-vis":        $vis-vis,
-  "green":          $green,
-  "ice-cold":       $ice-cold,
-  "aquamarine":     $aquamarine,
-  "teal":           $teal,
-  "anakiwa":        $anakiwa,
-  "pelorous":       $pelorous,
-  "cyan":           $cyan,
-  "white":          $white,
-  "gray":           $gray-600,
-  "gray-dark":      $gray-800
+  "blue-violet":  $blue-violet,
+  "indigo":  $indigo,
+  "purple":  $purple,
+  "rosewood":  $rosewood,
+  "red":  $red,
+  "orange":  $orange,
+  "harvest":  $harvest,
+  "sand":  $sand,
+  "yellow":  $yellow,
+  "mango":  $mango,
+  "vis-vis":  $vis-vis,
+  "malachite":  $malachite,
+  "green":  $green,
+  "teal":  $teal,
+  "pacific":  $pacific,
+  "anakiwa":  $anakiwa,
+  "pelorous":  $pelorous,
+  "cyan":  $cyan,
+  "white":  $white,
+  "gray":  $gray,
+  "cosmos":  $cosmos
 ) !default;
 {% endhighlight %}
 
@@ -368,43 +385,41 @@ Here are the variables we include (note that the `:root` is required). They're l
 
 {% highlight css %}
 :root {
-  --blue: #007bff;
-  --mariner: #3b71d6;
   --blue-violet: #5147ad;
   --indigo: #6610f2;
   --purple: #6f42c1;
-  --brilliant-rose: #ef5fb0;
-  --fuschia: #e6168b;
+  --rosewood: #cf126d;
   --red: #dc3545;
   --orange: #fd7e14;
-  --tangerine: #ffaa67;
+  --harvest: #ffa867;
+  --sand: #efdbcb;
   --yellow: #ffc107;
+  --mango: #f8cc1c;
   --vis-vis: #fff5a5;
+  --malachite: #00524d;
   --green: #28a745;
-  --ice-cold: #a8f8e3;
-  --aquamarine: #50e3ae;
   --teal: #20c997;
+  --pacific: #2b6ca3;
   --anakiwa: #87dffc;
   --pelorous: #41b3c6;
   --cyan: #17a2b8;
   --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #e6168b;
+  --gray: #868e96;
+  --cosmos: #1b1b1b;
+  --primary: #cf126d;
   --secondary: #6c757d;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
+  --success: #00524d;
   --danger: #dc3545;
+  --warning: #ffa867;
+  --info: #2b6ca3;
   --light: #f8f9fa;
-  --dark: #343a40;
+  --dark: #1b1b1b;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-serif: Merriweather, Georgia, serif;
-  --font-family-sans-serif: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-sans-serif: Aeonik, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: "Roboto Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 {% endhighlight %}

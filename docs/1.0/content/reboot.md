@@ -29,14 +29,12 @@ The `<html>` and `<body>` elements are updated to provide better page-wide defau
 
 ## Inspire font stack
 
-We supply three font stacks; one for serif fonts, one for sans-serif, and one for monospace fonts. We default to Merriweather, Roboto, and Roboto Mono respectively. Inspired by Bootstrap, we've kept the native font stack as a fallback when Roboto is unavailable.
+We supply two font stacks; one for sans-serif fonts and one for monospace fonts. We default to Aeonik and the system monospace font respectively.
 
 {% highlight sass %}
-$font-family-serif: Merriweather, Georgia, serif !default;
-
 $font-family-sans-serif:
   // Inspire default
-  Roboto,
+  Aeonik,
   // Safari for OS X and iOS (San Francisco)
   -apple-system,
   // Chrome < 56 for OS X (San Francisco)
@@ -61,7 +59,13 @@ $font-family-monospace:
   monospace !default;
 {% endhighlight %}
 
-The sans-serif `font-family` is applied to the `<body>` and automatically inherited globally throughout Melodic. You can override these font stacks by redefining any of these Sass variables in your project.
+The sans-serif `font-family` is applied to the `<body>` and automatically inherited globally throughout Melodic. You can override these font stacks by redefining any of these Sass variables in your project. For example, if you wanted to add a serif font stack, you could add it this way:
+
+{% highlight sass %}
+$font-family-serif: Georgia, serif !default;
+{% endhighlight %}
+
+Then you could reference the stack as needed throughout other variables and your SCSS.
 
 ## Headings and paragraphs
 

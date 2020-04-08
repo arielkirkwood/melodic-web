@@ -73,7 +73,6 @@ Quickly change the weight (boldness) of text or italicize text.
 <p class="font-weight-bold">Bold text.</p>
 <p class="font-weight-normal">Normal weight text.</p>
 <p class="font-weight-light">Light weight text.</p>
-<p class="font-weight-thin">Thin weight text.</p>
 <p class="font-italic">Italic text.</p>
 <p class="font-normal">Normal text (useful for overriding).</p>
 {% endexample %}

@@ -1,0 +1,12 @@
+- name: rosewood
+  hex: "#cf126d"
+- name: sand
+  hex: "#efdbcb"
+- name: cosmos
+  hex: "#1b1b1b"
+- name: malachite
+  hex: "#00524d"
+- name: pacific
+  hex: "#2b6ca3"
+- name: harvest
+  hex: "#ffa867"
