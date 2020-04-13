@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Description
+# ---------------
+# This script builds the system for distribution to package repositories
+# It also build the docs site for distribution on Github Pages
 #
 # Usage
 # ---------------
@@ -30,7 +34,7 @@ cd $root_dir
 
 # Just in case
 bundle install
-yarn install
+npm install
 
 # Make the docs sub-repo
 git_url=$(git remote get-url origin)
