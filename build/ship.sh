@@ -2,12 +2,12 @@
 #
 # Usage
 # ---------------
+# build/ship.sh NEW_VERSION_NUMBER
 
-# 1. Clone second version of Melodic in sibling directory named `mel-docs`.
-#X 2. Within `mel-docs` copy, switch to `gh-pages` branch.
-#X 3. Pull latest, re-bundle, re-npm.
-#  4. Run script from the original `melodic-web` repo.
-# build/ship.sh 1.0.0beta
+# Examples
+# ---------------
+# build/ship.sh 1.0.0-beta
+# build/ship.sh 1.1.0
 
 red=$'\e[1;31m'
 green=$'\e[1;32m'
@@ -19,12 +19,10 @@ end=$'\e[0m'
 # Get current version from package.json
 current_version=$(node -p "require('./package.json').version")
 
-
 if [[ $# -lt 1 ]]; then
   printf "\n${red}⚠️  Shipping aborted. You must specify a version.\n${end}"
   exit 1
 fi
-
 
 # Get root directory and cd to it
 root_dir=$(git rev-parse --show-toplevel)
