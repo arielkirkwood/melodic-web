@@ -47,21 +47,21 @@ social_image_path:  /assets/brand/melodic-social.png
 social_logo_path:   /assets/brand/melodic-social-logo.png
 
 # Custom variables
-current_version:      1.0.0-alpha
-current_ruby_version: 1.0.0.alpha
+current_version:      1.0.0-beta
+current_ruby_version: 1.0.0.beta
 docs_version:         1.0
 repo:                 "https://github.com/DWPHoldings/melodic-web"
 
 download:
-  source:           "https://github.com/DWPHoldings/melodic-web/archive/v1.0.0-alpha.zip"
-  dist:             "https://github.com/DWPHoldings/melodic-web/releases/download/v1.0.0-alpha/melodic-web-1.0.0-alpha-dist.zip"
+  source:           "https://github.com/DWPHoldings/melodic-web/archive/v1.0.0-beta.zip"
+  dist:             "https://github.com/DWPHoldings/melodic-web/releases/download/v1.0.0-beta/melodic-web-1.0.0-beta-dist.zip"
 
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
   css:              "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  css_hash:         "sha384-LktL9d5A4xOdlDHEh1ts0Xrq9sXiyig9x7FkvDfx3KBedW3YS4/hPP1XhLZdEdcb"
+  css_hash:         "sha384-4N7clPlkUIr/az6LHLIkf2/qS7d2bMd4WdGmzfS6ug2f7ccnqdpOk2zeX2wDVya3"
   js:               "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  js_hash:          "sha384-B7PDzSOnhaGManpH+MekU5Qg5XrXpZYznfsEn9JyoeJ8JstHhnJzuMllEflSj/ec"
+  js_hash:          "sha384-irgAptFhVis/c6pGgDC0Y1GrAOTe7Fk7HmxEiVcrmbKeG9bUhGwUxJP+q1MHBHQ4"
   jquery:           "https://code.jquery.com/jquery-3.2.1.slim.min.js"
   jquery_hash:      "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
   popper:           "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
