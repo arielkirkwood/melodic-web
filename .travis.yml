@@ -5,12 +5,11 @@ addons:
 language: node_js
 git:
   depth: 3
-rvm:
-  - '2.6.5'
 node_js:
   - "6"
   - "8"
 before_install:
+  - rvm install $(cat .ruby-version)
   - gem install bundler -v 1.17.3
   - if [[ `npm -v` != 5* ]]; then npm install -g npm@5; fi
 install:
