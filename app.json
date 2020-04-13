@@ -1,0 +1,17 @@
+{
+  "buildpacks": [
+    {"url": "heroku/ruby"}
+  ],
+  "env": {},
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm run test"
+      }
+    }
+  },
+  "scripts": {
+    // "postdeploy": "bundle exec rake dns:publish",
+    // "pr-predestroy": "bundle exec rake dns:teardown"
+  }
+}
