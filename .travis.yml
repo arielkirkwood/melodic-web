@@ -5,6 +5,8 @@ addons:
 language: node_js
 git:
   depth: 3
+ruby:
+  - '2.6.5'
 node_js:
   - "6"
   - "8"
