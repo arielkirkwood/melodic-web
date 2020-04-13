@@ -1,18 +1,30 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.6.5
   Exclude:
     - 'node_modules/**/*'
 
-Layout/AlignParameters:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
+
+Layout/LineLength:
+  Max: 150
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
   Enabled: true
 
 Metrics/AbcSize:
@@ -21,12 +33,9 @@ Metrics/AbcSize:
 Metrics/CyclomaticComplexity:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 150
-
 Metrics/MethodLength:
   CountComments: false
-  Max: 50
+  Max: 174
 
 Metrics/ParameterLists:
   Max: 10
@@ -37,11 +46,11 @@ Metrics/PerceivedComplexity:
 Naming/AccessorMethodName:
   Enabled: false
 
+Naming/VariableName:
+  Enabled: false
+
 Naming/VariableNumber:
   EnforcedStyle: non_integer
-
-Performance/Casecmp:
-  Enabled: false
 
 Style/AsciiComments:
   Enabled: false
@@ -52,6 +61,9 @@ Style/ClassAndModuleChildren:
 Style/CommandLiteral:
   EnforcedStyle: percent_x
 
+Style/CommentedKeyword:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -60,6 +72,15 @@ Style/DoubleNegation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
 
 Style/MutableConstant:
   Enabled: false
