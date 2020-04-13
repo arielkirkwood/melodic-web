@@ -37,7 +37,6 @@ body {
 }
 
 .nav-scroller .nav {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
