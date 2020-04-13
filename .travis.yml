@@ -9,7 +9,7 @@ node_js:
   - "6"
   - "8"
 before_install:
-  - rvm install $(cat .ruby-version)
+  - rvm install 2.6.5
   - gem install bundler -v 1.17.3
   - if [[ `npm -v` != 5* ]]; then npm install -g npm@5; fi
 install:
