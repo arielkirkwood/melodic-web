@@ -33,8 +33,8 @@
 }
 
 .mwd-highlight {
-  background-color: rgba($mwd-fuschia, .15);
-  border: 1px solid rgba($mwd-fuschia, .15);
+  background-color: rgba($mwd-rosewood, .15);
+  border: 1px solid rgba($mwd-rosewood, .15);
 }
 
 // Grid mixins
@@ -86,7 +86,7 @@
 .mwd-example-container-header {
   height: 3rem;
   margin-bottom: .5rem;
-  background-color: $tangerine;
+  background-color: $harvest;
   border-radius: .25rem;
 }
 
@@ -101,7 +101,7 @@
 .mwd-example-container-body {
   height: 8rem;
   margin-right: 4.5rem;
-  background-color: lighten($mwd-fuschia, 25%);
+  background-color: lighten($mwd-rosewood, 25%);
   border-radius: .25rem;
 }
 
